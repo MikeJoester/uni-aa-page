@@ -1,4 +1,5 @@
 import React from 'react';
+import {Navbar} from './components';
 import {Home, } from './pages'
 import {
   BrowserRouter as Router,
@@ -8,13 +9,17 @@ import {
 
 import './App.css';
 
-function App() {
+const App = () => {
+  
+  // const [toggleMenu, setToggleMenu] = useState(false);
+  
   return (
     <Router>
-    
-        <Routes>
-          <Route path='/' element={<Home />}/>
-        </Routes>
+      
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />}/>
+      </Routes>
 
     </Router>
   )

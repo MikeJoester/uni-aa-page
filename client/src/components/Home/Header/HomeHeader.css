@@ -19,6 +19,8 @@
     left: 0;
     right: 0;
     z-index: 100;
+    padding:0;
+    margin: 0;
     transform: translateY(-50%);
 }
 
@@ -27,9 +29,9 @@
 }
 .border{
     width: 0.4rem;
-    height: 5rem;
+    height: 4.85rem;
     background-color: #fff;
-    margin: 0.8rem 1rem 0;
+    margin: 1rem 1rem 0;
 }
 .col{
     margin-top: 12px;
