@@ -20,6 +20,10 @@ import tornpaper4 from '../assets/tornpaperxl.png';
 //new
 import Nig from '../assets/Nig.png';
 
+//brand
+import brand from '../assets/brand.jpg';
+import dot from '../assets/dot.png';
+
 
 export default {
     annnoucement,
@@ -34,6 +38,8 @@ export default {
     tornpaper2,
     tornpaper3,
     tornpaper4,
-    Nig
+    Nig,
+    brand,
+    dot
 };
 

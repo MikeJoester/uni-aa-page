@@ -1,5 +1,5 @@
 import React from 'react'
-import {HomeHeader,HomeContent,} from '../../components'
+import {HomeHeader,HomeContent,HomeBrand} from '../../components'
 import './Home.css'
 
 const Home = () =>{
@@ -7,6 +7,7 @@ const Home = () =>{
         <div className="web__homepage">
             <HomeHeader />
             <HomeContent />
+            <HomeBrand />
         </div>
     )
 }
