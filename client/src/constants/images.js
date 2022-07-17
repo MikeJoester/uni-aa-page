@@ -17,10 +17,13 @@ import tornpaper2 from '../assets/tornpapermd.png';
 import tornpaper3 from '../assets/tornpaperlg.png';
 import tornpaper4 from '../assets/tornpaperxl.png';
 
+//new
+import Nig from '../assets/Nig.png';
+
 
 export default {
     annnoucement,
-    // annoucebg2,
+    //annoucebg2,
     news,
     Homepage,
     logoLage,
@@ -31,5 +34,6 @@ export default {
     tornpaper2,
     tornpaper3,
     tornpaper4,
+    Nig
 };
 

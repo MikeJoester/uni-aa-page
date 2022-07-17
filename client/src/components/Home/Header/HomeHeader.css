@@ -26,21 +26,31 @@
     transform: translateY(-50%);
 }
 .logo__large{
-    width: 70%;
+    width: 100%;
     height: auto;
     display: block;
+    padding: 0 20rem;
 }
 .logo__md
 {
     display: none;
+    width: 100%;
+    height: auto;
+    padding: 0 5rem;
 }
 .logo__verti
 {
     display: none;
+    width: 100%;
+    height: auto;
+    padding: 0 7rem;
 }
 .logo__verti2
 {
     display: none;
+    min-width: 20vh;
+    height: auto;
+    padding: 0 2rem;
 }
 
 
@@ -51,10 +61,7 @@
     }
     .logo__md
     {
-        width: 100%;
-        height: auto;
         display: block;
-        padding: 0 5rem;
     }
     .logo__verti
     {
@@ -78,10 +85,7 @@
     }
     .logo__verti
     {
-        width: 100%;
-        height: auto;
         display: block;
-        padding: 0 7rem;
     }
     .logo__verti2
     {
@@ -105,9 +109,6 @@
     }
     .logo__verti2
     {
-        min-width: 20vh;
-        height: auto;
         display: block;
-        padding: 0 2rem;
     }
 }
