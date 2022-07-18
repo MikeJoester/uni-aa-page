@@ -1,5 +1,7 @@
 import React from 'react'
-import {images} from '../../../../constants'
+import news from '../../../../constants/news'
+import NewsPost from './NewsPost/NewsPost'
+import images from '../../../../constants/images'
 import './HomeContent.css'
 
 const HomeContent = () =>{
@@ -26,6 +28,13 @@ const HomeContent = () =>{
                                 ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
                             </p>
                         </div>
+                        {/* {news.NewsPosts.map((NewsPosts) =>(
+                            <NewsPost 
+                            link={NewsPosts.link}
+                            image={NewsPosts.image} 
+                            tittle={NewsPosts.tittle} 
+                            />
+                            ))} */}
                     </div>
                 </div>
             </div>

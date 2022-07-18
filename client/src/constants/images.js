@@ -24,9 +24,13 @@ import Nig from '../assets/Nig.png';
 import brand from '../assets/brand.jpg';
 import dot from '../assets/dot.png';
 
-//Events
+//explore
 import eventdivider from '../assets/eventdivide.png';
 import explore from '../assets/exploreBg.jpg';
+
+//events
+import announcement from '../assets/announcement.svg';
+import event1 from '../assets/event1.png';
 
 
 export default {
@@ -46,6 +50,8 @@ export default {
     brand,
     dot,
     eventdivider,
-    explore
+    explore,
+    announcement,
+    event1
 };
 
