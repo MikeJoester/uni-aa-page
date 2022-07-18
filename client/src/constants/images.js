@@ -24,6 +24,10 @@ import Nig from '../assets/Nig.png';
 import brand from '../assets/brand.jpg';
 import dot from '../assets/dot.png';
 
+//Events
+import eventdivider from '../assets/eventdivide.png';
+import explore from '../assets/exploreBg.jpg';
+
 
 export default {
     annnoucement,
@@ -40,6 +44,8 @@ export default {
     tornpaper4,
     Nig,
     brand,
-    dot
+    dot,
+    eventdivider,
+    explore
 };
 

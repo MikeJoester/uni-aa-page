@@ -3,7 +3,8 @@ import {
         HomeHeader,
         HomeContent,
         HomeBrand,
-        HomeEvents
+        HomeExplore,
+        HomeEvents,
         } from '../../components'
 import './Home.css'
 
@@ -13,6 +14,7 @@ const Home = () =>{
             <HomeHeader />
             <HomeContent />
             <HomeBrand />
+            <HomeExplore />
             <HomeEvents/>
         </div>
     )

@@ -1,5 +1,5 @@
 .nav{
-    z-index: 5000;
+    z-index: 1000;
     top: 15%;
     height: 100%;
     right: 0;
@@ -41,8 +41,3 @@
     transition-timing-function: cubic-bezier(.175,.885,.32,1.14),cubic-bezier(.175,.885,.32,1.14),ease-in-out,ease-in-out;
 }
 
-@media (max-height: 675px){
-    .tablist{
-        display: none;
-    }
-}

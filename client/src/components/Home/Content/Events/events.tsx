@@ -5,7 +5,7 @@ import './events.css'
 const HomeEvents = () =>{
     return(
         <div className="Home__events">
-            
+            .
         </div>
     )
 }
