@@ -1,5 +1,10 @@
 import React from 'react'
-import {HomeHeader,HomeContent,HomeBrand} from '../../components'
+import {
+        HomeHeader,
+        HomeContent,
+        HomeBrand,
+        HomeEvents
+        } from '../../components'
 import './Home.css'
 
 const Home = () =>{
@@ -8,6 +13,7 @@ const Home = () =>{
             <HomeHeader />
             <HomeContent />
             <HomeBrand />
+            <HomeEvents/>
         </div>
     )
 }
