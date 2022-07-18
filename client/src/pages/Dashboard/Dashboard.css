@@ -1,0 +1,5 @@
+.dashboard-main {
+    background-color: #F2F4F3;
+    display: flex;
+    flex-direction: row;
+}
