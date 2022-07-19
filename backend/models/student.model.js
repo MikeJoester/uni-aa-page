@@ -23,19 +23,25 @@ const studentSchema = new Schema({
         require: true
     },
     gender: {
-        type: Boolean, 
+        type: Boolean,
         require: true
     },
     email: {
         type: String,
+        unique: true,
         require: true
+    },
+    googleID: {
+        type: String,
+        unique: true,
+        require: false
     },
     phone: {
         type: String,
         require: true
     },
     major: {
-        type: Schema.Types.ObjectId, 
+        type: Schema.Types.ObjectId,
         ref: 'Major',
         require: true
     },
