@@ -9,6 +9,9 @@ import HomeExplore from "./Home/Content/Explore/explore";
 import HomeEvents from "./Home/Content/Events/events";
 import HomeSearch from "./Home/Content/search/search";
 
+
+//Footer
+import Footer from "./Footer/Footer";
 export {
     Navbar,
     HomeHeader,
@@ -17,5 +20,6 @@ export {
     HomeBrand,
     HomeExplore,
     HomeEvents,
-    HomeSearch
+    HomeSearch,
+    Footer
 }

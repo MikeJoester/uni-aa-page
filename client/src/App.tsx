@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar} from './components';
+import {Navbar, Footer} from './components';
 import {Home, } from './pages'
 import {
   BrowserRouter as Router,
@@ -21,6 +21,7 @@ const App = () => {
         <Route path='/' element={<Home />}/>
       </Routes>
 
+      <Footer/>
     </Router>
   )
 }
