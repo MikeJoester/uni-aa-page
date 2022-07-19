@@ -26,6 +26,7 @@ const courselogsRouter = require('./routes/course-logs');
 const coursesRouter = require('./routes/courses');
 const majorsRouter = require('./routes/majors');
 const studentsRouter = require('./routes/students');
+const resultsRouter = require('./routes/student-result');
 
 app.use("/blogs", blogsRouter);
 app.use("/classes", classesRouter);
@@ -33,6 +34,7 @@ app.use("/courselogs", courselogsRouter);
 app.use("/courses", coursesRouter);
 app.use("/majors", majorsRouter);
 app.use("/students", studentsRouter);
+app.use("/results", resultsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
