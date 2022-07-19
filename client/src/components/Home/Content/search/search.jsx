@@ -6,7 +6,6 @@ const HomeSearch = () =>{
     return(
         <div className="Home__search">
             <div className="center">
-            <div className="dot__matrix"></div>
                 <div className="search__section search__col">
                     <div className="search__nav">
                         <input type="text" className='input__result' placeholder='Data Science'/>

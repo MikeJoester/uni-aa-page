@@ -25,6 +25,8 @@ import explore from '../assets/exploreBg.jpg';
 //events
 import announcement from '../assets/announcement.svg';
 import event1 from '../assets/event1.png';
+//memory
+import memory1 from '../assets/memory1.png'
 //search
 import search from '../assets/seachbg.jpg'
 
@@ -48,6 +50,7 @@ export default {
     explore,
     announcement,
     event1,
+    memory1,
     search
 };
 

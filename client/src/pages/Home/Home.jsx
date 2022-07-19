@@ -6,6 +6,7 @@ import {
         HomeExplore,
         HomeEvents,
         HomeSearch,
+        HomeMemory,
         } from '../../components'
 import './Home.css'
 
@@ -17,6 +18,7 @@ const Home = () =>{
             <HomeBrand />
             <HomeExplore />
             <HomeEvents/>
+            {/* <HomeMemory/> */}
             <HomeSearch/>
         </div>
     )

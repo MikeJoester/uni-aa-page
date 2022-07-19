@@ -7,7 +7,7 @@ const HomeMemory = () =>{
         <div className="Home__memory">
                 <div className="memory__container">
                     <div className="memory__media">
-                        <img className="memory__img" src={images.memory1} alt="" />
+                        {/* <img className="memory__img" src={images.memory1} alt="" /> */}
                         <div className="memory_card">
                             <p>Graduation Ceremony K18 #VNUK2002#K18</p>
                         </div>
