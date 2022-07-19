@@ -70,6 +70,8 @@
 .center{
     max-width: 1440px;
     margin: 0 auto;
+    position: relative;
+    z-index: 0;
 }
 
 .content__news-row{
