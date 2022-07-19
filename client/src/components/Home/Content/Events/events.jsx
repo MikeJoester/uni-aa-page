@@ -27,17 +27,20 @@ const HomeEvents = () =>{
                                 </p>
                             </div>
                             <div className="new__block">
-                            <img className="new__img" src={images.Nig} alt="" />
-                            <p className="new__title">
-                                ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
-                            </p>
+                                <img className="new__img" src={images.Nig} alt="" />
+                                <p className="new__title">
+                                    ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
+                                </p>
+                            </div>
+                            <div className="new__block">
+                                <img className="new__img" src={images.Nig} alt="" />
+                                <p className="new__title">
+                                    ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
+                                </p>
+                            </div>
                         </div>
-                        <div className="new__block">
-                            <img className="new__img" src={images.Nig} alt="" />
-                            <p className="new__title">
-                                ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
-                            </p>
-                        </div>
+                        <div className="more__events">
+                            <a href="#" className="more__events-link">MORE EVENTS</a>
                         </div>
                     </div>
                 </div>
