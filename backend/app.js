@@ -21,8 +21,18 @@ mongoose.connect(uri, {
 
 // route goes here
 const blogsRouter = require('./routes/blogs');
+const classesRouter = require('./routes/classes');
+const courselogsRouter = require('./routes/course-logs');
+const coursesRouter = require('./routes/courses');
+const majorsRouter = require('./routes/majors');
+const studentsRouter = require('./routes/students');
 
 app.use("/blogs", blogsRouter);
+app.use("/classes", classesRouter);
+app.use("/courselogs", courselogsRouter);
+app.use("/courses", coursesRouter);
+app.use("/majors", majorsRouter);
+app.use("/students", studentsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

@@ -1,7 +1,7 @@
 const router = require('express').Router()
 let Blog = require('../models/blog.model')
 
-// GET ALL BLOG
+// GET ALL BLOGS
 router.get("/", async (req, res) => {
     try {
         const blogs = await Blog.find()

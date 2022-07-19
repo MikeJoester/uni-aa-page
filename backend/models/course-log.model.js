@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const courselogSchema = new Schema({
-    students: {
+    studentId: {
         type: Schema.Types.ObjectId,
         ref: 'Student'
     },
-    course: {
+    courseId: {
         type: Schema.Types.ObjectId,
         ref: 'Course'
     }

@@ -39,10 +39,10 @@ const studentSchema = new Schema({
         ref: 'Major',
         require: true
     },
-    class: [{
+    class: {
         type: Schema.Types.ObjectId,
         ref: 'Class'
-    }],
+    },
     credit: {
         type: Number,
         require: true
