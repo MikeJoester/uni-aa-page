@@ -18,7 +18,7 @@ const Home = () =>{
             <HomeBrand />
             <HomeExplore />
             <HomeEvents/>
-            {/* <HomeMemory/> */}
+            <HomeMemory/>
             <HomeSearch/>
         </div>
     )

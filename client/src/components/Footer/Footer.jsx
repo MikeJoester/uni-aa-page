@@ -27,10 +27,10 @@ const Footer = () =>{
                     <div className="footer__search">
                         <ul>
                             <li className="footer__name-uni">VNUK - Credit registration page</li>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Announcement</a></li>
-                            <li><a href="#">School Curriculum</a></li>
-                            <li><a href="#">Rules & Regulations</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/">Announcement</a></li>
+                            <li><a href="/">School Curriculum</a></li>
+                            <li><a href="/">Rules & Regulations</a></li>
                         </ul>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
 .Footer::before{
     background-image: url(../../assets/footer.svg);
     background-position: bottom center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: 1280px 20px;
     content: "";
     display: block;
@@ -126,7 +126,6 @@
 @media (min-width: 63.9375em) and (max-width: 80em) {
     .footer__logo-large{
         display:none;
-        
     }
     .footer__logo-verti{
         display:block;
@@ -145,7 +144,9 @@
 
     .footer__logo-large{
         display:none;
-        
+    }
+    .footer__logo-verti{
+        display:none;
     }
     .footer__logo-md{
         display:block;

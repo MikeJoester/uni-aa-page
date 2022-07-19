@@ -27,6 +27,10 @@ import announcement from '../assets/announcement.svg';
 import event1 from '../assets/event1.png';
 //memory
 import memory1 from '../assets/memory1.png'
+import memory2 from '../assets/memory2.png'
+import memory3 from '../assets/memory3.png'
+import memory4 from '../assets/memory4.png'
+import memory5 from '../assets/memory5.png'
 //search
 import search from '../assets/seachbg.jpg'
 
@@ -51,6 +55,10 @@ export default {
     announcement,
     event1,
     memory1,
+    memory2,
+    memory3,
+    memory4,
+    memory5,
     search
 };
 

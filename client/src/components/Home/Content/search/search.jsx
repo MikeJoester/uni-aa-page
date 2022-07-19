@@ -1,5 +1,5 @@
 import React from 'react'
-import {images} from '../../../../constants'
+// import {images} from '../../../../constants'
 import './search.css'
 
 const HomeSearch = () =>{
@@ -18,19 +18,19 @@ const HomeSearch = () =>{
                         </h2>
                         <ul>
                             <li>
-                                <a href="#">Computer Science & Engineering</a>
+                                <a href="/">Computer Science & Engineering</a>
                             </li>
                             <li>
-                                <a href="#">Data Science</a>
+                                <a href="/">Data Science</a>
                             </li>
                             <li>
-                                <a href="#">Biomedical Science</a>
+                                <a href="/">Biomedical Science</a>
                             </li>
                             <li>
-                                <a href="#">International Business & Management</a>
+                                <a href="/">International Business & Management</a>
                             </li>
                             <li>
-                                <a href="#">Tourism & Hospitality Management</a>
+                                <a href="/">Tourism & Hospitality Management</a>
                             </li>
                         </ul>
                     </div>

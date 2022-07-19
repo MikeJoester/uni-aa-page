@@ -7,38 +7,114 @@
 .memory__container{
     display: flex;
     flex-direction: row;
+    /* flex-wrap: wrap; */
     width: 100%;
-    
+    position: static;
 }
 
 .memory__media{
     width: 20%;
     cursor: pointer;
+}
+figure{
+    margin: 0;
     position: relative;
-}
-
-.memory__img{
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    position: absolute;
     z-index: 0;
+    width: 100%;
+    /* height: 350px; */
 }
 
-.memory__card{
+figure .memory__img{
+    border: none;
+    display: block;
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+figcaption{
     background: #6cace4;
     border: none;
     bottom: 0;
     color: #31261d;
-    font-size: .765625em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 500;
     left: 0;
-    line-height: 1.4em;
+    line-height: 1.6em;
     max-height: 0;
     overflow: hidden;
     padding: 0 1.306122449em;
     position: absolute;
     transition: max-height 250ms ease-in-out,padding 250ms ease-in-out;
-    width: 100%;
     z-index: 300;
 }
 
+.memory__title{
+    margin-bottom: 0.5rem;
+}
+
+figcaption a{
+    text-decoration: none;
+    border: 3px solid #31261d;
+    font-size: 0.8em;
+    color:#31261d;
+    padding: 0.5rem;
+}
+
+.memory__media:hover{
+    position: relative;
+    z-index: 300;
+}
+
+.memory__media:hover figcaption{
+    padding: 1em;
+    max-height: 50em;
+}
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    .memory__media {
+        float: left;
+        overflow: visible;
+        width: 26.66667%;
+    }
+    figure .memory__img{
+        height: 300px;
+    }
+
+    .memory__media:last-child{
+        display: none;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .memory__media {
+        float: left;
+        overflow: visible;
+        width: 33.333%;
+    }
+    figure .memory__img{
+        height: 300px;
+    }
+    .memory__media:nth-child(4),
+    .memory__media:last-child{
+        display: none;
+    }
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .memory__media {
+        float: left;
+        overflow: visible;
+        width: 33.333%;
+    }
+    figure .memory__img{
+        height: 150px;
+    }
+    .memory__media:nth-child(4),
+    .memory__media:last-child{
+        display: none;
+    }
+}
