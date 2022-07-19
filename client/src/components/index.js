@@ -7,7 +7,7 @@ import NewsPost from "./Home/Content/news/NewsPost/NewsPost";
 import HomeBrand from "./Home/Content/brand/HomeBrand";
 import HomeExplore from "./Home/Content/Explore/explore";
 import HomeEvents from "./Home/Content/Events/events";
-
+import HomeSearch from "./Home/Content/search/search";
 
 export {
     Navbar,
@@ -16,5 +16,6 @@ export {
     HomeContent,
     HomeBrand,
     HomeExplore,
-    HomeEvents
+    HomeEvents,
+    HomeSearch
 }

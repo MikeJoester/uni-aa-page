@@ -32,6 +32,8 @@ import explore from '../assets/exploreBg.jpg';
 import announcement from '../assets/announcement.svg';
 import event1 from '../assets/event1.png';
 
+//search
+import search from '../assets/seachbg.jpg'
 
 export default {
     annnoucement,
@@ -52,6 +54,7 @@ export default {
     eventdivider,
     explore,
     announcement,
-    event1
+    event1,
+    search
 };
 
