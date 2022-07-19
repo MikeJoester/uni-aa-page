@@ -20,7 +20,9 @@ mongoose.connect(uri, {
 
 
 // route goes here
+const blogsRouter = require('./routes/blogs');
 
+app.use("/blogs", blogsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
