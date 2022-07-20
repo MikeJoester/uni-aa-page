@@ -1,41 +1,58 @@
 .nav{
-    z-index: 1000;
-    top: 15%;
+    background-color: transparent;
+    bottom: 0;
     height: 100%;
-    right: 0;
     overflow: visible;
     position: fixed;
-    transition-delay: 0s,0s,0s;
-    transition-duration: 750ms,375ms,0s;
-    transition-timing-function: cubic-bezier(.175,.885,.32,1.14),ease-in-out,linear;
-}
-
-.tablist{
-    width: 11.5em;
-    list-style-type: none;
-    z-index: initial;
-}
-
-.tab a{
-    color: #fff;
-    display: flex;
-    height: 3rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    align-items: center;
-    background-color: rgba(29, 31, 122, 0.65);
-    margin: 0.5rem 0;
-    padding: 1rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    text-decoration: none;
+    right: 0;
+    top: 15%;
+    z-index: 300;
     
 }
 
-.tab a:hover{
+.tablist{
+    width: 15.5em;
+    list-style-type: none;
+    z-index: initial;
+    
+}
+
+.tab{
+    margin-bottom: 0.5rem;
+}
+
+.tab a{
+    background-color:rgba(29, 31, 122, 0.65);
+    width: 100%;
+    margin: 0;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 0.75em;
+    border-bottom: none;
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    top: 0;
+    right: -10%;
+    z-index: 0;
+    color: rgba(255,255,255,.9);
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    transition: width,right,background-color,color;
+    transition-duration: 250ms,250ms,250ms,250ms;
+    transition-timing-function: cubic-bezier(.175,.885,.32,1.14),cubic-bezier(.175,.885,.32,1.14),ease-in-out,ease-in-out;
+}
+
+
+
+.nav a:hover{
     background-color:rgba(29, 31, 122, 0.842);
     color: #fff;
-    right: 1.5rem;
+    right: 0;
     width: 100%;
     transition: width,right,background-color,color;
     transition-timing-function: cubic-bezier(.175,.885,.32,1.14),cubic-bezier(.175,.885,.32,1.14),ease-in-out,ease-in-out;
