@@ -21,22 +21,34 @@ const HomeEvents = () =>{
                         </div>
                         <div className="events__post">
                             <div className="new__block">
-                                <img className="new__img" src={images.Nig} alt="" />
-                                <p className="new__title">
-                                    ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
-                                </p>
+                                <img className="new__img" src={images.memory4} alt="" />
+                                <div className="event__post-text">
+                                    <p className="events__type">Celebration</p>
+                                    <p className="new__title">
+                                       Celebration of VNUK
+                                    </p>
+                                    <p className="events__date">July 7, 2022</p>
+                                </div>
                             </div>
                             <div className="new__block">
                                 <img className="new__img" src={images.Nig} alt="" />
-                                <p className="new__title">
-                                    ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
-                                </p>
+                                <div className="event__post-text">
+                                    <p className="events__type">Event</p>
+                                    <p className="new__title">
+                                        ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
+                                    </p>
+                                    <p className="events__date">July 7, 2022</p>
+                                </div>
                             </div>
                             <div className="new__block">
                                 <img className="new__img" src={images.Nig} alt="" />
-                                <p className="new__title">
-                                    ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
-                                </p>
+                                <div className="event__post-text">
+                                    <p className="events__type">Celebration</p>
+                                    <p className="new__title">
+                                        ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
+                                    </p>
+                                    <p className="events__date">July 7, 2022</p>
+                                </div>
                             </div>
                         </div>
                         <div className="more__events">

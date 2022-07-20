@@ -52,6 +52,25 @@ const HomeMemory = () =>{
                         </figure>
                     </div>
                 </div>
+                <div className="social__media">
+                    <ul className="social__links">
+                        <li>
+                            <a href="">twitter</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="">ytb</a>
+                        </li>
+                        <li>
+                            <a href="">ins</a>
+                        </li>
+                        <li>
+                            <a href="">linked</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
     )

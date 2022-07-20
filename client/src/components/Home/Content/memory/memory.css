@@ -33,10 +33,10 @@ figure .memory__img{
 }
 
 figcaption{
-    background: #6cace4;
+    background: #062070;
     border: none;
     bottom: 0;
-    color: #31261d;
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
     font-weight: 500;
@@ -56,9 +56,9 @@ figcaption{
 
 figcaption a{
     text-decoration: none;
-    border: 3px solid #31261d;
+    border: 3px solid #fff;
     font-size: 0.8em;
-    color:#31261d;
+    color:#fff;
     padding: 0.5rem;
 }
 
@@ -70,6 +70,26 @@ figcaption a{
 .memory__media:hover figcaption{
     padding: 1em;
     max-height: 50em;
+}
+
+.social__links{
+    background: #fff;
+    margin: 0;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.social__links li{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: inline-block;
+    list-style-type: none;
+}
+
+.social__links li a{
+    text-decoration: none;
+    padding: 0.5rem;
 }
 
 /*Tablet & mobile*/

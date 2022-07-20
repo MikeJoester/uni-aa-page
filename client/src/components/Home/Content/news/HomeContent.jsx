@@ -28,11 +28,11 @@ const HomeContent = () =>{
                                 ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
                             </p>
                         </div>
-                        {/* {news.NewsPosts.map((NewsPosts) =>(
+                        {/* {news.newspost.map((newspost) =>(
                             <NewsPost 
-                            link={NewsPosts.link}
-                            image={NewsPosts.image} 
-                            tittle={NewsPosts.tittle} 
+                            link={newspost.link}
+                            image={newspost.image} 
+                            tittle={newspost.tittle} 
                             />
                             ))} */}
                     </div>

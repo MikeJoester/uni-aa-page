@@ -1,18 +1,18 @@
-
+import images from './images'
 
 const news = [
     {
-        image: 'https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/284980094_380260810722280_1757049129165487571_n.png',
+        image: images.memory3,
         title: 'ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!',
         link: 'https://www.facebook.com/tucano.vnuk/photos/a.102588101822887/380260817388946/'
     },
     {
-        image: 'https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/284980094_380260810722280_1757049129165487571_n.png',
+        image: images.memory1,
         title: 'ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!',
-        link: 'https://www.facebook.com/tucano.vnuk/photos/a.102588101822887/380260817388946/'
+        link: 'https://vnuk.edu.vn/event/le-tot-nghiep-sinh-vien-vnuk-nam-2022/'
     },
     {
-        image: 'https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/284980094_380260810722280_1757049129165487571_n.png',
+        image: images.memory5,
         title: 'ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!',
         link: 'https://www.facebook.com/tucano.vnuk/photos/a.102588101822887/380260817388946/'
     },

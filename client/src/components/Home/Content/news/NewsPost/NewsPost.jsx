@@ -1,19 +1,19 @@
 import React from 'react'
 import './NewsPost.css'
 
-const NewsPosts = ({
+const NewsPost = ({
     link,
     image,
     tittle,
     }) => {
   return (
     <div className="new__block">
-        <img className="new__img" src={image} alt=""/>
-        <p className="new__title">
-            {tittle}
-        </p>
+        <a className="new__title" href={link}>
+          <img className="new__img" src={image} alt=""/>
+              <p>{tittle}</p> 
+        </a>
     </div>
   )
 }
 
-export default NewsPosts
+export default NewsPost
