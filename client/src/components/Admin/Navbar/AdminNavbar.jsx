@@ -8,17 +8,32 @@ import {
     ListItemText,    
 } from '@mui/material';
 
+import { useNavigate } from "react-router-dom";
+
 import HomeIcon from '@mui/icons-material/Home';
 import GroupIcon from '@mui/icons-material/Group';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import PersonIcon from '@mui/icons-material/Person';
 import ForumIcon from '@mui/icons-material/Forum';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 import './AdminNavbar.css';
 
 const AdminNavbar = () => {
+    const navigate = useNavigate();
+
+    const navigateHome = () => {
+        navigate('/admin');
+    }
+
+    const navigateBlogs = () => {
+        navigate('/blogs');
+    }
+
+    const navigateStudents = () => {
+        navigate('/students');
+    }
+
   return (
     <List
         sx={{width: '100%', maxWidth: 345, bgcolor:'#000248', height:'100%', pt:'45px'}}
@@ -26,19 +41,20 @@ const AdminNavbar = () => {
         <img src={images.vnuk_white} className="dashboard-vnuk-white" alt="vnuk-logo"/>
 
         <Stack spacing={2} direction="column" sx={{my:'20px', pl:'45px'}}>
-            <ListItemButton>
-                <ListItemIcon sx={{color:'white'}}> 
-                    <HomeIcon fontSize="large"/>
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" 
-                primaryTypographyProps={{
-                        color: 'white',
-                        fontWeight: 'medium',
-                        variant: 'h6',
-                }}/>
+            <ListItemButton 
+            onClick={navigateHome}>
+                    <ListItemIcon sx={{color:'white'}}> 
+                        <HomeIcon fontSize="large"/>
+                    </ListItemIcon>
+                    <ListItemText primary="Dashboard" 
+                    primaryTypographyProps={{
+                            color: 'white',
+                            fontWeight: 'medium',
+                            variant: 'h6',
+                    }}/>
             </ListItemButton>
 
-            <ListItemButton>
+            <ListItemButton onClick={navigateStudents}>
                 <ListItemIcon sx={{color:'white'}}>
                     <GroupIcon fontSize="large"/>
                 </ListItemIcon>
@@ -60,26 +76,15 @@ const AdminNavbar = () => {
                 }}/>
             </ListItemButton>
 
-            <ListItemButton>
-                <ListItemIcon sx={{color:'white'}}>  
-                    <CalendarMonthIcon fontSize="large"/>
-                </ListItemIcon>
-                <ListItemText primary="Events" primaryTypographyProps={{
-                        color: 'white',
-                        fontWeight: 'medium',
-                        variant: 'h6',
-                }}/>
-            </ListItemButton>
-
-            <ListItemButton>
-                <ListItemIcon sx={{color:'white'}}>  
-                    <PersonIcon fontSize="large"/>
-                </ListItemIcon>
-                <ListItemText primary="User" primaryTypographyProps={{
-                        color: 'white',
-                        fontWeight: 'medium',
-                        variant: 'h6',
-                }}/>
+            <ListItemButton onClick={navigateBlogs}>   
+                    <ListItemIcon sx={{color:'white'}}>  
+                        <CalendarMonthIcon fontSize="large"/>
+                    </ListItemIcon>
+                    <ListItemText primary="Posts" primaryTypographyProps={{
+                            color: 'white',
+                            fontWeight: 'medium',
+                            variant: 'h6',
+                    }}/>
             </ListItemButton>
 
             <ListItemButton>

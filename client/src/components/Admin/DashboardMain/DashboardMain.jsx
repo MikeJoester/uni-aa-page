@@ -4,13 +4,12 @@ import {
     Stack,
     TextField,
     IconButton, 
+    Divider,
+    InputAdornment,
     Button,
-    InputAdornment
 } from '@mui/material';
 
-import { 
-    createTheme, 
-    ThemeProvider, 
+import {
     styled, 
 } from '@mui/material/styles';
 
@@ -19,6 +18,8 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ForumIcon from '@mui/icons-material/Forum';
 import SearchIcon from '@mui/icons-material/Search';
+import EmailIcon from '@mui/icons-material/Email';
+import InfoIcon from '@mui/icons-material/Info';
 
 import './DashboardMain.css';
 
@@ -92,7 +93,7 @@ const DashboardMain = () => {
                     <CalendarMonthIcon fontSize="large"/>
                 </Stack>
                 <Stack direction="column" spacing={1}>
-                    <p>Events</p>
+                    <p>Posts</p>
                     <h1>96</h1>
                 </Stack>
             </Stack>
@@ -125,10 +126,115 @@ const DashboardMain = () => {
                       </InputAdornment>
                     ),
                   }}/>
-            
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Class: <b>22CSE</b></p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <IconButton sx={{color:'#000248'}}>
+                            <InfoIcon fontSize="large"/>
+                        </IconButton>
+
+                        <IconButton sx={{color:'#000248'}}>
+                            <EmailIcon fontSize="large"/>
+                        </IconButton>
+                    </Stack>
+                  </Stack>
+                  <Divider/>
+                </Stack>
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Class: <b>22CSE</b></p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <IconButton sx={{color:'#000248'}}>
+                            <InfoIcon fontSize="large"/>
+                        </IconButton>
+
+                        <IconButton sx={{color:'#000248'}}>
+                            <EmailIcon fontSize="large"/>
+                        </IconButton>
+                    </Stack>
+                  </Stack>
+                  <Divider/>
+                </Stack>
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Class: <b>22CSE</b></p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <IconButton sx={{color:'#000248'}}>
+                            <InfoIcon fontSize="large"/>
+                        </IconButton>
+
+                        <IconButton sx={{color:'#000248'}}>
+                            <EmailIcon fontSize="large"/>
+                        </IconButton>
+                    </Stack>
+                  </Stack>
+                  <Divider/>
+                </Stack>
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Class: <b>22CSE</b></p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <IconButton sx={{color:'#000248'}}>
+                            <InfoIcon fontSize="large"/>
+                        </IconButton>
+
+                        <IconButton sx={{color:'#000248'}}>
+                            <EmailIcon fontSize="large"/>
+                        </IconButton>
+                    </Stack>
+                  </Stack>
+                  <Divider/>
+                </Stack>
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Class: <b>22CSE</b></p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <IconButton sx={{color:'#000248'}}>
+                            <InfoIcon fontSize="large"/>
+                        </IconButton>
+
+                        <IconButton sx={{color:'#000248'}}>
+                            <EmailIcon fontSize="large"/>
+                        </IconButton>
+                    </Stack>
+                  </Stack>
+                  <Divider/>
+                </Stack>
+                <Button>View More</Button>
             </Stack>
 
-            <Stack direction="column" spacing={3} sx={{width:'100%', backgroundColor:'white', borderRadius:'20px', p:'30px'}}>
+            <Stack direction="column" spacing={4} sx={{width:'100%', p:'30px', backgroundColor:'white', borderRadius:'20px'}}>
                 <h3>Feedbacks</h3>
                 <SearchTextField
                 placeholder="Search here..."
@@ -139,6 +245,62 @@ const DashboardMain = () => {
                       </InputAdornment>
                     ),
                   }}/>
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%', borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Never gonna give you up, never gonna let you down...</p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <p>11:30 A.M</p>
+                    </Stack>
+                  </Stack>
+                </Stack>
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%', borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Never gonna give you up, never gonna let you down...</p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <p>11:30 A.M</p>
+                    </Stack>
+                  </Stack>
+                </Stack>
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%', borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Never gonna give you up, never gonna let you down...</p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <p>11:30 A.M</p>
+                    </Stack>
+                  </Stack>
+                </Stack>
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%', borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px'}}>
+                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <Stack direction="row" spacing={4}>
+                        <div className="icon-circle-container"></div>
+                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                            <h3>Sussus Amogus</h3>
+                            <p>Never gonna give you up, never gonna let you down...</p>
+                        </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                        <p>11:30 A.M</p>
+                    </Stack>
+                  </Stack>
+                </Stack>
             </Stack>
         </Stack>
     </Stack>

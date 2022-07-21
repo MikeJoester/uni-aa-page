@@ -1,5 +1,5 @@
 import React from 'react';
-import {Home, Dashboard,} from './pages'
+import {Home, Dashboard, Blogs, Students, } from './pages'
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,6 +14,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/admin' element={<Dashboard/>}/>
+          <Route path='/blogs' element={<Blogs/>}/>
+          <Route path='/students' element={<Students/>}/>
         </Routes>
     </Router>
   )
