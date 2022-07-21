@@ -1,0 +1,20 @@
+.new__block{
+    z-index: 1;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    width: 31.67%;
+}
+.new__img{
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+}
+.new__title{
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    line-height: 1.5;
+}

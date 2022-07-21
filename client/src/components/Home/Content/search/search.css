@@ -1,0 +1,235 @@
+.Home__search{
+    background-image: url(../../../../assets/seachbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    z-index: -1;
+}
+
+.search__col{
+    width: 82.9166666667%;
+    min-height: 1px;
+    margin-right: 2.5%;
+    margin: 0 8.5416666667%;
+    padding: 8.5416666667% 0 2em 0;
+    z-index: initial;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.search__nav{
+    width: 80%;
+    height: auto;
+    background: #300600;
+    padding: 0.5rem;
+    margin: 2% auto 35%;
+    display: flex;
+    flex-direction: row;
+    
+}
+.input__result{
+    width: 70%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.1rem;
+    border: none;
+}
+.search__button{
+    width: 30%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+.search__nav .search__button:hover{
+    background-color: #ffffff3a;
+}
+
+.divider{
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.uni__training h2{
+    color: #31261d;
+    font-family: "Crimson Pro",sans-serif;
+    font-weight: 400;
+    font-size: 1.6em;
+    line-height: 1.4em;
+    padding: 0.75rem 0.1875em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.uni__training li:hover {
+    background-color:#6cace4;
+    
+}
+
+.training__title{
+    background: #6cace4;
+    box-shadow: -0.1875em 0 0 #6cace4, 0.1875em 0 0 #6cace4;
+    box-decoration-break: clone;
+    padding: 0.125em;
+    padding-top: 0.1875em;
+}
+
+.Home__search ul{
+    list-style: none;
+}
+
+.Home__search li{
+    border-width: 0;
+    display: table-cell;
+    float: none;
+    vertical-align: middle;
+    width: 16.6666666667%;
+    border: solid 3px #6cace4;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-width: 0;
+    line-height: 1.1em;
+    padding: 0 1rem;
+    position: relative;
+    text-align: center;
+    z-index: 0;
+}
+.Home__search li:last-child{
+    border: none;
+}
+
+.Home__search li a{
+    border: none;
+    color: #fff;
+    display: block;
+    padding: 0.5em;
+    position: static;
+    width: 100%;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    .search__nav{
+        width: 80%;
+        height: auto;
+        background: #300600;
+        padding: 0.5rem;
+        /* margin: 2% auto 30%; */
+        display: flex;
+        flex-direction: row;
+    }
+    .input__result{
+        width: 70%;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        border: none;
+    }
+    .search__button{
+        width: 30%;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    
+    .search__nav{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input__result{
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        border: none;
+    }
+    .search__button{
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .Home__search li{
+        width: 12.6666666667%;
+        line-height: 1em;
+        padding: 0 0.75rem;
+    }
+    .Home__search li a{
+        padding: 0.3em;
+        width: 100%;
+        font-size: 0.7em;
+    }
+    .search__button{
+        margin-left: 0;
+    }
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .search__nav{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input__result{
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        border: none;
+    }
+    .search__button{
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .uni__training h2{
+        color: #31261d;
+        font-family: "Crimson Pro",sans-serif;
+        font-weight: 400;
+        font-size: 1.4em;
+        line-height: 1.4em;
+        padding: 1.5rem 0.1875em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .Home__search li{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        border:none;
+        padding: 0.5em;
+        border-top: solid 2px #6cace4;
+    }
+    .Home__search li a{
+        padding: 0.3em;
+        width: 100%;
+        font-size: 1em;
+    }
+    .Home__search li:first-child{
+        border-top: none;
+    }
+    .Home__search li:last-child{
+        border-top: solid 2px #6cace4;
+    }
+    .search__button{
+        margin-left: 0;
+    }
+}

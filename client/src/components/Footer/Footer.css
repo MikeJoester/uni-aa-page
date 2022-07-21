@@ -1,0 +1,236 @@
+.Footer{
+    background-color: #300600;
+    backface-visibility: hidden;
+    color: #fff;
+    position: relative;
+    z-index: 0;
+}
+
+
+.Footer::before{
+    background-image: url(../../assets/footer.svg);
+    background-position: bottom center;
+    /* background-repeat: no-repeat; */
+    background-size: 1280px 20px;
+    content: "";
+    display: block;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    z-index: 1;
+}
+
+.footer__content{
+    padding: 8.5416666667% 0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 8.5416666667%;
+}
+
+.footer__col{
+    display: flex;
+    flex-direction: row;
+}
+
+.footer__intro{
+    display:flex;
+    width: 66.66667%;
+    min-height: 1px;
+    margin-right: 2.5%;
+    
+}
+
+.footer__search{
+    display:flex;
+    flex-direction: column;
+    width: 33.3333%;
+    min-height: 1px;
+}
+
+.footer__logo{
+    width: 50%;
+}
+
+.footer__logo-large{
+    display:block;
+    width: 85%;
+    margin: 0 auto;
+}
+.footer__logo-md{
+    display:none;
+}
+.footer__logo-verti{
+    display:none;
+}
+.footer__logo-verti2{
+    display:none;
+}
+
+.footer__details{
+    width: 50%;
+    min-height: 1px;
+    margin-right: 0px;
+    border: 0.13em solid rgb(100, 22, 9);
+    border-bottom: 0;
+    border-top: 0;
+    padding: 0 4.3636363636%;
+    color: #dddbd9;
+}
+
+.footer__details .footer__copyright{
+    font-weight: 700;
+}
+
+.Footer ul{
+    list-style: none;
+    
+}
+.Footer ul li{
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.Footer ul li a{
+    text-decoration: none;
+    color: #dddbd9;
+    font-weight: 600;
+}
+.Footer ul .footer__name-uni{
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.Footer .footer__search ul .footer__name-uni{
+    font-size: 1.4em;
+    font-weight: 700;
+    border: none;
+    color: #dddbd9;
+    padding: 0;
+}
+.footer__details li{
+    margin-bottom: 0.5rem;
+}
+
+.Footer .footer__search li{
+    border: 0.125em solid rgb(100, 22, 9);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    list-style: none;
+    position: relative;
+    padding: 0.75rem 0;
+}
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    .footer__logo-large{
+        display:none;
+    }
+    .footer__logo-verti{
+        display:block;
+        width: 70%;
+        margin: 0 auto;
+    }
+    .Footer ul .footer__name-uni,
+    .Footer .footer__search ul .footer__name-uni{
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+
+    .footer__logo-large{
+        display:none;
+    }
+    .footer__logo-verti{
+        display:none;
+    }
+    .footer__logo-md{
+        display:block;
+        width: 80%;
+        margin: 0 auto 1.75rem;
+    }
+
+    .footer__intro{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer__intro{
+        display:flex;
+        width: 50%;
+        min-height: 1px;
+        margin-right: 0;
+        
+    }
+    .footer__search{
+        display:flex;
+        flex-direction: column;
+        width: 50%;
+        min-height: 1px;
+    }
+
+    .footer__logo,
+    .footer__details{
+        width: 100%;
+    }
+    
+    .footer__details{
+        border: none;
+    }
+
+    .Footer ul .footer__name-uni,
+    .Footer .footer__search ul .footer__name-uni{
+        font-size: 1.4em;
+        font-weight: 700;
+    }
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .footer__col{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__intro,
+    .footer__search{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__logo,
+    .footer__intro,
+    .footer__details,
+    .footer__search{
+        width: 100%;
+    }
+
+    .footer__details{
+        border: none;
+        padding: 0 0 3.5rem;
+    }
+
+    .footer__details li{
+        padding: 0 0 1rem;
+    }
+
+    .footer__logo-md,
+    .footer__logo-large{
+        display:none;
+    }
+
+    .footer__logo-verti2{
+        display:block;
+        width: 70%;
+        margin: 0 auto 1.75rem;
+    }
+
+    .Footer .footer__search ul .footer__name-uni{
+        padding-bottom: 1rem;
+    }
+}
