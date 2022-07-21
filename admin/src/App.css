@@ -1,0 +1,8 @@
+.App {
+  width: 100%;
+  position: relative;
+  left: 0;
+  z-index: 0;
+  background-color: #fff;
+  
+}

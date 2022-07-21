@@ -1,0 +1,9 @@
+import Dashboard from './Dashboard/Dashboard';
+import Students from './Students/Students';
+import Blogs from './Blogs/Blogs';
+
+export {
+    Dashboard,
+    Students,
+    Blogs,
+}
