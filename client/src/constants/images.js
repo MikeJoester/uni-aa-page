@@ -34,6 +34,9 @@ import memory5 from '../assets/memory5.png'
 //search
 import search from '../assets/seachbg.jpg'
 
+//admin
+import vnuk_white from '../assets/LogoVNUK.png'
+
 export default {
     annnoucement,
     //annoucebg2,
@@ -59,6 +62,7 @@ export default {
     memory3,
     memory4,
     memory5,
-    search
+    search,
+    vnuk_white,
 };
 

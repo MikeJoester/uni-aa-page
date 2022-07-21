@@ -1,5 +1,15 @@
 import React from 'react'
-import {images} from '../../../../constants'
+import {images} from '../../../../constants';
+import {
+    Stack,
+    IconButton,
+} from "@mui/material";
+
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import FacebookIcon from '@mui/icons-material/Facebook';
+
 import './memory.css'
 
 const HomeMemory = () =>{
@@ -53,23 +63,20 @@ const HomeMemory = () =>{
                     </div>
                 </div>
                 <div className="social__media">
-                    <ul className="social__links">
-                        <li>
-                            <a href="">twitter</a>
-                        </li>
-                        <li>
-                            <a href=""><i class="fa-brands fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="">ytb</a>
-                        </li>
-                        <li>
-                            <a href="">ins</a>
-                        </li>
-                        <li>
-                            <a href="">linked</a>
-                        </li>
-                    </ul>
+                    <Stack direction="row" spacing={3} justifyContent="center" sx={{width:'100%'}}>
+                        <IconButton>
+                            <TwitterIcon fontSize="large"/>
+                        </IconButton>
+                        <IconButton>
+                            <FacebookIcon fontSize="large"/>
+                        </IconButton>
+                        <IconButton>
+                            <YouTubeIcon fontSize="large"/>
+                        </IconButton>
+                        <IconButton>
+                            <LinkedInIcon fontSize="large"/>
+                        </IconButton>
+                    </Stack>
                 </div>
             </div>
 

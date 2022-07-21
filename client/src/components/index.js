@@ -14,6 +14,12 @@ import HomeSearch from "./Home/Content/search/search";
 //Footer
 import Footer from "./Footer/Footer";
 
+//Admin
+import AdminNavbar from "./Admin/Navbar/AdminNavbar";
+import StudentList from "./Admin/StudentList/StudentList";
+import DashboardMain from "./Admin/DashboardMain/DashboardMain";
+import BlogList from "./Admin/BlogList/BlogList";
+
 export {
     Navbar,
     // Sidebar,
@@ -25,5 +31,10 @@ export {
     HomeEvents,
     HomeMemory,
     HomeSearch,
-    Footer
+    Footer,
+    //Admin
+    AdminNavbar,
+    BlogList,
+    StudentList,
+    DashboardMain,
 }
