@@ -1,4 +1,5 @@
 import Navbar from "./Navbar/Navbar";
+// import Sidebar from "./Sidebar/Sidebar";
 
 //Home
 import HomeHeader from "./Home/Header/HomeHeader";
@@ -10,11 +11,12 @@ import HomeEvents from "./Home/Content/Events/events";
 import HomeMemory from "./Home/Content/memory/memory";
 import HomeSearch from "./Home/Content/search/search";
 
-
 //Footer
 import Footer from "./Footer/Footer";
+
 export {
     Navbar,
+    // Sidebar,
     HomeHeader,
     NewsPost,
     HomeContent,
