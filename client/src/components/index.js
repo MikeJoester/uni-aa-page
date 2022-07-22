@@ -12,6 +12,7 @@ import HomeMemory from "./Home/Content/memory/memory";
 import HomeSearch from "./Home/Content/search/search";
 //NewsPage
 import NewHeader from "./NewsPages/NewHeader/NewHeader";
+import NewsBody from "./NewsPages/NewsBody/NewsBody";
 
 
 //Footer
@@ -41,4 +42,5 @@ export {
     StudentList,
     DashboardMain,
     NewHeader,
+    NewsBody,
 }
