@@ -1,0 +1,159 @@
+.Curriculum__Content{
+    margin: 0 auto;
+}
+
+.Curriculum__wrap{
+    position: relative;
+    top: -6em;
+    background-color: #fff;
+    padding: 0 30px;
+    width: 82.91667%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.Curriculum__col-nav,
+.Curriculum__col-content{
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+/* Curriculum__col-nav */
+
+.Curriculum__col-nav{
+    margin-right: auto;
+    flex: 0 0 23%;
+    max-width: 23%;
+    padding-bottom: 0;
+}
+
+#filters * {
+    box-sizing: border-box;
+}
+
+fieldset{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+#filters h2{
+    display: block;
+    width: 100%;
+    background: #300600;
+    color: white;
+    padding: 0.5rem;
+    padding-right: 2rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+}
+
+#filters form {
+    width: 100%;
+    position: relative;
+}
+
+#filters form fieldset {
+    padding-left: 0;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    position: relative;
+}
+
+#filters form fieldset legend {
+    color: #000;
+    padding: 0.5rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 600;
+    width: 100%;
+    border-bottom: 0.1875em solid #000;
+}
+
+#filters form fieldset label {
+    vertical-align: middle;
+    margin-left: 1.25em;
+}
+
+#filters form .filters__search {
+    padding-top: 0;
+    border: 0.28125em solid #300600;
+    font-size: 1.333em;
+}
+
+#filters form .filters__search legend {
+    background: #005EB8;
+    position: fixed;
+    left: 101vw;
+    color: white;
+}
+
+.sreach__only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+#filters form .filters__search input[type=text] {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border: none;
+}
+
+#filters form fieldset .filters__filter {
+    transition: all 0.1s ease-in-out;
+    border-bottom: solid 0.125em #e5e2e0;
+    padding: 0.5em 0.25em;
+}
+
+#filters form fieldset input[type=radio], #filters form fieldset input[type=checkbox] {
+    position: absolute;
+    margin-top: 0.25rem;
+}
+
+#filters form fieldset input[type=radio], #filters form fieldset input[type=checkbox], #filters form fieldset label {
+    display: inline-block;
+}
+
+/* Curriculum__col-content */
+
+.Curriculum__Content .Curriculum__wrap .Curriculum__col-content {
+    margin-right: 0;
+    flex: 0 0 74%;
+    max-width: 74%;
+}
+.Curriculum__nav-place{
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+}
+.Curriculum__nav-place a{
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+}
+
+.Curriculum__nav-place a:hover, .Curriculum__nav-place a:focus {
+    text-decoration: underline;
+}
+
+.crumsep{
+    color: #444;
+    padding: 0 10px;
+    font-weight: 800;
+    font-size: 0.8em;
+}
