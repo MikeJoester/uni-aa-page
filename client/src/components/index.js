@@ -1,5 +1,5 @@
-import Navbar from "./Navbar/Navbar";
-// import Sidebar from "./Sidebar/Sidebar";
+// import Navbar from "./Navbar/Navbar";
+import Sidebar from "./Sidebar/Sidebar";
 
 //Home
 import HomeHeader from "./Home/Header/HomeHeader";
@@ -21,8 +21,8 @@ import DashboardMain from "./Admin/DashboardMain/DashboardMain";
 import BlogList from "./Admin/BlogList/BlogList";
 
 export {
-    Navbar,
-    // Sidebar,
+    // Navbar,
+    Sidebar,
     HomeHeader,
     NewsPost,
     HomeContent,
