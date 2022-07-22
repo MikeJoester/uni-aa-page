@@ -4,7 +4,7 @@
 
 .Curriculum__wrap{
     position: relative;
-    top: -6em;
+    top: -3em;
     background-color: #fff;
     padding: 0 30px;
     width: 82.91667%;
@@ -41,12 +41,13 @@ fieldset{
     vertical-align: baseline;
 }
 
-#filters h2{
+#filters p{
     display: block;
     width: 100%;
     background: #300600;
     color: white;
     padding: 0.5rem;
+    font-size: 1rem;
     padding-right: 2rem;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -135,9 +136,10 @@ fieldset{
     margin-right: 0;
     flex: 0 0 74%;
     max-width: 74%;
+    font-family: "Crimson Pro", sans-serif;
+    
 }
 .Curriculum__nav-place{
-    font-family: "Roboto", sans-serif;
     font-weight: 600;
     font-size: 1em;
 }
@@ -157,3 +159,193 @@ fieldset{
     font-weight: 800;
     font-size: 0.8em;
 }
+
+.Curriculum__credits-text{
+    line-height: 1.5;
+}
+
+.Curriculum__text-heading{
+    padding: 1.5rem 0;
+}
+
+.Curriculum__credits-text p { 
+    margin-bottom: 1.5em;
+    font-size: 1.25rem;
+}
+
+.Curriculum__credits-text a{
+    text-decoration: none;
+    color: inherit;
+    border-bottom: solid 0.1875em #005EB8;
+    background: transparent;
+}
+
+
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul li {
+    width: calc(100% / 3 - 0.625rem - 0.375em);
+    position: absolute;
+    left: 0%;
+    top: 0px;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul li {
+    list-style-type: none;
+    display: inline-block;
+    float: left;
+    position: relative;
+    padding: 0;
+    margin: 0 0.625rem 0.625rem 0;
+    background: transparent;
+    min-height: 12em;
+    width: calc(100% / 3 - 0.625rem - 0.375em);
+}
+
+.bordertop__top-red{
+    border-top: 0.375em solid #FF6868;
+}
+.bordertop__top-yellow{
+    border-top: 0.375em solid #FFC368;
+}
+.bordertop__top-purple{
+    border-top: 0.375em solid #7468FF;
+}
+.bordertop__top-green{
+    border-top: 0.375em solid #68FFC9;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul .purple a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #7468FF;
+    border-color: #7468FF;
+}
+.Curriculum__credits-text .filter-items.filter-items--grid ul .yellow a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #FFC368;
+    border-color: #FFC368;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul .red a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #FF6868;
+    border-color: #FF6868;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul .green a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #68FFC9;
+    border-color: #68FFC9;
+}
+.Curriculum__credits-text .filter-items.filter-items--grid ul li a:hover span.title,
+.Curriculum__credits-text .filter-items.filter-items--grid ul li a:hover ul.divisions{
+    color: #fff;
+    border: none
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul li a {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+    min-height: 12em;
+    padding: 1em;
+    border: 0.375em solid #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.filter-items .filter-items--grid .isotope{
+    position: relative;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul li a span.title {
+    position: static;
+    display: inline;
+    width: 100%;
+    background: transparent;
+    font-weight: 600;
+    font-size: 1.15em;
+    color: #31261d;
+    border-bottom: solid 0.125em #002d72;
+    transition: all 0.3s ease-in-out;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul li a .divisions {
+    font-size: 0.875em;
+    font-weight: 600;
+    list-style: none;
+    margin-top: 1.14286em;
+    padding: 0;
+    color: #31261d;
+    transition: all 0.3s ease-in-out;
+}
+
+.Curriculum__credits-text .filter-items.filter-items--grid ul li a .divisions li {
+    list-style-type: none;
+    display: inline;
+    position: static;
+    padding: 0;
+    margin: 0;
+    background: none;
+    min-height: 0px;
+    width: 100%;
+}
+
+.bordertop__top-red,
+.bordertop__top-yellow,
+.bordertop__top-purple,
+.bordertop__top-green{
+    display: block;
+    height: 0.375em;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    #filters p{
+        font-size: 0.8rem;
+    }
+    #filters form .filters__search {
+        padding-top: 0;
+        border: 0.28125em solid #300600;
+        font-size: 1em;
+    }
+    #filters form .filters__search input[type=text] {
+        width: 100%;
+        padding: 0.25rem;
+        font-size: 0.8rem;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    .Curriculum__credits-text p {
+        margin-bottom: 1.5em;
+        font-size: 1rem;
+    }
+
+    .Curriculum__credits-text .filter-items.filter-items--grid ul li a span.title {
+        font-size: 1em;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    
+}
+

@@ -3,7 +3,7 @@
     color: white;
     width: calc(100vw + 400px);
     height: 100vh;
-    z-index: 1000;
+    /* z-index: 1; */
     display: flex;
     justify-content: flex-end;
     right: -400px;
