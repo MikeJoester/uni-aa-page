@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Sidebar, Footer} from './components';
+import {Sidebar, Footer, Hamburger} from './components';
 import {Home, Dashboard, Students, Blogs, Curriculum} from './pages'
 import {
   BrowserRouter as Router,
@@ -12,16 +12,37 @@ import './App.css';
 const App = () => {
   
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [hamburgerMenu, setHamburgerMenu] = useState(false);
+
+  const showHamburger = () => {
+    if(window.scrollY > 0) {
+      setHamburgerMenu(true)
+    } else {
+      setHamburgerMenu(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", showHamburger);
+  })
+
+  useEffect(() => {
+    if (toggleMenu) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+  }, [toggleMenu])
   
   return (
     <Router>
       
-      {/* <Navbar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu}/> */}
-      <Sidebar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu}/>
+      {!toggleMenu && (<Hamburger setToggleMenu={setToggleMenu} hamburgerMenu={hamburgerMenu} />)}
+      <Sidebar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} hamburgerMenu={hamburgerMenu} />
 
       <Routes>
-        {/* <Route path='/' element={<Home/>}/> */}
-        <Route path='/SchoolCurriculum' element={<Curriculum/>}/>
+        <Route path='/' element={<Home/>}/>
+        {/* <Route path='/SchoolCurriculum' element={<Curriculum/>}/> */}
         {/* <Route path='/admin' element={<Dashboard/>}/>
         <Route path='/students' element={<Students/>}/>
         <Route path='/blogs' element={<Blogs/>}/> */}

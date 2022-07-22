@@ -3,7 +3,6 @@
     color: white;
     width: calc(100vw + 400px);
     height: 100vh;
-    z-index: 1000;
     display: flex;
     justify-content: flex-end;
     right: -400px;
@@ -17,6 +16,8 @@
 
 .app__sidebar-navbar {
     margin-top: 10%;
+    height: fit-content;
+    z-index: 1001;
 }
 
 .app__sidebar-navbar li {
@@ -25,12 +26,13 @@
     font-weight: 700;
     background-color: rgba(49,38,29,.8);
     cursor: pointer;
+    z-index: 1001;
 
     transition: all 0.3s ease;
 }
 
 .app__sidebar-navbar li:hover {
-    transform: scaleX(1.1);
+    transform: scaleX(1.2);
     background-color: rgba(49,38,29,255);
 }
 
@@ -39,11 +41,13 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(49,38,29,255);
+    z-index: 1001;
 }
 
 .sidebar__active {
     background-color: rgba(83,74,67,.9);
     right: 0;
+    z-index: 500;
 }
 
 .sidebar__close {
@@ -90,4 +94,16 @@
 
 .sidebar__content-active {
     display: block;
+}
+
+.app__sidebar-overlay {
+    width: calc(100vw + 400px);
+    height: 100vh;
+    position: fixed;
+    cursor: url('../../assets/cursor/iconmonstr-x-mark-thin-240.png'), auto;
+    z-index: 100;
+}
+
+.hamburger__active {
+    display: none;
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import './Sidebar.css'
 
-const Sidebar = ({ toggleMenu, setToggleMenu }) => {
+const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
 
     const [toggleContent, setToggleContent] = useState(1);
 
@@ -11,8 +11,12 @@ const Sidebar = ({ toggleMenu, setToggleMenu }) => {
     }
 
   return (
-    <div className={'app__sidebar ' + (toggleMenu && "sidebar__active")}>
-        <div className='app__sidebar-navbar'>
+    <div className={
+        'app__sidebar ' + 
+        (toggleMenu && "sidebar__active")
+    }>
+        <div className={'app__sidebar-navbar ' +
+        (hamburgerMenu && "hamburger__active")}>
             <ul>
                 <li onClick={() => {
                     setToggleMenu(true)
@@ -55,6 +59,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu }) => {
                 NEWS & EVENTS
             </div>
         </div>
+        <div className={(toggleMenu && 'app__sidebar-overlay')} onClick={() => {setToggleMenu(!toggleMenu)}}></div>
     </div>
   )
 }
