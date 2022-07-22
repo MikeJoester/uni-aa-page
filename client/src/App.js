@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Navbar, Footer} from './components';
-import {Home, Dashboard, Students, Blogs} from './pages'
+import {Home, Dashboard, Students, Blogs,NewsPage} from './pages'
 import {
   BrowserRouter as Router,
   Routes,
@@ -20,7 +20,8 @@ const App = () => {
       {/* <Sidebar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu}/> */}
 
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        {/* <Route path='/' element={<Home/>}/> */}
+        <Route path='/' element={<NewsPage/>}/>
         {/* <Route path='/admin' element={<Dashboard/>}/>
         <Route path='/students' element={<Students/>}/>
         <Route path='/blogs' element={<Blogs/>}/> */}

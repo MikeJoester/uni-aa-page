@@ -10,6 +10,9 @@ import HomeExplore from "./Home/Content/Explore/explore";
 import HomeEvents from "./Home/Content/Events/events";
 import HomeMemory from "./Home/Content/memory/memory";
 import HomeSearch from "./Home/Content/search/search";
+//NewsPage
+import NewHeader from "./NewsPages/NewHeader/NewHeader";
+
 
 //Footer
 import Footer from "./Footer/Footer";
@@ -37,4 +40,5 @@ export {
     BlogList,
     StudentList,
     DashboardMain,
+    NewHeader,
 }
