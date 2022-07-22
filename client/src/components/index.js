@@ -11,6 +11,11 @@ import HomeEvents from "./Home/Content/Events/events";
 import HomeMemory from "./Home/Content/memory/memory";
 import HomeSearch from "./Home/Content/search/search";
 
+//Curriculum
+import CurriculumHeader from "./Curriculum/CurriculumHeader/CurriculumHeader";
+import CurriculumContent from "./Curriculum/CurriculumContent/CurriculumContent";
+
+
 //Footer
 import Footer from "./Footer/Footer";
 
@@ -31,6 +36,8 @@ export {
     HomeEvents,
     HomeMemory,
     HomeSearch,
+    CurriculumHeader,
+    CurriculumContent,
     Footer,
     //Admin
     AdminNavbar,
