@@ -23,6 +23,16 @@ router.get("/:id", async (req, res) => {
     }
 })
 
+// GET STUDENT BY EMAIL
+router.get("/studentEmail/:email", async (req, res) => {
+    try {
+        const student = await Student.find({ email: req.params.email })
+        res.status(200).json(student)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 // CREATE STUDENT
 router.post("/", async (req, res) => {
     const newStudent = new Student(req.body)
