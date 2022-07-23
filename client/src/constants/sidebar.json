@@ -1,0 +1,52 @@
+[
+    {
+        "title": "About Us",
+        "childrens": [
+            {
+                "title": "Introduction",
+                "path": "/"
+            },
+            {
+                "title": "History of Development",
+                "path": "/about"
+            },
+            {
+                "title": "Vision, Mission",
+                "path": "/about"
+            },
+            {
+                "title": "Contact",
+                "path": "/about"
+            }
+        ]
+    },
+    {
+        "title": "Academics",
+        "childrens": [
+            {
+                "title": "University",
+                "path": "/login"
+            },
+            {
+                "title": "Graduate School",
+                "path": "/register"
+            },
+            {
+                "title": "Skills Training Courses",
+                "path": "/forgot-password"
+            }
+        ]
+    },
+    {
+        "title": "Rules & Regulations",
+        "childrens": [
+            {
+                "title": "Rules & Regulations",
+                "path": "/profile"
+            },
+            {
+                "title": "FAQ"
+            }
+        ]
+    }
+]

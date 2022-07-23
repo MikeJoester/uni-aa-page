@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import "./Sidebar.css";
+import menuitems from '../../constants/sidebar.json'
+import NewsNav from "./Content/NewsNav/NewsNav";
+import MenuNav from "./Content/MenuNav/MenuNav";
 
 const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   const [toggleContent, setToggleContent] = useState(1);
@@ -115,7 +118,14 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
               : "sidebar__content"
           }
         >
-          Menu - Announcement
+          <div className="sidebar__menu-main">
+            <div className="menunav">
+              { menuitems.map((item, index) => <MenuNav key={index} item={item}/>)}
+            </div>
+          </div>
+          <div className="sidebar__menu-sub">
+
+          </div>
         </div>
         <div
           className={
@@ -124,7 +134,20 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
               : "sidebar__content"
           }
         >
-          News & Events
+          <div className="sidebar__news">
+            <h1 className="sidebar__news-title">Recent News</h1>
+            <NewsNav />
+            <NewsNav />
+            <NewsNav />
+            <p>More news</p>
+          </div>
+          <div className="sidebar__events">
+            <h1 className="sidebar__events-title">Upcoming Events</h1>
+            <NewsNav />
+            <NewsNav />
+            <NewsNav />
+            <p>More events</p>
+          </div>
         </div>
         <div
           className={
