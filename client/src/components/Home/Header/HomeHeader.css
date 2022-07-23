@@ -6,6 +6,7 @@
     background-position: center center;
     color: #fff;
     position: sticky;
+    overflow: hidden;
     z-index: 1;
 }
 
@@ -25,27 +26,27 @@
     margin: 0;
     transform: translateY(-50%);
 }
-.logo__large{
+.logo .logo__large{
     width: 100%;
     height: auto;
     display: block;
     padding: 0 20rem;
 }
-.logo__md
+.logo .logo__md
 {
     display: none;
     width: 100%;
     height: auto;
     padding: 0 5rem;
 }
-.logo__verti
+.logo .logo__verti
 {
     display: none;
     width: 100%;
     height: auto;
     padding: 0 7rem;
 }
-.logo__verti2
+.logo .logo__verti2
 {
     display: none;
     min-width: 20vh;
@@ -56,18 +57,18 @@
 
 /*Tablet & mobile*/
 @media (min-width: 63.9375em) and (max-width: 80em) {
-    .logo__large{
-        display: none!important;
+    .logo .logo__large{
+        display: none;
     }
-    .logo__md
+    .logo .logo__md
     {
         display: block;
     }
-    .logo__verti
+    .logo .logo__verti
     {
         display: none;
     }
-    .logo__verti2
+    .logo .logo__verti2
     {
         display: none;
     }
@@ -76,18 +77,18 @@
 
 /*Tablet*/
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
-    .logo__large{
+    .logo .logo__large{
         display: none;
     }
-    .logo__md
+    .logo .logo__md
     {
         display: none;
     }
-    .logo__verti
+    .logo .logo__verti
     {
         display: block;
     }
-    .logo__verti2
+    .logo .logo__verti2
     {
         display: none;
     }
@@ -95,20 +96,23 @@
 }
 /*Mobile*/
 @media (max-width: 46.1875em) {
-    .logo__large{
+    .logo .logo__large{
         display: none;
     }
     
-    .logo__md
+    .logo .logo__md
     {
         display: none;
     }
-    .logo__verti
+    .logo .logo__verti
     {
         display: none;
     }
-    .logo__verti2
+    .logo .logo__verti2
     {
         display: block;
+        width: 100%;
+        height: auto;
+        padding: 0 2rem;
     }
 }

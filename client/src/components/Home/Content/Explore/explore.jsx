@@ -14,7 +14,9 @@ const HomeExplore = () =>{
                         </h2>
                         <ul>
                             <li>
-                                <a href="#">Announcements</a>
+                                <Link to="/SchoolCurriculum">
+                                    <a href="#">Announcements</a>
+                                </Link>
                             </li>
                             <li className="after__login">
                                 <a href="#">Credit Registration</a>
@@ -25,7 +27,9 @@ const HomeExplore = () =>{
                                 </Link>
                             </li>
                             <li>
-                                <a href="#">Rules & Regulations</a>
+                                <Link to="/SchoolCurriculum">
+                                    <a href="#">Rules & Regulations</a>
+                                </Link>  
                             </li>
                         </ul>
                     </div>
