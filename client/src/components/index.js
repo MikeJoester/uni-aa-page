@@ -1,5 +1,6 @@
 // import Navbar from "./Navbar/Navbar";
 import Sidebar from "./Sidebar/Sidebar";
+import Hamburger from "./Hamburger/Hamburger";
 
 //Home
 import HomeHeader from "./Home/Header/HomeHeader";
@@ -28,6 +29,7 @@ import BlogList from "./Admin/BlogList/BlogList";
 export {
     // Navbar,
     Sidebar,
+    Hamburger,
     HomeHeader,
     NewsPost,
     HomeContent,
