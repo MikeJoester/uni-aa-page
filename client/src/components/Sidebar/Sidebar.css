@@ -1,11 +1,12 @@
 .app__sidebar {
     position: fixed;
     color: white;
-    width: calc(100vw + 400px);
+    width: fit-content;
     height: 100vh;
     display: flex;
     justify-content: flex-end;
     right: -400px;
+    z-index: 2;
 
     transition: all 0.5s ease;
 }
@@ -15,7 +16,7 @@
 }
 
 .app__sidebar-navbar {
-    margin-top: 10%;
+    padding-top: 170px;
     height: fit-content;
     z-index: 1001;
 }
@@ -47,6 +48,7 @@
 .sidebar__active {
     background-color: rgba(83,74,67,.9);
     right: 0;
+    width: calc(100vw + 400px);
     z-index: 500;
 }
 

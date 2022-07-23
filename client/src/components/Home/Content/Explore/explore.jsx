@@ -1,6 +1,7 @@
 import React from 'react'
 import {images} from '../../../../constants'
 import './explore.css'
+import { Link } from 'react-router-dom'
 
 const HomeExplore = () =>{
     return(
@@ -13,13 +14,15 @@ const HomeExplore = () =>{
                         </h2>
                         <ul>
                             <li>
-                                <a href="#">Announcements</a> 
+                                <a href="#">Announcements</a>
                             </li>
                             <li className="after__login">
                                 <a href="#">Credit Registration</a>
                             </li>
                             <li>
-                                <a href="#">School Curriculum</a>
+                                <Link to="/SchoolCurriculum">
+                                    <a href="#">School Curriculum</a>
+                                </Link>
                             </li>
                             <li>
                                 <a href="#">Rules & Regulations</a>

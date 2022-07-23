@@ -28,13 +28,13 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
                     setToggleMenu(true)
                     toggleTab(2)
                 }}>
-                    SEARCH
+                    NEWS & EVENTS
                 </li>
                 <li onClick={() => {
                     setToggleMenu(true)
                     toggleTab(3)
                 }}>
-                    NEWS & EVENTS
+                    LOGIN
                 </li>
             </ul>
         </div>
@@ -46,17 +46,17 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
             <div
                 className={toggleContent === 1 ? "sidebar__content sidebar__content-active" : "sidebar__content"}
             >
-                MENU
+                Menu - Announcement
             </div>
             <div
                 className={toggleContent === 2 ? "sidebar__content sidebar__content-active" : "sidebar__content"}
             >
-                SEARCH
+                News & Events
             </div>
             <div
                 className={toggleContent === 3 ? "sidebar__content sidebar__content-active" : "sidebar__content"}
             >
-                NEWS & EVENTS
+                Login - Logout
             </div>
         </div>
         <div className={(toggleMenu && 'app__sidebar-overlay')} onClick={() => {setToggleMenu(!toggleMenu)}}></div>

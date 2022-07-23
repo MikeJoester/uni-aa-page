@@ -1,7 +1,7 @@
 /* brand */
 .Home__brand{
     position: relative;
-    z-index: 0;
+    z-index: 20;
 }
 .content__brand{
     background: #0072ce;
