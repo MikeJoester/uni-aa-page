@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import {
     Stack,
@@ -80,6 +81,25 @@ const ViewMoreBtn = styled(Button)({
 });
 
 const DashboardMain = () => {
+    const [students, setStudents] = useState([]);
+    useEffect(() => {
+        const fetchStudents = async() => {
+            const res = await axios.get("http://localhost:5000/students/");
+            setStudents(res.data);
+        }
+        fetchStudents();
+
+        const fetchClasses = async() => {
+            const res = await axios.get("http://localhost:5000/classes/");
+            console.log(res.data);
+        }
+        fetchClasses();
+    }, []);
+
+    // students.map((p) => {
+    //     console.log(axios.get(`http://localhost:5000/classes/${p.class}`));  
+    // });
+
   return (
     <Stack direction="column" spacing={5} sx={{mx:'40px', my:'50px', width:'100%', color:'#000248'}}>
         <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -100,7 +120,7 @@ const DashboardMain = () => {
                 </Stack>
                 <Stack direction="column" spacing={1}>
                     <p>Students</p>
-                    <h1>696</h1>
+                    <h1>{students.length}</h1>
                 </Stack>
             </Stack>
 
@@ -147,111 +167,29 @@ const DashboardMain = () => {
                       </InputAdornment>
                     ),
                   }}/>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Class: <b>22CSE</b></p>
+                {students.map((p) => { return (
+                    <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
+                        <Stack direction="row" justifyContent="space-between" alignItems="center">
+                            <Stack direction="row" spacing={4} alignItems="center">
+                                <div className="icon-circle-container"></div>
+                                <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                                    <h3>{p.full_name}</h3>
+                                    <p>Class: <b>22CSE</b></p>
+                                </Stack>
+                            </Stack>
+                            <Stack direction="row" spacing={2}>
+                                <IconButton sx={{color:'#000248'}}>
+                                    <InfoIcon fontSize="large"/>
+                                </IconButton>
+        
+                                <IconButton sx={{color:'#000248'}}>
+                                    <EmailIcon fontSize="large"/>
+                                </IconButton>
+                            </Stack>
                         </Stack>
+                        <Divider/>
                     </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <IconButton sx={{color:'#000248'}}>
-                            <InfoIcon fontSize="large"/>
-                        </IconButton>
-
-                        <IconButton sx={{color:'#000248'}}>
-                            <EmailIcon fontSize="large"/>
-                        </IconButton>
-                    </Stack>
-                  </Stack>
-                  <Divider/>
-                </Stack>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Class: <b>22CSE</b></p>
-                        </Stack>
-                    </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <IconButton sx={{color:'#000248'}}>
-                            <InfoIcon fontSize="large"/>
-                        </IconButton>
-
-                        <IconButton sx={{color:'#000248'}}>
-                            <EmailIcon fontSize="large"/>
-                        </IconButton>
-                    </Stack>
-                  </Stack>
-                  <Divider/>
-                </Stack>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Class: <b>22CSE</b></p>
-                        </Stack>
-                    </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <IconButton sx={{color:'#000248'}}>
-                            <InfoIcon fontSize="large"/>
-                        </IconButton>
-
-                        <IconButton sx={{color:'#000248'}}>
-                            <EmailIcon fontSize="large"/>
-                        </IconButton>
-                    </Stack>
-                  </Stack>
-                  <Divider/>
-                </Stack>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Class: <b>22CSE</b></p>
-                        </Stack>
-                    </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <IconButton sx={{color:'#000248'}}>
-                            <InfoIcon fontSize="large"/>
-                        </IconButton>
-
-                        <IconButton sx={{color:'#000248'}}>
-                            <EmailIcon fontSize="large"/>
-                        </IconButton>
-                    </Stack>
-                  </Stack>
-                  <Divider/>
-                </Stack>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Class: <b>22CSE</b></p>
-                        </Stack>
-                    </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <IconButton sx={{color:'#000248'}}>
-                            <InfoIcon fontSize="large"/>
-                        </IconButton>
-
-                        <IconButton sx={{color:'#000248'}}>
-                            <EmailIcon fontSize="large"/>
-                        </IconButton>
-                    </Stack>
-                  </Stack>
-                  <Divider/>
-                </Stack>
+                )})}
                 <ViewMoreBtn>View More</ViewMoreBtn>
             </Stack>
 
