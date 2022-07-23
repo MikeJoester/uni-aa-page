@@ -37,12 +37,12 @@ const App = () => {
   return (
     <Router>
       
-      {!toggleMenu && (<Hamburger setToggleMenu={setToggleMenu} hamburgerMenu={hamburgerMenu} />)}
-      <Sidebar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} hamburgerMenu={hamburgerMenu} />
+      {/* {!toggleMenu && (<Hamburger setToggleMenu={setToggleMenu} hamburgerMenu={hamburgerMenu} />)}
+      <Sidebar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} hamburgerMenu={hamburgerMenu} /> */}
 
       <Routes>
         <Route path='/' element={<Home/>}/>
-        {/* <Route path='/SchoolCurriculum' element={<Curriculum/>}/> */}
+        <Route path='/SchoolCurriculum' element={<Curriculum/>}/>
         {/* <Route path='/admin' element={<Dashboard/>}/>
         <Route path='/students' element={<Students/>}/>
         <Route path='/blogs' element={<Blogs/>}/> */}
