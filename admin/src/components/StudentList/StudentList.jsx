@@ -4,8 +4,13 @@ import './StudentList.css';
 
 import {
   Stack,
+  Box,
   Button,
   IconButton,
+  Modal,
+  Backdrop,
+  Fade,
+  TextField,
 } from '@mui/material';
 
 import { DataGrid } from '@mui/x-data-grid';
@@ -16,6 +21,18 @@ import EditIcon from '@mui/icons-material/Edit';
 import {
   styled,
 } from '@mui/material/styles';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '40%',
+  bgcolor: 'background.paper',
+  // border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const CreateButton = styled(Button)(() => ({
   color: '#fff',
@@ -28,7 +45,7 @@ const CreateButton = styled(Button)(() => ({
     },
 }));
 
-const columns = [
+const columns = [ //columns label
   { field: 'id', headerName: 'ID', width: 100 },
   { field: 'fullName', headerName: 'Full Name', width: 200 },
   { field: 'class', headerName: 'Class', width: 150 },
@@ -65,6 +82,12 @@ const columns = [
 ];
 
 const StudentList = () => {
+  //modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  //axios
   const [posts, setPosts] = useState([]);
   const [className, setClassName] = useState("");
   useEffect(() => {
@@ -94,7 +117,36 @@ const StudentList = () => {
     <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248'}}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <h1>Manage Students</h1>
-        <CreateButton>Add Student</CreateButton>
+        <CreateButton onClick={handleOpen}>Add Student</CreateButton>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <Stack sx={style} spacing={3}>
+              <TextField id="outlined-basic" label="Student ID" variant="outlined" />
+              <Stack direction="row" sx={{width:'100%'}} alignItems="center">
+                <h4>First Name:</h4>
+                <TextField id="outlined-basic" label="First Name" variant="outlined" />
+                <h4>Last Name:</h4>
+                <TextField id="outlined-basic" label="Last Name" variant="outlined" />
+              </Stack>
+              <TextField id="outlined-basic" label="Birth Date" variant="outlined" />
+              <TextField id="outlined-basic" label="Gender" variant="outlined" />
+              <TextField id="outlined-basic" label="Major" variant="outlined" />
+              <TextField id="outlined-basic" label="Class" variant="outlined" />
+              <TextField id="outlined-basic" label="Email" variant="outlined" />
+              <TextField id="outlined-basic" label="Phone" variant="outlined" />
+              <TextField id="outlined-basic" label="Credit" variant="outlined" />
+              <CreateButton>Add Student</CreateButton>
+            </Stack>
+          </Fade>
+        </Modal>
       </Stack>
       <DataGrid
         sx={{fontSize:'17px'}}

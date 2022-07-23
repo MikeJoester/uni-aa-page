@@ -1,10 +1,12 @@
 const router = require('express').Router()
 let Student = require('../models/student.model')
+let Classroom = require('../models/class.model')
 
 // GET ALL STUDENTS
 router.get("/", async (req, res) => {
     try {
         const students = await Student.find()
+        //const students = await Classroom.findOneAndUpdate(Student.class, Classroom.students.push(Student.student_id))
         res.status(200).json(students)
     } catch (err) {
         res.status(500).json(err)
@@ -26,6 +28,7 @@ router.post("/", async (req, res) => {
     const newStudent = new Student(req.body)
     try {
         const savedStudent = await newStudent.save()
+        // const updateClassroom = await Classroom.findOneAndUpdate({students:[]}, )
         res.status(200).json(savedStudent)
     } catch (err) {
         res.status(500).json(err)

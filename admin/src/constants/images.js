@@ -1,7 +1,9 @@
 //admin
-import vnuk_white from '../assets/LogoVNUK.png'
+import vnuk_white from '../assets/LogoVNUK.png';
 
-export default {
+const images = {
     vnuk_white,
 };
+
+export default images;
 

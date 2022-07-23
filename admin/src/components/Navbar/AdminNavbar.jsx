@@ -36,9 +36,9 @@ const AdminNavbar = () => {
 
   return (
     <List
-        sx={{width: '100%', maxWidth: 345, bgcolor:'#000248', height:'100%', pt:'45px'}}
+        sx={{width: '100%', maxWidth: 345, bgcolor:'#000248', height:'80vw', pt:'45px'}}
     >
-        <img src={images.vnuk_white} className="dashboard-vnuk-white" alt="vnuk-logo"/>
+        <a href="https://vnuk.edu.vn/" target="_blank" rel="noreferrer"><img src={images.vnuk_white} className="dashboard-vnuk-white" alt="vnuk-logo"/></a>
 
         <Stack spacing={2} direction="column" sx={{my:'20px', pl:'45px'}}>
             <ListItemButton 
