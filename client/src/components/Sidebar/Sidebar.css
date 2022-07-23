@@ -7,6 +7,7 @@
     justify-content: flex-end;
     right: -400px;
     z-index: 2;
+    font-family: 'Crimson Pro', san-serif;
 
     transition: all 0.5s ease;
 }
@@ -28,12 +29,13 @@
     background-color: rgba(49,38,29,.8);
     cursor: pointer;
     z-index: 1001;
+    transform-origin: right;
 
     transition: all 0.3s ease;
 }
 
 .app__sidebar-navbar li:hover {
-    transform: scaleX(1.2);
+    transform: scaleX(1.1);
     background-color: rgba(49,38,29,255);
 }
 
@@ -96,6 +98,21 @@
 
 .sidebar__content-active {
     display: block;
+    padding: 10% 13% 0 13%;
+}
+
+.sidebar__news-title,
+.sidebar__events-title {
+    padding-bottom: 2%;
+    border-bottom: 2px solid #756e63;
+}
+
+.sidebar__news p,
+.sidebar__events p {
+    color: #98938e;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 5px 0 20px 0;
 }
 
 .app__sidebar-overlay {
@@ -108,4 +125,8 @@
 
 .hamburger__active {
     display: none;
+}
+
+.menunav:last-child {
+    border-bottom: 1px solid #756e63;
 }
