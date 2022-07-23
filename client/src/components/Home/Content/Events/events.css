@@ -76,6 +76,7 @@
     flex-direction: row;
     align-items: center;
     padding: 1rem 0;
+    text-decoration: none;
 }
 
 .events__img{
