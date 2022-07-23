@@ -3,7 +3,7 @@ import images from './images'
 const news = [
     {
         image: images.memory3,
-        title: 'ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!',
+        title: 'ANTI-BACKPACK asdasdasdasdasdasdasdasdas DAY FINALLY COMES TO VN-UK!!!!!',
         link: 'https://www.facebook.com/tucano.vnuk/photos/a.102588101822887/380260817388946/'
     },
     {

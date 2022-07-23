@@ -1,19 +1,27 @@
+
+.content__article-row{
+    z-index: 100;
+}
 .new__block{
     z-index: 1;
     background-color: #fff;
     display: flex;
     flex-direction: row;
-    width: 31.67%;
+    width: 95%;
 }
 .new__img{
-    width: 200px;
+    display: flex;
+    width: 60%;
+    /* width: 200px; */
     height: auto;
     object-fit: cover;
 }
 .new__title{
     display: flex;
+    width: 40%;
     align-items: center;
     font-size: 1.3rem;
+    color: #000;
     font-weight: bold;
     padding: 1rem 1rem;
     line-height: 1.5;

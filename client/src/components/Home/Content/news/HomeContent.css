@@ -86,9 +86,9 @@
     background-color: #fff;
     display: flex;
     flex-direction: row;
-    width: 31.67%;
+    /* width: 31.67%; */
 }
-.new__img{
+/* .new__img{
     width: 200px;
     height: auto;
     object-fit: cover;
@@ -100,7 +100,7 @@
     font-weight: bold;
     padding: 1rem 1rem;
     line-height: 1.5;
-}
+} */
 
 /*Tablet & mobile*/
 @media (min-width: 63.9375em) and (max-width: 80em) {
