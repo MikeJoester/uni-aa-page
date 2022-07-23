@@ -9,7 +9,7 @@
 
 .menunav-title {
     display: flex;
-    padding: 0.4rem 0;
+    padding: 0.6rem 0;
     align-items: center;
     justify-content: space-between;
     border-top: 1px solid #756e63;
@@ -40,7 +40,8 @@
 .menunav-title .menunav-toggle {
     cursor: pointer;
     font-size: 30px;
-
+    font-weight: 300;
+    padding-right: 0.8rem;
     transition: transform .3s;
 }
 

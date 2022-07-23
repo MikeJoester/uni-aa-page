@@ -126,3 +126,7 @@
 .hamburger__active {
     display: none;
 }
+
+.menunav:last-child {
+    border-bottom: 1px solid #756e63;
+}
