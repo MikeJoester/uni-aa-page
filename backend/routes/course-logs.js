@@ -37,6 +37,8 @@ router.get("/", async (req, res) => {
             logs = await Courselog.find().populate("studentId", "student_id")
             res.status(200).json(logs)
         }
+        // const courselogs = await Courselog.find()
+        // res.status(200).json(courselogs)
     } catch (err) {
         res.status(500).json(err)
     }
