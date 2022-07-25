@@ -3,6 +3,7 @@ import Home from './Home/Home';
 
 //School Curriculum
 import Curriculum from './Curriculum/Curriculum';
+import CurriDetails from './CurriDetails/CurriDetails';
 
 //admin
 import Dashboard from './Dashboard/Dashboard';
@@ -15,4 +16,5 @@ export {
     Dashboard,
     Students,
     Blogs,
+    CurriDetails
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Sidebar, Footer, Hamburger} from './components';
-import {Home, Dashboard, Students, Blogs, Curriculum} from './pages'
+import {Home, Dashboard, Students, Blogs, Curriculum, CurriDetails} from './pages'
 import {
   BrowserRouter as Router,
   Routes,
@@ -43,6 +43,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/SchoolCurriculum' element={<Curriculum/>}/>
+        <Route path='/SchoolCurriculum/details' element={<CurriDetails/>}/>
         {/* <Route path='/admin' element={<Dashboard/>}/>
         <Route path='/students' element={<Students/>}/>
         <Route path='/blogs' element={<Blogs/>}/> */}

@@ -17,7 +17,8 @@ import HomeSearch from "./Home/Content/search/search";
 //Curriculum
 import CurriculumHeader from "./Curriculum/CurriculumHeader/CurriculumHeader";
 import CurriculumContent from "./Curriculum/CurriculumContent/CurriculumContent";
-
+import CurriDetailsHeader from "./Curriculum/CurriculumDetails/CurriDetailsHeader/CurriDetailsHeader";
+import CurriDetailsContent from "./Curriculum/CurriculumDetails/CurriDetailsContent/CurriDetailsContent";
 
 //Footer
 import Footer from "./Footer/Footer";
@@ -50,4 +51,6 @@ export {
     BlogList,
     StudentList,
     DashboardMain,
+    CurriDetailsHeader,
+    CurriDetailsContent
 }
