@@ -1,0 +1,144 @@
+.CurriDetails__Content{
+    margin: 0 auto;
+}
+
+.CurriDetails__wrap{
+    position: relative;
+    top: -3em;
+    background-color: #fff;
+    /* padding: 0 30px; */
+    width: 82.91667%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.Curridetails__col-nav,
+.Curridetails__col-content{
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+/* Curriculum__col-nav */
+
+.CurriDetails__Content .CurriDetails__wrap .Curridetails__col-nav{
+    margin-right: 0;
+    flex: 0 0 23%;
+    max-width: 23%;
+    padding-bottom: 0;
+}
+
+
+/* Curriculum__col-content */
+
+.CurriDetails__Content .CurriDetails__wrap .Curridetails__col-content {
+    margin-left: 20px;
+    flex: 0 0 74%;
+    max-width: 74%;
+    font-family: "Crimson Pro", sans-serif;
+}
+.Curridetails__nav-place, .Curritails__text-place{
+    font-weight: 600;
+    font-size: 1em;
+}
+.Curridetails__nav-place a, .Curritails__text-place{
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+}
+
+.Curriculum__nav-place a:hover, .Curriculum__nav-place a:focus {
+    text-decoration: underline;
+}
+
+.crumsep{
+    color: #444;
+    padding: 0 10px;
+    font-weight: 800;
+    font-size: 0.8em;
+}
+
+.Curridetails__Course-Name{
+    padding: 3rem 0;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.Course__content{
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    padding-right: 3rem;
+}
+
+.Course__content-title{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+
+.Course__decs-text{
+    padding: 3rem 0;
+}
+
+.text__gray-color{
+    color: #444;
+    font-weight: 600;
+}
+
+.tag__catalogue{
+    background-color: #300600;
+    width: 100%;
+    height: 62px;
+    justify-content:center;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+}
+
+.tag__catalogue p{
+    
+}
+
+.tag__catalogue:hover{
+    background-color: #d67e70;
+    color: #444;
+}
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+
+    /* .Curriculum__wrap{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .Curriculum__col-nav{
+        margin-right: auto;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-bottom: 0;
+    }
+
+    .Curriculum__Content .Curriculum__wrap .Curriculum__col-content {
+        margin-right: 0;
+        flex: 0 0 100%;
+        max-width: 100%;
+        font-family: "Crimson Pro", sans-serif;
+    } */
+}
