@@ -1,27 +1,15 @@
 [
     {
-        "title": "About Us",
+        "title": "Announcement",
         "childrens": [
             {
-                "title": "Introduction",
+                "title": "Announcement",
                 "path": "/"
-            },
-            {
-                "title": "History of Development",
-                "path": "/about"
-            },
-            {
-                "title": "Vision, Mission",
-                "path": "/about"
-            },
-            {
-                "title": "Contact",
-                "path": "/about"
             }
         ]
     },
     {
-        "title": "Academics",
+        "title": "School Curriculum",
         "childrens": [
             {
                 "title": "University",
@@ -33,7 +21,7 @@
             },
             {
                 "title": "Skills Training Courses",
-                "path": "/forgot-password"
+                "path": "/SchoolCurriculum"
             }
         ]
     },
