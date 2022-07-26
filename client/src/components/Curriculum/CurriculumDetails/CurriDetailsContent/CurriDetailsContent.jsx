@@ -3,7 +3,7 @@ import './CurriDetailsContent.css'
 import { Link } from 'react-router-dom'
 import {images} from '../../../../constants'
 
-const CurriDetailsContent = () =>{
+const CurriDetailsContent = ({ items }) =>{
     return(
         <div className="CurriDetails__Content">
             <div className="CurriDetails__wrap">
@@ -11,7 +11,7 @@ const CurriDetailsContent = () =>{
                     <div className="Curridetails__nav-place">
                             <a href="/" className="Back__home">Home</a>
                             <span className="crumsep">{">"}</span>
-                            <span class="Curritails__text-place">Explore our Programs</span>
+                            <a href='/SchoolCurriculum' class="Curritails__text-place">Explore our Programs</a>
                             <span className="crumsep">{">"}</span>
                             <span class="Curritails__text-course">Accounting and Financial Management, Minor</span>
                         </div>
@@ -43,10 +43,66 @@ const CurriDetailsContent = () =>{
                     </div>
                     
                 <div className="Curridetails__col-nav">
-                    <div className="tag__catalogue">
-                        CATALOGUE HOME
+                    <Link to="/SchoolCurriculum">
+                        <div className="tag__catalogue">
+                            CATALOGUE HOME
+                        </div>
+                    </Link>
+                    <div className="tag__catalogue-content">
+                        <ul className='main__catalogue'>
+                            <p className='list__tag-name'>School Curriculum</p>
+                            <li className="sub__catalogue">
+                                <p className='sub__catalogue-major'>
+                                    Computer Science & Engineering
+                                </p>
+                                <ul className="catalogue__course">
+                                    <li>Data & Algorithm </li>
+                                    <li>Basic Web Design</li>
+                                    <li>Basic Mobile Application</li>
+                                </ul>
+                            </li>
+                            <li className="sub__catalogue">
+                                <p className='sub__catalogue-major'>
+                                    Data Science
+                                </p>
+                                <ul className="catalogue__course">
+                                    <li>Data & Algorithm </li>
+                                    <li>Basic Web Design</li>
+                                    <li>Basic Mobile Application</li>
+                                </ul>
+                            </li>
+                            <li className="sub__catalogue">
+                                <p className='sub__catalogue-major'>
+                                    Biomedical Science
+                                </p>
+                                <ul className="catalogue__course">
+                                    <li>Data & Algorithm </li>
+                                    <li>Basic Web Design</li>
+                                    <li>Basic Mobile Application</li>
+                                </ul>
+                            </li>
+                            <li className="sub__catalogue">
+                                <p className='sub__catalogue-major'>
+                                    International Business & Management
+                                </p>
+                                <ul className="catalogue__course">
+                                    <li>Data & Algorithm </li>
+                                    <li>Basic Web Design</li>
+                                    <li>Basic Mobile Application</li>
+                                </ul>
+                            </li>
+                            <li className="sub__catalogue">
+                                <p className='sub__catalogue-major'>
+                                    Tourism & Hospitality Management
+                                </p>  
+                                <ul className="catalogue__course">
+                                    <li>Data & Algorithm </li>
+                                    <li>Basic Web Design</li>
+                                    <li>Basic Mobile Application</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-
                 </div>
                 
             </div>

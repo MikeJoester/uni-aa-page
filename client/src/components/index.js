@@ -19,6 +19,7 @@ import CurriculumHeader from "./Curriculum/CurriculumHeader/CurriculumHeader";
 import CurriculumContent from "./Curriculum/CurriculumContent/CurriculumContent";
 import CurriDetailsHeader from "./Curriculum/CurriculumDetails/CurriDetailsHeader/CurriDetailsHeader";
 import CurriDetailsContent from "./Curriculum/CurriculumDetails/CurriDetailsContent/CurriDetailsContent";
+// import CurriCatalogue from "./Curriculum/CurriculumDetails/CurriCatalogue/CurriCatalogue";
 
 //Footer
 import Footer from "./Footer/Footer";
@@ -52,5 +53,5 @@ export {
     StudentList,
     DashboardMain,
     CurriDetailsHeader,
-    CurriDetailsContent
+    CurriDetailsContent,
 }

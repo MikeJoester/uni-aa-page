@@ -42,8 +42,9 @@
 .logo .logo__verti
 {
     display: none;
-    width: 100%;
+    width: 60%;
     height: auto;
+    margin: 0 auto;
     padding: 0 7rem;
 }
 .logo .logo__verti2
