@@ -1,0 +1,36 @@
+[
+    {
+        "title": "Profile",
+        "childrens": [
+            {
+                "title": "Personal Information",
+                "path": "/"
+            },
+            {
+                "title": "Notice from lecture to class",
+                "path": "/"
+            },
+            {
+                "title": "School Curriculum",
+                "path": "/"
+            },
+            {
+                "title": "Learning & Training Results",
+                "path": "/"
+            }
+        ]
+    },
+    {
+        "title": "Register courses",
+        "childrens": [
+            {
+                "title": "Survey",
+                "path": "/login"
+            },
+            {
+                "title": "Credit Registration",
+                "path": "/register"
+            }
+        ]
+    }
+]
