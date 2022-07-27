@@ -1,5 +1,5 @@
 import React from 'react';
-import {InformHeader} from '../../components';
+import {InformHeader, InformContent} from '../../components';
 
 import './Notification.css';
 
@@ -7,8 +7,7 @@ const Notification = () => {
   return (
     <div className="web__Notification">
         <InformHeader/>
-        
-
+        <InformContent/>
     </div>
   )
 }
