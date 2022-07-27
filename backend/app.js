@@ -44,6 +44,8 @@ const authRouter = require('./routes/auth');
 const classList = require('./scripts/classList');
 const updateMajorCourse = require('./scripts/updateMajorCourse');
 const transcriptRouter = require('./routes/transcript');
+const adminLoginRouter = require('./routes/admin-auth');
+const surveyRouter = require('./routes/surveys');
 
 app.use("/blogs", blogsRouter);
 app.use("/classes", classesRouter);
@@ -56,6 +58,8 @@ app.use("/auth", authRouter);
 app.use("/classlist", classList);
 app.use("/umj", updateMajorCourse);
 app.use("/transcript", transcriptRouter);
+app.use("/adminlogin", adminLoginRouter);
+app.use("/surveys", surveyRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
