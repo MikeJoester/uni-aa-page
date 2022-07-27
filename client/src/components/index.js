@@ -21,6 +21,11 @@ import CurriDetailsHeader from "./Curriculum/CurriculumDetails/CurriDetailsHeade
 import CurriDetailsContent from "./Curriculum/CurriculumDetails/CurriDetailsContent/CurriDetailsContent";
 // import CurriCatalogue from "./Curriculum/CurriculumDetails/CurriCatalogue/CurriCatalogue";
 
+//Notification form Lecturer
+import InformData from "./InformLecturer/InformData/InformData";
+import SmartTable from "./InformLecturer/index";
+import InformHeader from "./InformLecturer/InformHeader/InformHeader";
+
 //Footer
 import Footer from "./Footer/Footer";
 
@@ -54,4 +59,7 @@ export {
     DashboardMain,
     CurriDetailsHeader,
     CurriDetailsContent,
+    InformData,
+    SmartTable,
+    InformHeader
 }
