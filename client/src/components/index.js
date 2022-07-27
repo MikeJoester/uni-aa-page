@@ -23,7 +23,6 @@ import CurriDetailsContent from "./Curriculum/CurriculumDetails/CurriDetailsCont
 
 //Notification form Lecturer
 import InformData from "./InformLecturer/InformData/InformData";
-import SmartTable from "./InformLecturer/index";
 import InformHeader from "./InformLecturer/InformHeader/InformHeader";
 
 //Footer
@@ -59,7 +58,5 @@ export {
     DashboardMain,
     CurriDetailsHeader,
     CurriDetailsContent,
-    InformData,
-    SmartTable,
     InformHeader
 }

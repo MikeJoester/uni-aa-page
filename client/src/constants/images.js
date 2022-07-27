@@ -34,12 +34,6 @@ import memory5 from '../assets/memory5.png'
 //search
 import search from '../assets/seachbg.jpg'
 
-//icons Inform
-import SVGArrowDown from '../assets/icons/SVGArrowDown';
-import SVGArrowUp from '../assets/icons/SVGArrowUp';
-import SVGChevronLeft from '../assets/icons/SVGChevronLeft';
-import SVGChevronRight from '../assets/icons/SVGChevronRight';
-
 //admin
 import vnuk_white from '../assets/LogoVNUK.png'
 
@@ -70,11 +64,5 @@ export default {
     memory5,
     search,
     vnuk_white,
-    SVGArrowDown,
-    SVGArrowUp,
-    SVGChevronLeft,
-    SVGChevronRight,
-
-
 };
 
