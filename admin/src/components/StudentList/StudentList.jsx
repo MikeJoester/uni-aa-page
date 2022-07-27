@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import './StudentList.css';
 
 import {
@@ -16,6 +17,7 @@ import { DataGrid } from '@mui/x-data-grid';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import GradingIcon from '@mui/icons-material/Grading';
 
 import {
   styled,
@@ -44,7 +46,25 @@ const CreateButton = styled(Button)(() => ({
     },
 }));
 
-const columns = [ //columns label
+
+const StudentList = () => {
+  //modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  //axios
+  const [studentList, setStudentList] = useState([]);
+
+  useEffect(() => {
+    const fetchStudents = async() => {
+      const res = await axios.get("http://localhost:5000/classlist/");
+      setStudentList(res.data)
+    }
+    fetchStudents();
+  }, [studentList]);
+
+  const columns = [ //columns label
   { field: 'id', headerName: 'ID', width: 100 },
   { field: 'fullName', headerName: 'Full Name', width: 200 },
   { field: 'class', headerName: 'Class', width: 150 },
@@ -64,13 +84,18 @@ const columns = [ //columns label
   { 
     field:'action',
     headerName: 'Action',
-    width: 150,
+    width: 180,
     renderCell: (params) => {
       return(
-        <Stack direction='row' spacing={3} justifyContent='space-between'>
+        <Stack direction='row' spacing={2} justifyContent='space-between'>
           <IconButton>
             <EditIcon/>
           </IconButton>
+          <Link to={"/grades/"+params.row.email}>
+            <IconButton>
+              <GradingIcon/>
+            </IconButton>          
+          </Link>
           <IconButton sx={{color: 'red'}}>
             <DeleteIcon/>
           </IconButton>
@@ -78,24 +103,7 @@ const columns = [ //columns label
       )
     }
   },
-];
-
-const StudentList = () => {
-  //modal
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  //axios
-  const [studentList, setStudentList] = useState("");
-
-  useEffect(() => {
-    const fetchStudents = async() => {
-      const res = await axios.get("http://localhost:5000/classlist/");
-      setStudentList(res.data);
-    }
-    fetchStudents();
-  }, []);
+  ];
 
   var rows = studentList.map((val) => {
     return {
@@ -107,48 +115,51 @@ const StudentList = () => {
     }
   });
 
+  // function redirect(uEmail) {
+  //   console.log(uEmail);
+  // }
+
   return (
     <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248'}}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <h1>Manage Students</h1>
         <CreateButton onClick={handleOpen}>Add Student</CreateButton>
         <Modal
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
             timeout: 500,
-          }}
+            }}
         >
-          <Fade in={open}>
+            <Fade in={open}>
             <Stack sx={style} spacing={3}>
-              <TextField id="outlined-basic" label="Student ID" variant="outlined" />
-              <Stack direction="row" sx={{width:'100%'}} alignItems="center">
+                <TextField id="outlined-basic" label="Student ID" variant="outlined" />
+                <Stack direction="row" sx={{width:'100%'}} alignItems="center">
                 <h4>First Name:</h4>
                 <TextField id="outlined-basic" label="First Name" variant="outlined" />
                 <h4>Last Name:</h4>
                 <TextField id="outlined-basic" label="Last Name" variant="outlined" />
-              </Stack>
-              <TextField id="outlined-basic" label="Birth Date" variant="outlined" />
-              <TextField id="outlined-basic" label="Gender" variant="outlined" />
-              <TextField id="outlined-basic" label="Major" variant="outlined" />
-              <TextField id="outlined-basic" label="Class" variant="outlined" />
-              <TextField id="outlined-basic" label="Email" variant="outlined" />
-              <TextField id="outlined-basic" label="Phone" variant="outlined" />
-              <TextField id="outlined-basic" label="Credit" variant="outlined" />
-              <CreateButton>Add Student</CreateButton>
+                </Stack>
+                <TextField id="outlined-basic" label="Birth Date" variant="outlined" />
+                <TextField id="outlined-basic" label="Gender" variant="outlined" />
+                <TextField id="outlined-basic" label="Major" variant="outlined" />
+                <TextField id="outlined-basic" label="Class" variant="outlined" />
+                <TextField id="outlined-basic" label="Email" variant="outlined" />
+                <TextField id="outlined-basic" label="Phone" variant="outlined" />
+                <TextField id="outlined-basic" label="Credit" variant="outlined" />
+                <Button>Add Student</Button>
             </Stack>
-          </Fade>
-        </Modal>
+            </Fade>
+    </Modal>
       </Stack>
       <DataGrid
         sx={{fontSize:'17px'}}
         rows={rows}
         columns={columns}
         pageSize={10}
-        rowsPerPageOptions={[5]}
-        checkboxSelection/>
+        rowsPerPageOptions={[5]}/>
     </Stack>
   )
 }

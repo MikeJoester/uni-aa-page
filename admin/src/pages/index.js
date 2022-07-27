@@ -5,6 +5,7 @@ import Settings from './Settings/Settings';
 import Courses from './Courses/Courses';
 import Feedbacks from './Feedbacks/Feedbacks';
 import Login from './Login/Login';
+import Grades from './Grades/Grades';
 
 export {
     Dashboard,
@@ -13,5 +14,6 @@ export {
     Settings,
     Courses,
     Feedbacks,
-    Login
+    Login,
+    Grades,
 }

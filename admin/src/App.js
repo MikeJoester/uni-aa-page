@@ -9,7 +9,8 @@ import {
   Settings,
   Courses,
   Feedbacks,
-  Login
+  Login,
+  Grades,
 } from './pages';
 
 import {
@@ -48,6 +49,7 @@ const App = () => {
           <Route path='/courses' element={<Courses/>}/>
           <Route path='/feedbacks' element={<Feedbacks/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/grades/:email' element={<Grades/>}/>
         </Routes>
       </Router>
     </div>
