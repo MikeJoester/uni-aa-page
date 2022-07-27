@@ -3,8 +3,10 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 import "./Sidebar.css";
 import menuitems from '../../constants/sidebar.json'
+import loginitems from '../../constants/logedin.json'
 import NewsNav from "./Content/NewsNav/NewsNav";
 import MenuNav from "./Content/MenuNav/MenuNav";
+import LoginNav from "./Content/LoginNav/LoginNav";
 
 const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   const [toggleContent, setToggleContent] = useState(1);
@@ -156,17 +158,18 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
               : "sidebar__content"
           }
         >
-          Login - Logout
           <div class="btn__login login" id="btn__login login"></div>
-          <button
-            class="btn__logout logout"
-            id="btn__logout logout"
-            onClick={(e) => handleSignOut(e)}
-            hidden
-          >
-            {" "}
-            Sign out
-          </button>
+
+          <div class="btn__logout logout" id="btn__logout logout" hidden>
+            <div className="loginnav">
+              { loginitems.map((item, index) => <LoginNav key={index} item={item}/>)}
+            </div>
+            <button onClick={(e) => handleSignOut(e)}>
+              {" "}
+              Sign out
+            </button>
+          </div>
+          
         </div>
       </div>
       <div

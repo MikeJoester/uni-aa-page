@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Hamburger from "./Hamburger/Hamburger";
 import NewsNav from "./Sidebar/Content/NewsNav/NewsNav";
 import MenuNav from "./Sidebar/Content/MenuNav/MenuNav";
+import LoginNav from "./Sidebar/Content/LoginNav/LoginNav";
 
 //Home
 import HomeHeader from "./Home/Header/HomeHeader";
@@ -39,6 +40,7 @@ export {
     Sidebar,
     NewsNav,
     MenuNav,
+    LoginNav,
     Hamburger,
     HomeHeader,
     NewsPost,
