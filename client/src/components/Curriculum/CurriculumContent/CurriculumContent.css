@@ -96,7 +96,7 @@ fieldset{
     color: white;
 }
 
-.sreach__only{
+.search__only{
     position: absolute;
     width: 1px;
     height: 1px;
@@ -137,7 +137,6 @@ fieldset{
     flex: 0 0 74%;
     max-width: 74%;
     font-family: "Crimson Pro", sans-serif;
-    
 }
 .Curriculum__nav-place{
     font-weight: 600;
@@ -342,10 +341,83 @@ fieldset{
 
 /*Tablet*/
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
-    
+    #filters p{
+        font-size: 0.75rem;
+    }
+    #filters form .filters__search {
+        padding-top: 0;
+        border: 0.28125em solid #300600;
+        font-size: 0.75em;
+    }
+    #filters form .filters__search input[type=text] {
+        width: 100%;
+        padding: 0.25rem;
+        font-size: 0.6rem;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    .Curriculum__credits-text p {
+        margin-bottom: 1.5em;
+        font-size: 0.95rem;
+    }
+
+    .Curriculum__credits-text .filter-items.filter-items--grid ul li a span.title {
+        font-size: 0.95em;
+    }
+    .Curriculum__credits-text .filter-items.filter-items--grid ul li {
+        width: calc(100% / 2 - 0.625rem - 0.375em);
+    }
 }
 /*Mobile*/
 @media (max-width: 46.1875em) {
-    
+    #filters p{
+        font-size: 0.7rem;
+    }
+    #filters form .filters__search {
+        padding-top: 0;
+        border: 0.28125em solid #300600;
+        font-size: 0.7em;
+    }
+    #filters form .filters__search input[type=text] {
+        width: 100%;
+        padding: 0.25rem;
+        font-size: 0.6rem;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    .Curriculum__credits-text p {
+        margin-bottom: 1.5em;
+        font-size: 0.9rem;
+    }
+
+    .Curriculum__credits-text .filter-items.filter-items--grid ul li a span.title {
+        font-size: 0.9em;
+    }
+    .Curriculum__credits-text .filter-items.filter-items--grid ul li {
+        width: calc(100% / 1 - 0.625rem - 0.375em);
+    }
+
+    .Curriculum__wrap{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .Curriculum__col-nav{
+        margin-right: auto;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-bottom: 0;
+    }
+
+    .Curriculum__Content .Curriculum__wrap .Curriculum__col-content {
+        margin-right: 0;
+        flex: 0 0 100%;
+        max-width: 100%;
+        font-family: "Crimson Pro", sans-serif;
+    }
 }
 

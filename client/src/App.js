@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-next-table/dist/SmartTable.css';
 import {Sidebar, Footer, Hamburger} from './components';
-import {Home, Dashboard, Students, Blogs, Curriculum} from './pages'
+import {Home, Dashboard, Students, Blogs, Curriculum, CurriDetails, Notification} from './pages'
 import {
   BrowserRouter as Router,
   Routes,
@@ -43,6 +45,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/SchoolCurriculum' element={<Curriculum/>}/>
+        <Route path='/SchoolCurriculum/details' element={<CurriDetails/>}/>
+        <Route path='/Notification' element={<Notification/>}/>
         {/* <Route path='/admin' element={<Dashboard/>}/>
         <Route path='/students' element={<Students/>}/>
         <Route path='/blogs' element={<Blogs/>}/> */}

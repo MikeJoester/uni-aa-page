@@ -23,7 +23,7 @@
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 20;
+    z-index: 0;
 }
 
 .content__news .center::before{
@@ -95,7 +95,7 @@
 }
 .new__title{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     font-size: 1.3rem;
     font-weight: bold;
     padding: 1rem 1rem;

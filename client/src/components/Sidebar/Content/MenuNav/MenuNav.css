@@ -1,0 +1,65 @@
+.menunav-item {
+    font-size: 20px;
+    font-family: 'Crimson Pro', san-serif;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.menunav-title {
+    display: flex;
+    padding: 0.6rem 0;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #756e63;
+
+    transition: all .3s ease;
+}
+
+.menunav-title-main {
+    color: white;
+}
+
+.menunav-title-sub {
+    color: #98938e;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+.menunav-title:hover {
+    padding-left: 0.7rem;
+    background-color: #756e63;
+}
+
+.menunav-title:hover > .menunav-title-sub {
+    color: white;
+}
+
+
+.menunav-title .menunav-toggle {
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 300;
+    padding-right: 0.8rem;
+    transition: transform .3s;
+}
+
+.menunav-item.open > .menunav-title .menunav-toggle {
+    transform: rotate(45deg);
+}
+
+.menunav-content {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 1rem;
+    padding-left: 1rem;
+    transition: max-height .25s ease;
+}
+
+.menunav-item.open > .menunav-content {
+    max-height: 200px;
+    transition: max-height .25s ease;
+}
+
+

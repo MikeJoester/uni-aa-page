@@ -1,0 +1,40 @@
+[
+    {
+        "title": "Announcement",
+        "childrens": [
+            {
+                "title": "Announcement",
+                "path": "/"
+            }
+        ]
+    },
+    {
+        "title": "School Curriculum",
+        "childrens": [
+            {
+                "title": "University",
+                "path": "/login"
+            },
+            {
+                "title": "Graduate School",
+                "path": "/register"
+            },
+            {
+                "title": "Skills Training Courses",
+                "path": "/SchoolCurriculum"
+            }
+        ]
+    },
+    {
+        "title": "Rules & Regulations",
+        "childrens": [
+            {
+                "title": "Rules & Regulations",
+                "path": "/profile"
+            },
+            {
+                "title": "FAQ"
+            }
+        ]
+    }
+]

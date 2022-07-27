@@ -1,6 +1,8 @@
 // import Navbar from "./Navbar/Navbar";
 import Sidebar from "./Sidebar/Sidebar";
 import Hamburger from "./Hamburger/Hamburger";
+import NewsNav from "./Sidebar/Content/NewsNav/NewsNav";
+import MenuNav from "./Sidebar/Content/MenuNav/MenuNav";
 
 //Home
 import HomeHeader from "./Home/Header/HomeHeader";
@@ -15,7 +17,14 @@ import HomeSearch from "./Home/Content/search/search";
 //Curriculum
 import CurriculumHeader from "./Curriculum/CurriculumHeader/CurriculumHeader";
 import CurriculumContent from "./Curriculum/CurriculumContent/CurriculumContent";
+import CurriDetailsHeader from "./Curriculum/CurriculumDetails/CurriDetailsHeader/CurriDetailsHeader";
+import CurriDetailsContent from "./Curriculum/CurriculumDetails/CurriDetailsContent/CurriDetailsContent";
+// import CurriCatalogue from "./Curriculum/CurriculumDetails/CurriCatalogue/CurriCatalogue";
 
+//Notification form Lecturer
+import InformData from "./InformLecturer/InformData/InformData";
+import SmartTable from "./InformLecturer/index";
+import InformHeader from "./InformLecturer/InformHeader/InformHeader";
 
 //Footer
 import Footer from "./Footer/Footer";
@@ -29,6 +38,8 @@ import BlogList from "./Admin/BlogList/BlogList";
 export {
     // Navbar,
     Sidebar,
+    NewsNav,
+    MenuNav,
     Hamburger,
     HomeHeader,
     NewsPost,
@@ -46,4 +57,9 @@ export {
     BlogList,
     StudentList,
     DashboardMain,
+    CurriDetailsHeader,
+    CurriDetailsContent,
+    InformData,
+    SmartTable,
+    InformHeader
 }

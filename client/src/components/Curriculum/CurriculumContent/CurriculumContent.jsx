@@ -1,6 +1,7 @@
 import React from 'react'
 import './CurriculumContent.css'
-import {images} from '../../../constants'
+// import {images} from '../../../constants'
+import { Link } from 'react-router-dom'
 
 const CurriculumContent = () =>{
     return(
@@ -12,7 +13,7 @@ const CurriculumContent = () =>{
                         <form>
                             <fieldset className="filters__search">
                                 <legend>Search</legend>
-                                <label class="sreach__only" for="filters-search">Enter term</label>
+                                <label class="search__only" for="filters-search">Enter term</label>
                                 <input type="text" name="filters-search" id="filters-search" placeholder="Enter terms..."></input>
                             </fieldset>
                             {/* Program level */}
@@ -158,149 +159,175 @@ const CurriculumContent = () =>{
                             </div> */}
                             <div class="filter-items filter-items--grid">
                                 <ul class="isotope">
-                                    <li class="red">
-                                        <div class="bordertop__top-red"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering</li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="yellow">
-                                        <div class="bordertop__top-yellow"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Adolescent Health, Certificate</span>
-                                                <ul class="divisions">
-                                                    <li>Bloomberg School of Public Health</li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="purple">
-                                        <div class="bordertop__top-purple"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Adult-Gerontological Acute Care Nurse Practitioner</span>
-                                                <ul class="divisions">
-                                                    <li>School of Nursing</li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="green">
-                                        <div class="bordertop__top-green"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Applied Biomedical Engineering, Master of Science</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering </li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="purple">
-                                        <div class="bordertop__top-purple"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering </li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="red">
-                                        <div class="bordertop__top-red"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering </li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="yellow">
-                                        <div class="bordertop__top-yellow"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering</li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="green">
-                                        <div class="bordertop__top-green"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering </li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="red">
-                                        <div class="bordertop__top-red"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering</li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="purple">
-                                        <div class="bordertop__top-purple"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering </li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="purple">
-                                        <div class="bordertop__top-purple"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering </li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="purple">
-                                        <div class="bordertop__top-purple"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering </li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="purple">
-                                        <div class="bordertop__top-purple"></div>
-                                        <a href="#">
-                                            <div class="item-container">
-                                                <span class="title">Accounting and Financial Management, Minor</span>
-                                                <ul class="divisions">
-                                                    <li>Whiting School of Engineering </li>
-                                                </ul>
-                                            </div>
-                                        </a>
-                                    </li>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="red">
+                                            <div class="bordertop__top-red"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="yellow">
+                                            <div class="bordertop__top-yellow"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Adolescent Health, Certificate</span>
+                                                    <ul class="divisions">
+                                                        <li>Bloomberg School of Public Health</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="purple">
+                                            <div class="bordertop__top-purple"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Adult-Gerontological Acute Care Nurse Practitioner</span>
+                                                    <ul class="divisions">
+                                                        <li>School of Nursing</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="green">
+                                            <div class="bordertop__top-green"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Applied Biomedical Engineering, Master of Science</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="purple">
+                                            <div class="bordertop__top-purple"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="red">
+                                            <div class="bordertop__top-red"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="yellow">
+                                            <div class="bordertop__top-yellow"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="green">
+                                            <div class="bordertop__top-green"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="red">
+                                            <div class="bordertop__top-red"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="purple">
+                                            <div class="bordertop__top-purple"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="purple">
+                                            <div class="bordertop__top-purple"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="purple">
+                                            <div class="bordertop__top-purple"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
+                                    <Link to="/SchoolCurriculum/details" >
+                                        <li class="purple">
+                                            <div class="bordertop__top-purple"></div>
+                                            <a href="/SchoolCurriculum/details">
+                                                <div class="item-container">
+                                                    <span class="title">Accounting and Financial Management, Minor</span>
+                                                    <ul class="divisions">
+                                                        <li>Whiting School of Engineering </li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </Link>
                                 </ul>
                             </div>
                         </div>
