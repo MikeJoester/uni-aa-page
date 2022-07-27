@@ -44,7 +44,7 @@ router.post("/", asyncHandler(async (req, res) => {
     }
 }))
 
-// UPDATE TRANSCRIPT
+// UPDATE TRANSCRIPT BY EMAIL
 router.patch("/:email", async (req, res) => {
     try {
         const transcript = await Transcript.findOneAndUpdate({ email: req.params.email }, { grades: req.body.grades })
@@ -54,7 +54,27 @@ router.patch("/:email", async (req, res) => {
     }
 })
 
-// DELETE TRANSCRIPT
+// DELETE TRANSCRIPT BY EMAIL
+router.delete("/:email", async (req, res) => {
+    try {
+        const transcript = await Transcript.findOneAndUpdate({ email: req.params.email })
+        res.status(200).json(transcript)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+// UPDATE TRANSCRIPT BY ID
+router.patch("/:id", async (req, res) => {
+    try {
+        const transcript = await Transcript.findByIdAndUpdate(req.params.id, { grades: req.body.grades })
+        res.status(200).json(transcript)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+// DELETE TRANSCRIPT BY ID
 router.delete("/:id", async (req, res) => {
     try {
         const transcript = await Transcript.findByIdAndUpdate(req.params.id)
