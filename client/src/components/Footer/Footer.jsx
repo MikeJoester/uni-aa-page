@@ -29,7 +29,7 @@ const Footer = () =>{
                             <li className="footer__name-uni">VNUK - Credit registration page</li>
                             <li><a href="/">Home</a></li>
                             <li><a href="/">Announcement</a></li>
-                            <li><a href="/">School Curriculum</a></li>
+                            <li><a href="/SchoolCurriculum">School Curriculum</a></li>
                             <li><a href="/">Rules & Regulations</a></li>
                         </ul>
                     </div>

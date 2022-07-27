@@ -4,19 +4,19 @@
         "childrens": [
             {
                 "title": "Personal Information",
-                "path": "/"
+                "path": "/Notification"
             },
             {
                 "title": "Notice from lecture to class",
-                "path": "/"
+                "path": "/Notification"
             },
             {
                 "title": "School Curriculum",
-                "path": "/"
+                "path": "/SchoolCurriculum"
             },
             {
                 "title": "Learning & Training Results",
-                "path": "/"
+                "path": "/Notification"
             }
         ]
     },

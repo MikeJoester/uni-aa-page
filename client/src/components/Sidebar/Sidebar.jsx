@@ -140,15 +140,17 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
             <h1 className="sidebar__news-title">Recent News</h1>
             <NewsNav />
             <NewsNav />
-            <NewsNav />
-            <p>More news</p>
+            <p>
+              <a className="sidebar__news-links" href="https://vnuk.edu.vn/tin-tuc/">More news</a> 
+            </p>
           </div>
           <div className="sidebar__events">
             <h1 className="sidebar__events-title">Upcoming Events</h1>
             <NewsNav />
             <NewsNav />
-            <NewsNav />
-            <p>More events</p>
+            <p>
+              <a className="sidebar__events-links" href="https://vnuk.edu.vn/su-kien/">More events</a>
+            </p>
           </div>
         </div>
         <div

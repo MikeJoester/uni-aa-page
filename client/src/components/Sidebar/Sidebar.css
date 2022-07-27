@@ -112,7 +112,14 @@
     color: #98938e;
     cursor: pointer;
     font-size: 20px;
-    margin: 5px 0 20px 0;
+    padding: 5px 0 20px 0;
+    text-decoration: none;
+}
+
+.sidebar__news-links,
+.sidebar__events-links{
+    text-decoration: none;
+    color: #98938e;
 }
 
 .app__sidebar-overlay {

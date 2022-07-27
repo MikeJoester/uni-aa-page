@@ -3,8 +3,13 @@
     align-items: flex-start;
     border-bottom: 1px solid #756e63;
     padding: 1rem 0;
-
     transition: all 0.4s ease;
+}
+
+.sidebar__newsnav-links{
+    text-decoration: none;
+    display: flex;
+    align-items: flex-start;
 }
 
 .sidebar__newsnav:hover {
@@ -14,8 +19,8 @@
 }
 
 .newsnav__image {
-    width: 7em;
-    height: 4em;
+    width: 100%;
+    height: 4.5em;
     margin-right: 1rem;
 }
 

@@ -5,6 +5,10 @@
             {
                 "title": "Announcement",
                 "path": "/"
+            },
+            {
+                "title": "Academics",
+                "path": "https://vnuk.edu.vn/academics/"
             }
         ]
     },
@@ -13,11 +17,11 @@
         "childrens": [
             {
                 "title": "University",
-                "path": "/login"
+                "path": "https://vnuk.edu.vn"
             },
             {
-                "title": "Graduate School",
-                "path": "/register"
+                "title": "International Professional Certificate",
+                "path": "https://vnuk.edu.vn/chung-chi-nghe-nghiep-quoc-te/"
             },
             {
                 "title": "Skills Training Courses",
