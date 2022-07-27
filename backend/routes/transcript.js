@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
 // GET TRANSCRIPT BY EMAIL
 router.get("/transcriptEmail/:email", async (req, res) => {
     try {
-        const transcript = await Transcript.find({ email: req.params.email })
+        const transcript = await Transcript.findOne({ student_email: req.params.email })
         res.status(200).json(transcript)
     } catch (err) {
         res.status(500).json(err)
@@ -47,7 +47,7 @@ router.post("/", asyncHandler(async (req, res) => {
 // UPDATE TRANSCRIPT BY EMAIL
 router.patch("/:email", async (req, res) => {
     try {
-        const transcript = await Transcript.findOneAndUpdate({ email: req.params.email }, { grades: req.body.grades })
+        const transcript = await Transcript.findOneAndUpdate({ student_email: req.params.email }, { grades: req.body.grades })
         res.status(200).json(transcript)
     } catch (err) {
         res.status(500).json(err)
@@ -57,7 +57,7 @@ router.patch("/:email", async (req, res) => {
 // DELETE TRANSCRIPT BY EMAIL
 router.delete("/:email", async (req, res) => {
     try {
-        const transcript = await Transcript.findOneAndUpdate({ email: req.params.email })
+        const transcript = await Transcript.findOneAndUpdate({ student_email: req.params.email })
         res.status(200).json(transcript)
     } catch (err) {
         res.status(500).json(err)
