@@ -22,9 +22,9 @@ import CurriDetailsContent from "./Curriculum/CurriculumDetails/CurriDetailsCont
 // import CurriCatalogue from "./Curriculum/CurriculumDetails/CurriCatalogue/CurriCatalogue";
 
 //Notification form Lecturer
-import InformData from "./InformLecturer/InformData/InformData";
+import InformContent from "./InformLecturer/InformContent/InformContent";
 import InformHeader from "./InformLecturer/InformHeader/InformHeader";
-
+import InformTable from "./InformLecturer/InformTable/InformTable";
 //Footer
 import Footer from "./Footer/Footer";
 
@@ -58,5 +58,7 @@ export {
     DashboardMain,
     CurriDetailsHeader,
     CurriDetailsContent,
-    InformHeader
+    InformHeader,
+    InformContent,
+    InformTable
 }
