@@ -6,7 +6,6 @@ import './Dashboard.css';
 const Dashboard = () => {
   return (
     <div className="dashboard-main">
-        <AdminNavbar/>
         <DashboardMain/>
     </div>
   )

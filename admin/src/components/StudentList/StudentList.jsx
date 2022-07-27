@@ -4,7 +4,6 @@ import './StudentList.css';
 
 import {
   Stack,
-  Box,
   Button,
   IconButton,
   Modal,
@@ -88,26 +87,21 @@ const StudentList = () => {
   const handleClose = () => setOpen(false);
 
   //axios
-  const [posts, setPosts] = useState([]);
-  const [className, setClassName] = useState("");
+  const [studentList, setStudentList] = useState("");
+
   useEffect(() => {
-    const fetchPosts = async() => {
-      const res = await axios.get("http://localhost:5000/students/");
-      setPosts(res.data);
+    const fetchStudents = async() => {
+      const res = await axios.get("http://localhost:5000/classlist/");
+      setStudentList(res.data);
     }
-    fetchPosts();
+    fetchStudents();
   }, []);
 
-  var rows = posts.map((val) => {
-    const fetchClasses = async() => {
-      const res = await axios.get(`http://localhost:5000/classes/${val.class}`);
-      setClassName(res.data.class_name);
-    }
-    fetchClasses();
+  var rows = studentList.map((val) => {
     return {
       id: val.student_id,
       fullName: val.full_name,
-      class: className,
+      class: val.class.class_name,
       dob: new Date(val.birth_date).toDateString(),
       email: val.email
     }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 import {
@@ -81,24 +82,21 @@ const ViewMoreBtn = styled(Button)({
 });
 
 const DashboardMain = () => {
+    const navigate = useNavigate();
     const [students, setStudents] = useState([]);
-    useEffect(() => {
-        const fetchStudents = async() => {
-            const res = await axios.get("http://localhost:5000/students/");
-            setStudents(res.data);
-        }
-        fetchStudents();
 
+    const navigateStudents = () => {
+        navigate('/students');
+    }
+
+    useEffect(() => {
         const fetchClasses = async() => {
-            const res = await axios.get("http://localhost:5000/classes/");
+            const res = await axios.get("http://localhost:5000/classlist/");
+            setStudents(res.data);
             console.log(res.data);
         }
         fetchClasses();
     }, []);
-
-    // students.map((p) => {
-    //     console.log(axios.get(`http://localhost:5000/classes/${p.class}`));  
-    // });
 
   return (
     <Stack direction="column" spacing={5} sx={{mx:'40px', my:'50px', width:'100%', color:'#000248'}}>
@@ -167,30 +165,31 @@ const DashboardMain = () => {
                       </InputAdornment>
                     ),
                   }}/>
-                {students.map((p) => { return (
-                    <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
-                        <Stack direction="row" justifyContent="space-between" alignItems="center">
-                            <Stack direction="row" spacing={4} alignItems="center">
-                                <div className="icon-circle-container"></div>
-                                <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                                    <h3>{p.full_name}</h3>
-                                    <p>Class: <b>22CSE</b></p>
-                                </Stack>
-                            </Stack>
-                            <Stack direction="row" spacing={2}>
-                                <IconButton sx={{color:'#000248'}}>
-                                    <InfoIcon fontSize="large"/>
-                                </IconButton>
-        
-                                <IconButton sx={{color:'#000248'}}>
-                                    <EmailIcon fontSize="large"/>
-                                </IconButton>
+                
+                {students.slice(0, 5).map((p) => {return(
+                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
+                    <Stack direction="row" justifyContent="space-between" alignItems="center">
+                        <Stack direction="row" spacing={4} alignItems="center">
+                            <div className="icon-circle-container"></div>
+                            <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                                <h3>{p.full_name}</h3>
+                                <p>Class: <b>{p.class.class_name}</b></p>
                             </Stack>
                         </Stack>
-                        <Divider/>
+                        <Stack direction="row" spacing={2}>
+                            <IconButton sx={{color:'#000248'}}>
+                                <InfoIcon fontSize="large"/>
+                            </IconButton>
+    
+                            <IconButton sx={{color:'#000248'}}>
+                                <EmailIcon fontSize="large"/>
+                            </IconButton>
+                        </Stack>
                     </Stack>
+                    <Divider/>
+                </Stack>
                 )})}
-                <ViewMoreBtn>View More</ViewMoreBtn>
+                <ViewMoreBtn onClick={navigateStudents}>View More</ViewMoreBtn>
             </Stack>
 
             <Stack direction="column" spacing={3} sx={{width:'100%', backgroundColor:'white', borderRadius:'20px', p:'30px'}} alignItems="center">

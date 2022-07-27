@@ -34,13 +34,24 @@ const AdminNavbar = () => {
         navigate('/students');
     }
 
+    const navigateSettings = () => {
+        navigate('/settings');
+    }
+
+    const navigateCourses = () => {
+        navigate('/courses');
+    }
+
+    const navigateFeedbacks = () => {
+        navigate('/feedbacks');
+    }
+
   return (
     <List
         sx={{width: '100%', maxWidth: 345, bgcolor:'#000248', height:'80vw', pt:'45px'}}
     >
-        <a href="https://vnuk.edu.vn/" target="_blank" rel="noreferrer"><img src={images.vnuk_white} className="dashboard-vnuk-white" alt="vnuk-logo"/></a>
-
-        <Stack spacing={2} direction="column" sx={{my:'20px', pl:'45px'}}>
+        <Stack spacing={2} direction="column" sx={{my:'20px', pl:'45px', position:'fixed'}}>
+            <a href="https://vnuk.edu.vn/" target="_blank" rel="noreferrer"><img src={images.vnuk_white} className="dashboard-vnuk-white" alt="vnuk-logo"/></a>
             <ListItemButton 
             onClick={navigateHome}>
                     <ListItemIcon sx={{color:'white'}}> 
@@ -65,7 +76,7 @@ const AdminNavbar = () => {
                 }}/>
             </ListItemButton>
 
-            <ListItemButton>
+            <ListItemButton onClick={navigateCourses}>
                 <ListItemIcon sx={{color:'white'}}>  
                     <MenuBookIcon fontSize="large"/>
                 </ListItemIcon>
@@ -87,7 +98,7 @@ const AdminNavbar = () => {
                     }}/>
             </ListItemButton>
 
-            <ListItemButton>
+            <ListItemButton onClick={navigateFeedbacks}>
                 <ListItemIcon sx={{color:'white'}}>  
                     <ForumIcon fontSize="large"/>
                 </ListItemIcon>
@@ -98,7 +109,7 @@ const AdminNavbar = () => {
                 }}/>
             </ListItemButton>
 
-            <ListItemButton>
+            <ListItemButton onClick={navigateSettings}>
                 <ListItemIcon sx={{color:'white'}}>  
                     <SettingsIcon fontSize="large"/>
                 </ListItemIcon>

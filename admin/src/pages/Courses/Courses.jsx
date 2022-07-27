@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import {CourseList} from '../../components';
 
 const Courses = () => {
   return (
-    <div>Courses</div>
+    <div className="dashboard-main">
+      <CourseList/>
+    </div>
   )
 }
 

@@ -41,6 +41,8 @@ const majorsRouter = require('./routes/majors');
 const studentsRouter = require('./routes/students');
 const resultsRouter = require('./routes/student-result');
 const authRouter = require('./routes/auth');
+const classList = require('./scripts/classList');
+const updateMajorCourse = require('./scripts/updateMajorCourse');
 // const googleauthRouter = require('./routes/google-auth');
 
 app.use("/blogs", blogsRouter);
@@ -51,6 +53,8 @@ app.use("/majors", majorsRouter);
 app.use("/students", studentsRouter);
 app.use("/results", resultsRouter);
 app.use("/auth", authRouter);
+app.use("/classlist", classList);
+app.use("/umj", updateMajorCourse);
 // app.use("/", googleauthRouter);
 
 app.listen(port, () => {

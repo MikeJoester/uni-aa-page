@@ -1,6 +1,7 @@
 const router = require('express').Router()
 let Student = require('../models/student.model')
 let Classroom = require('../models/class.model')
+let Major = require('../models/major.model')
 
 // GET ALL STUDENTS
 router.get("/", async (req, res) => {
@@ -38,7 +39,7 @@ router.post("/", async (req, res) => {
     const newStudent = new Student(req.body)
     try {
         const savedStudent = await newStudent.save()
-        const updateClassroom = await Classroom.findOneAndUpdate({_id: newStudent.class}, {$push: { students: newStudent._id}} )
+        const updateClassroom = await Classroom.findOneAndUpdate({_id: newStudent.class}, {$push: { students: newStudent._id}})
         res.status(200).json(savedStudent)
 
         return
