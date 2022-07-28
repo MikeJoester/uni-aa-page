@@ -137,3 +137,18 @@
 .menunav:last-child {
     border-bottom: 1px solid #756e63;
 }
+
+.btn__logout button{
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    right: 7rem;
+    font-family: "Roboto", sans-serif; 
+    font-weight: 700;
+    font-size: 1rem;
+    background-color:#98938e;
+    color: #fff;
+    border:  2px solid#706050
+}

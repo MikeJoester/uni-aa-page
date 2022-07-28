@@ -4,7 +4,7 @@
         "childrens": [
             {
                 "title": "Personal Information",
-                "path": "/Notification"
+                "path": "/PersonalInformation"
             },
             {
                 "title": "Notice from lecture to class",

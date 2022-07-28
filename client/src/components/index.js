@@ -26,13 +26,18 @@ import CurriDetailsContent from "./Curriculum/CurriculumDetails/CurriDetailsCont
 import InformContent from "./InformLecturer/InformContent/InformContent";
 import InformHeader from "./InformLecturer/InformHeader/InformHeader";
 import InformTable from "./InformLecturer/InformTable/InformTable";
-//Footer
-import Footer from "./Footer/Footer";
 
 //Transcript
 import StudentResult from "./StudentTranscript/StudentResult/StudentResult";
 import StudentHeader from "./StudentTranscript/TranscriptHeader/StudentHeader";
 import StudentContent from "./StudentTranscript/StudentContent/StudentContent";
+
+//Personal information
+import PersonalHeader from "./PersonalInfo/PersonalHeader/PersonalHeader";
+import PersonalContent from "./PersonalInfo/PersonalContent/PersonalContent";
+
+//Footer
+import Footer from "./Footer/Footer";
 
 export {
     // Navbar,
@@ -60,4 +65,6 @@ export {
     StudentResult,
     StudentContent,
     StudentHeader,
+    PersonalHeader,
+    PersonalContent,
 }

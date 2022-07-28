@@ -11,10 +11,14 @@ import Notification from './Notification/Notification';
 //Transcript
 import Transcript from './Transcript/Transcript';
 
+//Personal Information
+import PersonalInfo from './PersonalInfo/PersonalInfo';
+
 export {
     Home,
     Curriculum,
     CurriDetails,
     Notification,
-    Transcript
+    Transcript,
+    PersonalInfo
 }
