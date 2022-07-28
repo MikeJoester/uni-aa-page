@@ -1,8 +1,8 @@
-.Student__Content{
+.Inform__Content{
     margin: 0 auto;
 }
 
-.Student__wrap{
+.Inform__wrap{
     position: relative;
     top: -3em;
     background-color: #fff;
@@ -12,20 +12,20 @@
     font-family: "Crimson Pro", sans-serif;
 }
 
-.Student__nav-place, .Student__current-place{
+.Inform__nav-place, .Inform__current-place{
     font-weight: 600;
     font-size: 1em;
 }
-.Student__nav-place a{
+.Inform__nav-place a{
     display: inline-block;
     text-decoration: none;
     color: #555;
 }
-.Student__nav-place a:hover{
+.Inform__nav-place a:hover{
     text-decoration: underline;
 }
 
-.Student__Name{
+.Inform__Name{
     padding: 2rem 0;
     font-weight: 700;
     font-size: 2.5rem;
