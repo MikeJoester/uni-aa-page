@@ -8,17 +8,13 @@ import CurriDetails from './CurriDetails/CurriDetails';
 //Notification
 import Notification from './Notification/Notification';
 
-//admin
-import Dashboard from './Dashboard/Dashboard';
-import Students from './Students/Students';
-import Blogs from './Blogs/Blogs';
+//Transcript
+import Transcript from './Transcript/Transcript';
 
 export {
     Home,
     Curriculum,
-    Dashboard,
-    Students,
-    Blogs,
     CurriDetails,
-    Notification
+    Notification,
+    Transcript
 }

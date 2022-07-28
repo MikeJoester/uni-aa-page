@@ -29,11 +29,8 @@ import InformTable from "./InformLecturer/InformTable/InformTable";
 //Footer
 import Footer from "./Footer/Footer";
 
-//Admin
-import AdminNavbar from "./Admin/Navbar/AdminNavbar";
-import StudentList from "./Admin/StudentList/StudentList";
-import DashboardMain from "./Admin/DashboardMain/DashboardMain";
-import BlogList from "./Admin/BlogList/BlogList";
+//Transcript
+import StudentResult from "./StudentResult/StudentResult";
 
 export {
     // Navbar,
@@ -53,14 +50,10 @@ export {
     CurriculumHeader,
     CurriculumContent,
     Footer,
-    //Admin
-    AdminNavbar,
-    BlogList,
-    StudentList,
-    DashboardMain,
     CurriDetailsHeader,
     CurriDetailsContent,
     InformHeader,
     InformContent,
-    InformTable
+    InformTable,
+    StudentResult,
 }
