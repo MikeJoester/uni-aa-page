@@ -30,7 +30,9 @@ import InformTable from "./InformLecturer/InformTable/InformTable";
 import Footer from "./Footer/Footer";
 
 //Transcript
-import StudentResult from "./StudentResult/StudentResult";
+import StudentResult from "./StudentTranscript/StudentResult/StudentResult";
+import StudentHeader from "./StudentTranscript/TranscriptHeader/StudentHeader";
+import StudentContent from "./StudentTranscript/StudentContent/StudentContent";
 
 export {
     // Navbar,
@@ -56,4 +58,6 @@ export {
     InformContent,
     InformTable,
     StudentResult,
+    StudentContent,
+    StudentHeader,
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import './InformContent.css'
 import {InformTable} from '../../index'
-import {DataGrid} from '@mui/x-data-grid';
 
 const InformContent = () =>{
     return(

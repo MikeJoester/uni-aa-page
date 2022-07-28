@@ -16,7 +16,7 @@
             },
             {
                 "title": "Learning & Training Results",
-                "path": "/Notification"
+                "path": "/transcript/:email"
             }
         ]
     },

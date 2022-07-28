@@ -36,10 +36,7 @@ const StudentResult = () => {
     });
 
   return (
-    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248'}}>
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
-            <h1>Student's Grade:</h1>
-        </Stack>
+    <Stack direction="column" spacing={4} sx={{mx:'auto', mt:'50px', width:'100%', color:'#000248'}}>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>

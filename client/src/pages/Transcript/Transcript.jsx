@@ -1,10 +1,13 @@
 import React from 'react';
-import {StudentResult} from '../../components';
+import {StudentHeader,StudentContent} from '../../components';
 
 
 const Transcript = () => {
   return (
-    <StudentResult/>
+    <div className="Web__Transcript">
+      <StudentHeader/>
+      <StudentContent/>
+    </div>
   )
 }
 
