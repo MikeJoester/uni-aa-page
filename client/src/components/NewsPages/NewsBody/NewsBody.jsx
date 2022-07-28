@@ -12,16 +12,21 @@ const NewsBody = () =>{
                     </div>
                     <br/>
                     <div className="list">
-                        <a href="#">Test</a>
+
                         <ul className='mainList'>
-                            <li className='testList'>test
+                            <li><a href='#'>About Us</a></li>
+                            <li><a href="">Academic</a></li>
+                            <li><a href="">Schools & Divisions</a></li>
+                            <li className='testList'><a href="">Admissions & Aid</a> 
                                 <ul className='subList'>
-                                    <li>test1</li>
+                                    <li><a href="">Undergraduate</a></li>
+                                    <li><a href="">Graduate Admissions</a> </li>
+                                    <li><a href="">Plan a Visit</a></li>
                                 </ul>
                             </li>
-                            <li>test2</li>
-                            <li>test3</li>
-                            <li>test4</li>
+                            <li><a href=""> Research & Faculty</a></li>
+                            <li><a href=""> Campus Life</a></li>
+
                         </ul>
 
 

@@ -1,4 +1,4 @@
-.NewsBody{
+.surveyBody{
     background-color: white;
     top:-3em;
     width: 70%;
@@ -9,7 +9,7 @@
 }
 .column {
     float: left;
-    width: 40%;
+    width: 50%;
     height: 234vh;
 }
 .searchBox{
@@ -31,6 +31,11 @@ h4{
 h1{
     text-align: left;
     padding-top: 50px;
+    padding-bottom: 20px;
+}
+h5{
+    text-align: left;
+    margin: auto;
 }
 p{
     padding-top: 20px;
@@ -85,11 +90,39 @@ ul>li{
     text-decoration: none;
 }
 
+* {
+    box-sizing: border-box;
+}
+.postCol {
+    float: left;
+    padding: 10px;
+    background-color: lightyellow;
+    border-bottom: 2px solid blue;
+}
+.postRow{
+    padding-top: 50px;
+    height: 6px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.left{
+    width:20%
+}
+.middle{
+    width:60%
+}
+.right{
+    width:20%
+}  
+
 
 
 
 @media (min-width: 63.9375em) and (max-width: 80em) {
-    .NewsBody{
+    .surveyBody{
         height: 291vh;
     }
     .column{
@@ -100,7 +133,7 @@ ul>li{
 
 /*Tablet*/
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
-    .NewsBody{
+    .surveyBody{
         height: 371vh;
     }
     .column{
@@ -110,7 +143,7 @@ ul>li{
 }
 /*Mobile*/
 @media (max-width: 46.1875em) {
-    .NewsBody{
+    .surveyBody{
         height: 453vh;
     }
     .column{

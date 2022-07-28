@@ -13,6 +13,9 @@ import HomeSearch from "./Home/Content/search/search";
 //NewsPage
 import NewHeader from "./NewsPages/NewHeader/NewHeader";
 import NewsBody from "./NewsPages/NewsBody/NewsBody";
+//Survey
+import SurveyHeader from "./Survey/SurveyHeader/SurveyHeader";
+import SurveyBody from "./Survey/SurveyBody/SurveyBody";
 
 
 //Footer
@@ -43,4 +46,6 @@ export {
     DashboardMain,
     NewHeader,
     NewsBody,
+    SurveyHeader,
+    SurveyBody
 }
