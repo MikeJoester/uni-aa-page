@@ -14,11 +14,15 @@ import Transcript from './Transcript/Transcript';
 //Personal Information
 import PersonalInfo from './PersonalInfo/PersonalInfo';
 
+//Register credit
+import RegisterCredit from './RegisterCredit/RegisterCredit';
 export {
     Home,
     Curriculum,
     CurriDetails,
     Notification,
     Transcript,
-    PersonalInfo
+    PersonalInfo,
+    RegisterCredit
+    
 }

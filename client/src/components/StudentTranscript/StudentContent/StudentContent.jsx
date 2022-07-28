@@ -11,7 +11,7 @@ const StudentContent = () =>{
                     <span className="crumsep">{">"}</span>
                     <span class="Student__current-place">Student's Grade</span>
                     <p className="Student__Name">
-                        Student's Grade:
+                        Student's Grade
                     </p>
                 </div>
 

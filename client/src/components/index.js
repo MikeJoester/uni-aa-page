@@ -36,6 +36,9 @@ import StudentContent from "./StudentTranscript/StudentContent/StudentContent";
 import PersonalHeader from "./PersonalInfo/PersonalHeader/PersonalHeader";
 import PersonalContent from "./PersonalInfo/PersonalContent/PersonalContent";
 
+//Credit register
+import RegisterCreditContent from "./RegisterCredit/RegisterCreditContent/RegisterCreditContent";
+import RegisterHeader from "./RegisterCredit/RegisterHeader/RegisterHeader";
 //Footer
 import Footer from "./Footer/Footer";
 
@@ -67,4 +70,6 @@ export {
     StudentHeader,
     PersonalHeader,
     PersonalContent,
+    RegisterCreditContent,
+    RegisterHeader,
 }

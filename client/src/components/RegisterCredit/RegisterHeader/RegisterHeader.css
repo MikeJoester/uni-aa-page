@@ -1,0 +1,114 @@
+.RegisterCredit__Header{
+    height: 60vh;
+    background-image: url(../../../assets/imgHeader/CurriculumBg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    position: sticky;
+    z-index: 0;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-50%);
+}
+.logo__large{
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 0 20rem;
+}
+.logo__md
+{
+    display: none;
+    width: 100%;
+    height: auto;
+    padding: 0 5rem;
+}
+.logo__verti
+{
+    display: none;
+    width: 100%;
+    height: auto;
+    padding: 0 7rem;
+}
+.logo__verti2
+{
+    display: none;
+    min-width: 20vh;
+    height: auto;
+    padding: 0 2rem;
+}
+
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    .logo__large{
+        display: none!important;
+    }
+    .logo__md
+    {
+        display: block;
+    }
+    .logo__verti
+    {
+        display: none;
+    }
+    .logo__verti2
+    {
+        display: none;
+    }
+}
+
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .logo__large{
+        display: none;
+    }
+    .logo__md
+    {
+        display: none;
+    }
+    .logo__verti
+    {
+        display: block;
+    }
+    .logo__verti2
+    {
+        display: none;
+    }
+    
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .logo__large{
+        display: none;
+    }
+    
+    .logo__md
+    {
+        display: none;
+    }
+    .logo__verti
+    {
+        display: none;
+    }
+    .logo__verti2
+    {
+        display: block;
+    }
+}
