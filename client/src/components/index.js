@@ -16,6 +16,9 @@ import NewsBody from "./NewsPages/NewsBody/NewsBody";
 //Survey
 import SurveyHeader from "./Survey/SurveyHeader/SurveyHeader";
 import SurveyBody from "./Survey/SurveyBody/SurveyBody";
+//Rules
+import RulesHeader from "./Rules/RulesHeader/RulesHeader";
+import RulesBody from "./Rules/RulesBody/RulesBody";
 
 
 //Footer
@@ -47,5 +50,8 @@ export {
     NewHeader,
     NewsBody,
     SurveyHeader,
-    SurveyBody
+    SurveyBody,
+    RulesHeader,
+    RulesBody
+
 }
