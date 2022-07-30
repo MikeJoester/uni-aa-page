@@ -24,5 +24,4 @@ export {
     Transcript,
     PersonalInfo,
     RegisterCredit
-    
 }
