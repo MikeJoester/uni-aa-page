@@ -36,8 +36,10 @@
     font-weight: 700;
     font-size: 2.5rem;
 }
-.Survey__Name span{
+.Survey__Name span p{
+    margin-top: 1rem;
     font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .Survey__count{
@@ -45,16 +47,17 @@
     width: 15%;
     height: 15%;
     border-radius: 10px;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     flex-direction: column;
     font-size: 1.5rem;
 }
 .Survey__count span{
     font-size: 4rem;
     text-align: center;
-    margin-top: -15px;
+    margin-top: -5px;
 }
 
 .Survey__links{
@@ -94,7 +97,7 @@
         padding: 1.75rem 0;
         font-size: 2.25rem;
     }
-    .Survey__Name span{
+    .Survey__Name span p{
         font-size: 1rem;
     }
     
@@ -115,7 +118,7 @@
         padding: 1.75rem 0;
         font-size: 2.25rem;
     }
-    .Survey__Name span{
+    .Survey__Name span p{
         font-size: 1rem;
     }
     
@@ -142,17 +145,17 @@
         font-size: 2rem;
     }
 
-    .Survey__Name span{
+    .Survey__Name span p{
         font-size: 1rem;
         padding-right: 10px;
     }
     
     .Survey__count{
         position: relative;
-        top: -2.5rem;
         width: 50%;
-        height: 90px;
+        height: 50px;
         font-size: 1rem;
+        margin-bottom: 1rem;
     }
     .Survey__count span{
         font-size: 1.75rem;

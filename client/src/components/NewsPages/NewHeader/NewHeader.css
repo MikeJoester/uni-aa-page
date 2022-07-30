@@ -1,12 +1,12 @@
-.Home__header{
-    height: 100vh;
-    background-image: url('https://images.unsplash.com/photo-1473896100090-53523650d4c6');
+.News__header{
+    height: 60vh;
+    background-image: url(../../../assets/imgHeader/CurriculumBg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     color: #fff;
     position: sticky;
-    z-index: -1;
+    z-index: 0;
 }
 
 .logo{

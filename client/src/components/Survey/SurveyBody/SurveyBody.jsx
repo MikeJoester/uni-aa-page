@@ -3,58 +3,6 @@ import './SurveyBody.css'
 
 const SurveyBody = () =>{
     return(
-        // <div className="surveyBody">
-
-        //     <div className="surveyBody__content">
-        //             <h1>Survey</h1>
-        //             <h5>The VNUK Institute faculty and students study, teach, and learn across more than 400 programs in the computer and biology, the social and natural sciences, engineering, international studies, education, business, and the health professions.
-        //                 Use the interactive program explorer to browse the programs that JHU offers. Sort by division and/or degree type, or use the keyword search to get started.</h5>       
-        //             <div class="postRow">
-        //                 <div class="postCol left" >
-        //                     <h5>Teacher</h5>
-        //                 </div>
-        //                 <div class="postCol middle" >
-        //                     <a href=''><h5>How smart is Vu?</h5></a>
-        //                 </div>
-        //                 <div class="postCol right" >
-        //                     <h5>15/10/1696</h5>
-        //                 </div>
-        //             </div>
-        //             <div class="postRow">
-        //                 <div class="postCol left" >
-        //                     <h5>Teacher</h5>
-        //                 </div>
-        //                 <div class="postCol middle" >
-        //                     <a href=''><h5>How smart is Vu?</h5></a>
-        //                 </div>
-        //                 <div class="postCol right" >
-        //                     <h5>15/10/1696</h5>
-        //                 </div>
-        //             </div>
-        //             <div class="postRow">
-        //                 <div class="postCol left" >
-        //                     <h5>Teacher</h5>
-        //                 </div>
-        //                 <div class="postCol middle" >
-        //                     <a href=''><h5>How smart is Vu?</h5></a>
-        //                 </div>
-        //                 <div class="postCol right" >
-        //                     <h5>15/10/1696</h5>
-        //                 </div>
-        //             </div>
-        //             <div class="postRow">
-        //                 <div class="postCol left" >
-        //                     <h5>Teacher</h5>
-        //                 </div>
-        //                 <div class="postCol middle" >
-        //                     <a href=''><h5>How smart is Vu?</h5></a>
-        //                 </div>
-        //                 <div class="postCol right" >
-        //                     <h5>15/10/1696</h5>
-        //                 </div>
-        //             </div>
-        //     </div>
-        // </div>
         <div className="Survey__Content">
             <div className="Survey__wrap">
                 <div className="Survey__nav-place">

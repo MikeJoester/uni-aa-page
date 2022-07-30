@@ -1,119 +1,169 @@
 .NewsBody{
-    background-color: white;
-    top:-3em;
-    width: 70%;
-    height: 234vh;
-    position: relative;
     margin: 0 auto;
-    
 }
-.column {
-    float: left;
-    width: 40%;
-    height: 234vh;
-}
-.searchBox{
-    width: 80%;
-    height: auto;
-    background-color: #300600;
-    padding: 10px;
-    margin: auto ;
+
+.Announcements__wrap{
     position: relative;
-    top:50px;
-    padding-bottom: 20px;
-}
-h4{
-    text-align: center  ;
-    color:white;
-    padding-bottom: 15px;
-    margin: auto;
-}
-h1{
-    text-align: left;
-    padding-top: 50px;
-}
-p{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-input{
-    margin: auto;
-    width: 100%;
-    height: 40px;
-}
-.more{
-    padding: 10px;
-    width: 60%;
+    top: -3em;
+    background-color: #fff;
+    padding: 2rem 2rem;
+    width: 82.91667%;
     margin: 0 auto;
-    border: 30px dark;
-    background-color: whitesmoke;
+    font-family: "Crimson Pro", sans-serif;
 }
-.post{
-    padding-bottom: 30px;
+
+.Announcements__nav-place, .Announcements__current-place{
+    font-weight: 600;
+    font-size: 1em;
 }
-.full{
-    background-color: whitesmoke;
-    color: black;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
+.Announcements__nav-place a{
     display: inline-block;
-    border-style: solid;
-    border-width: 3px;
-    border-radius: 5px;
-
-}
-.list{
-    padding-top: 15%;
-    padding-left: 10%;
-    
-}
-li{
-    list-style-type: none;
-
-}
-ul>li{
-    padding: 1rem;
-}
-.subList{
-    display: block;
-    padding-top: 1rem;
-    padding-left: 1.5rem;
-    padding-right: 1rem;
-}
-.mainList a{
     text-decoration: none;
+    color: #555;
+}
+.Announcements__nav-place a:hover{
+    text-decoration: underline;
 }
 
+.Announcements__Name{
+    padding: 2rem 0 1rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
 
+.Announcements__Name span p{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
 
+.Announcements__box{
+    padding: 1rem 1rem;
+    font-family: "Crimson Pro", sans-serif;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #555;
 
+    margin-bottom: 1rem;
+}
+
+.Announ__name{
+    font-size: 2rem;
+    font-weight: 700;
+    color: #043091;
+    margin-bottom: 1rem;
+}
+
+.Announ__substance{
+    line-height: 2;
+    padding: 0 1rem;
+}
+
+.Announ__btn-view{
+    width: 30%;
+    border: 2px solid #555;
+    padding: 0.5rem 0;
+    margin: 3rem auto 0;
+}
+.Announ__btn-view a{
+    text-decoration: none;
+    color: #000;
+}
+.Announ__btn-view p{
+    text-align: center;
+    padding: 0 auto;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/*Tablet & mobile*/
 @media (min-width: 63.9375em) and (max-width: 80em) {
-    .NewsBody{
-        height: 291vh;
+    .Announcements__Name{
+        padding: 1rem 0 0.75rem;
+        font-size: 2.5rem;
     }
-    .column{
-        height: 291vh;
+    
+    .Announcements__Name span p{
+        margin-top: 0.75rem;
+        font-size: 1.25rem;
+    }
+    
+    .Announcements__box{
+        font-size: 1rem;
+    }
+    
+    .Announ__name{
+        font-size: 1.75rem;
+    }
+    
+    .Announ__substance{
+        line-height: 1.75;
+    }
+
+    .Announ__btn-view p{
+        font-size: 1rem;
     }
 }
 
 
 /*Tablet*/
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
-    .NewsBody{
-        height: 371vh;
+    .Announcements__Name{
+        padding: 1rem 0 0.75rem;
+        font-size: 2.25rem;
     }
-    .column{
-        height: 371vh;
+    
+    .Announcements__Name span p{
+        margin-top: 0.75rem;
+        font-size: 1.1rem;
+    }
+    
+    .Announcements__box{
+        font-size: 0.9rem;
+    }
+    
+    .Announ__name{
+        font-size: 1.5rem;
+    }
+    
+    .Announ__substance{
+        line-height: 1.65;
+    }
+    .Announ__btn-view p{
+        font-size: 0.8rem;
     }
     
 }
 /*Mobile*/
 @media (max-width: 46.1875em) {
-    .NewsBody{
-        height: 453vh;
+
+    .Announcements__Name{
+        padding: 1rem 0 0.75rem;
+        font-size: 1.5rem;
     }
-    .column{
-        height: 453vh;
+    
+    .Announcements__Name span p{
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .Announcements__box{
+        font-size: 0.65rem;
+    }
+    
+    .Announ__name{
+        font-size: 1rem;
+    }
+    
+    .Announ__substance{
+        line-height: 1.35;
+        padding: 0 0.5rem;
+    }
+
+    .Announ__btn-view{
+        width: 100%;
+    }
+
+    .Announ__btn-view p{
+        font-size: 0.6rem;
     }
 }
