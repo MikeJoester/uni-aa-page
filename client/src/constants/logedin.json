@@ -29,7 +29,7 @@
             },
             {
                 "title": "Credit Registration",
-                "path": "/register"
+                "path": "/CreditRegister"
             }
         ]
     }
