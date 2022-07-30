@@ -64,14 +64,14 @@ const SurveyBody = () =>{
                     <span className="crumsep">{">"}</span> 
                     <span class="SurveyContent__current-place">Survey</span>
                     <div className="Survey__row">
-                    <p className="Survey__Name">
-                        Survey
-                        <span><p>Every feedback makes our training and teaching quality improve and become better.</p></span>
-                    </p>
-                    <div className="Survey__count">
-                        <p>Available</p>
-                        <span>5</span>
-                    </div>
+                        <p className="Survey__Name">
+                            Survey
+                            <span><p>Every feedback makes our training and teaching quality improve and become better.</p></span>
+                        </p>
+                        <div className="Survey__count">
+                            <p>Available</p>
+                            <span>5</span>
+                        </div>
                     </div>
                 </div>
                 <div className="Survey__content-box">
