@@ -1,6 +1,9 @@
 //homepage
 import Home from './Home/Home';
 
+//Announcement page
+import NewsPage from './NewsPage/NewsPage';
+
 //School Curriculum
 import Curriculum from './Curriculum/Curriculum';
 import CurriDetails from './CurriDetails/CurriDetails';
@@ -16,6 +19,11 @@ import PersonalInfo from './PersonalInfo/PersonalInfo';
 
 //Register credit
 import RegisterCredit from './RegisterCredit/RegisterCredit';
+
+//Rule & survey
+import Survey from './Survey/Survey';
+import Rules from './Rules/Rules';
+
 export {
     Home,
     Curriculum,
@@ -23,5 +31,8 @@ export {
     Notification,
     Transcript,
     PersonalInfo,
-    RegisterCredit
+    RegisterCredit,
+    NewsPage,
+    Survey,
+    Rules,
 }

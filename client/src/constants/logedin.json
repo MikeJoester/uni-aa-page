@@ -25,7 +25,7 @@
         "childrens": [
             {
                 "title": "Survey",
-                "path": "/login"
+                "path": "/Survey"
             },
             {
                 "title": "Credit Registration",

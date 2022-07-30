@@ -4,7 +4,7 @@
         "childrens": [
             {
                 "title": "Announcement",
-                "path": "/"
+                "path": "/Announcement"
             },
             {
                 "title": "Academics",
@@ -34,7 +34,7 @@
         "childrens": [
             {
                 "title": "Rules & Regulations",
-                "path": "/profile"
+                "path": "/Rules"
             },
             {
                 "title": "FAQ"

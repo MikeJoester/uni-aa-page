@@ -15,6 +15,10 @@ import HomeEvents from "./Home/Content/Events/events";
 import HomeMemory from "./Home/Content/memory/memory";
 import HomeSearch from "./Home/Content/search/search";
 
+//NewsPage
+import NewHeader from "./NewsPages/NewHeader/NewHeader";
+import NewsBody from "./NewsPages/NewsBody/NewsBody";
+
 //Curriculum
 import CurriculumHeader from "./Curriculum/CurriculumHeader/CurriculumHeader";
 import CurriculumContent from "./Curriculum/CurriculumContent/CurriculumContent";
@@ -39,6 +43,14 @@ import PersonalContent from "./PersonalInfo/PersonalContent/PersonalContent";
 //Credit register
 import RegisterCreditContent from "./RegisterCredit/RegisterCreditContent/RegisterCreditContent";
 import RegisterHeader from "./RegisterCredit/RegisterHeader/RegisterHeader";
+
+//Survey
+import SurveyHeader from "./Survey/SurveyHeader/SurveyHeader";
+import SurveyBody from "./Survey/SurveyBody/SurveyBody";
+//Rules
+import RulesHeader from "./Rules/RulesHeader/RulesHeader";
+import RulesBody from "./Rules/RulesBody/RulesBody";
+
 //Footer
 import Footer from "./Footer/Footer";
 
@@ -72,4 +84,10 @@ export {
     PersonalContent,
     RegisterCreditContent,
     RegisterHeader,
+    NewHeader,
+    NewsBody,
+    SurveyHeader,
+    SurveyBody,
+    RulesHeader,
+    RulesBody
 }
