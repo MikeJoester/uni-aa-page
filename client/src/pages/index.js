@@ -1,16 +1,37 @@
+//homepage
 import Home from './Home/Home';
 
-import Dashboard from './Dashboard/Dashboard';
-import Students from './Students/Students';
-import Blogs from './Blogs/Blogs';
+//Announcement page
 import NewsPage from './NewsPage/NewsPage';
+
+//School Curriculum
+import Curriculum from './Curriculum/Curriculum';
+import CurriDetails from './CurriDetails/CurriDetails';
+
+//Notification
+import Notification from './Notification/Notification';
+
+//Transcript
+import Transcript from './Transcript/Transcript';
+
+//Personal Information
+import PersonalInfo from './PersonalInfo/PersonalInfo';
+
+//Register credit
+import RegisterCredit from './RegisterCredit/RegisterCredit';
+
+//Rule & survey
 import Survey from './Survey/Survey';
 import Rules from './Rules/Rules';
+
 export {
     Home,
-    Dashboard,
-    Students,
-    Blogs,
+    Curriculum,
+    CurriDetails,
+    Notification,
+    Transcript,
+    PersonalInfo,
+    RegisterCredit,
     NewsPage,
     Survey,
     Rules,
