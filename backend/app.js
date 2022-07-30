@@ -29,7 +29,7 @@ mongoose.connect(uri, {
     .catch(err => console.log(err));
 
 app.get('/', (req, res) => {
-    res.send("hehe");
+    res.send("Backend is running");
 });
 
 // route goes here
@@ -41,7 +41,11 @@ const majorsRouter = require('./routes/majors');
 const studentsRouter = require('./routes/students');
 const resultsRouter = require('./routes/student-result');
 const authRouter = require('./routes/auth');
-// const googleauthRouter = require('./routes/google-auth');
+const classList = require('./scripts/classList');
+const updateMajorCourse = require('./scripts/updateMajorCourse');
+const transcriptRouter = require('./routes/transcript');
+const adminLoginRouter = require('./routes/admin-auth');
+const surveyRouter = require('./routes/surveys');
 
 app.use("/blogs", blogsRouter);
 app.use("/classes", classesRouter);
@@ -51,7 +55,11 @@ app.use("/majors", majorsRouter);
 app.use("/students", studentsRouter);
 app.use("/results", resultsRouter);
 app.use("/auth", authRouter);
-// app.use("/", googleauthRouter);
+app.use("/classlist", classList);
+app.use("/umj", updateMajorCourse);
+app.use("/transcript", transcriptRouter);
+app.use("/adminlogin", adminLoginRouter);
+app.use("/surveys", surveyRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

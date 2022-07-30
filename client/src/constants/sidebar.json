@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Announcement",
+        "childrens": [
+            {
+                "title": "Announcement",
+                "path": "/"
+            },
+            {
+                "title": "Academics",
+                "path": "https://vnuk.edu.vn/academics/"
+            }
+        ]
+    },
+    {
+        "title": "School Curriculum",
+        "childrens": [
+            {
+                "title": "University",
+                "path": "https://vnuk.edu.vn"
+            },
+            {
+                "title": "International Professional Certificate",
+                "path": "https://vnuk.edu.vn/chung-chi-nghe-nghiep-quoc-te/"
+            },
+            {
+                "title": "Skills Training Courses",
+                "path": "/SchoolCurriculum"
+            }
+        ]
+    },
+    {
+        "title": "Rules & Regulations",
+        "childrens": [
+            {
+                "title": "Rules & Regulations",
+                "path": "/profile"
+            },
+            {
+                "title": "FAQ"
+            }
+        ]
+    }
+]

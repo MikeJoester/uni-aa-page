@@ -1,0 +1,278 @@
+.CurriDetails__Content{
+    margin: 0 auto;
+}
+
+.CurriDetails__wrap{
+    position: relative;
+    top: -3em;
+    background-color: #fff;
+    padding: 0 20px;
+    width: 82.91667%;
+    margin: 0 auto;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+}
+
+.Curridetails__col-nav,
+.Curridetails__col-content{
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+/* Curriculum__col-nav */
+
+.CurriDetails__Content .Curridetails__col-nav{
+    margin-right: 0;
+    flex: 0 0 23%;
+    max-width: 23%;
+    padding-bottom: 0;
+}
+
+/* Curriculum__col-content */
+
+.CurriDetails__Content .Curridetails__col-content {
+    margin-left: 20px;
+    flex: 0 0 74%;
+    max-width: 74%;
+    font-family: "Crimson Pro", sans-serif;
+}
+.Curridetails__nav-place, .Curritails__text-place{
+    font-weight: 600;
+    font-size: 1em;
+}
+.Curridetails__nav-place a, .Curritails__text-place{
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+}
+.Curridetails__nav-place a:hover{
+    text-decoration: underline;
+}
+
+.Curriculum__nav-place a:hover, .Curriculum__nav-place a:focus {
+    text-decoration: underline;
+}
+
+.crumsep{
+    color: #444;
+    padding: 0 10px;
+    font-weight: 800;
+    font-size: 0.8em;
+}
+
+.Curridetails__Course-Name{
+    padding: 3rem 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.Course__content{
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    padding-right: 3rem;
+}
+
+.Course__content-title{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.Course__decs-text{
+    padding: 2.5rem 0;
+}
+
+.text__gray-color{
+    color: #444;
+    font-weight: 600;
+}
+
+.tag__catalogue{
+    background-color: #300600;
+    width: 100%;
+    height: 50px;
+    justify-content:center;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.tag__catalogue:hover{
+    background-color: #d67e70;
+    color: #444;
+}
+
+.tag__catalogue-content{
+    font-family: 'Roboto', sans-serif;
+    list-style-type: none;
+}
+
+.list__tag-name{
+    font-weight: 700;
+    padding: 0.5rem 0;
+    font-size: 1.4rem;
+    border-bottom: 2px solid rgb(165, 165, 165);
+}
+
+
+.sub__catalogue{
+    list-style-type: none;
+    text-align: left;
+    width: 90%;
+    float: right;
+    font-size: 1.2rem;
+    overflow: hidden;
+    /* padding-bottom: 0.5rem; */
+}
+
+.sub__catalogue-major{
+    border-bottom: 2px solid rgb(165, 165, 165);
+    padding: 0.75rem 0.5rem;
+    transition-delay: width 2s;
+    overflow: hidden;
+}
+
+.catalogue__course{
+    list-style-type: none;
+    text-align: left;
+    width: 80%;
+    float: right;
+    font-size: 1rem;
+    overflow: hidden;
+    display: none;
+}
+
+.sub__catalogue-major:hover{
+    /* display: block; */
+    background-color: #300600;
+    color: #fff;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.catalogue__course>li:hover{
+    background-color: #d67e70;
+    color: #fff;
+}
+
+.sub__catalogue:hover .catalogue__course{
+    display: block;
+}
+
+.catalogue__course > li{
+    padding: 1rem 0.5rem;
+    border-bottom: 2px solid rgb(165, 165, 165);
+}
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    .Curridetails__nav-place, .Curritails__text-place{
+        font-size: 1.1em;
+    }
+    .Curridetails__Course-Name{
+        padding: 2.75rem 0;
+        font-size: 2.3em;
+    }
+    .Course__decs-text{
+        padding: 1.75rem 0;
+    }
+    .Course__content-title{
+        font-weight: 800;
+        font-size: 0.9rem;
+    }
+    .sub__catalogue-major:hover{
+        margin-left: 10px;
+    }
+    .Course__content{
+        font-size: 0.9rem;
+    }
+    .tag__catalogue{
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+    .list__tag-name{
+        font-weight: 700;
+        padding: 0.5rem 0;
+        font-size: 1.2rem;
+        border-bottom: 2px solid rgb(165, 165, 165);
+    }
+    
+    .sub__catalogue{
+        font-size: 1rem;
+    }    
+    .catalogue__course > li{
+        font-size: 0.9rem;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .Curridetails__nav-place, .Curritails__text-place{
+        font-size: 1em;
+    }
+    .Curridetails__Course-Name{
+        padding: 2.5rem 0;
+        font-size: 2.1em;
+    }
+    .Course__decs-text{
+        padding: 1.5rem 0;
+    }
+    .Course__content-title{
+        font-weight: 800;
+        font-size: 0.8rem;
+    }
+    .sub__catalogue-major:hover{
+        margin-left: 10px;
+    }
+    .Course__content{
+        font-size: 0.8rem;
+    }
+    .tag__catalogue{
+        font-size: 0.7rem;
+        border-radius: 5px;
+    }
+    .list__tag-name{
+        font-weight: 700;
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        border-bottom: 2px solid rgb(165, 165, 165);
+    }
+    .sub__catalogue{
+        font-size: 0.8rem;
+    }  
+    .catalogue__course > li{
+        font-size: 0.7rem;
+    }
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .CurriDetails__wrap{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+
+    .CurriDetails__Content .Curridetails__col-nav{
+        max-width: 100%;
+    }
+
+    .CurriDetails__Content .CurriDetails__wrap .Curridetails__col-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .sub__catalogue{
+        width: 100%;
+    }
+    .catalogue__course{
+        width: 100%;
+    }
+}

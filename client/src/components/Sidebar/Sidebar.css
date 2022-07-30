@@ -1,0 +1,154 @@
+.app__sidebar {
+    position: fixed;
+    color: white;
+    width: fit-content;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    right: -400px;
+    z-index: 2;
+    font-family: 'Crimson Pro', san-serif;
+
+    transition: all 0.5s ease;
+}
+
+.app__sidebar li {
+    list-style: none;
+}
+
+.app__sidebar-navbar {
+    padding-top: 170px;
+    height: fit-content;
+    z-index: 1001;
+}
+
+.app__sidebar-navbar li {
+    padding: 0.9rem 2.3rem;
+    margin: 0.5rem 0;
+    font-weight: 700;
+    background-color: rgba(49,38,29,.8);
+    cursor: pointer;
+    z-index: 1001;
+    transform-origin: right;
+
+    transition: all 0.3s ease;
+}
+
+.app__sidebar-navbar li:hover {
+    transform: scaleX(1.1);
+    background-color: rgba(49,38,29,255);
+}
+
+.app__sidebar-content {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(49,38,29,255);
+    z-index: 1001;
+}
+
+.sidebar__active {
+    background-color: rgba(83,74,67,.9);
+    right: 0;
+    width: calc(100vw + 400px);
+    z-index: 500;
+}
+
+.sidebar__close {
+    width: 32px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+    margin: 1rem 0.7rem;
+    transition: 0.4s all ease;
+    
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.sidebar__close span {
+    transform-origin: left;
+    transition: 0.4s all ease;
+}
+
+.sidebar__close:hover {
+    transform: scale(1.2);
+}
+
+
+.sidebar__close span:first-child {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+.sidebar__close span:last-child {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: rotate(-45deg);
+}
+
+.sidebar__content {
+    display: none;
+}
+
+.sidebar__content-active {
+    display: block;
+    padding: 10% 13% 0 13%;
+}
+
+.sidebar__news-title,
+.sidebar__events-title {
+    padding-bottom: 2%;
+    border-bottom: 2px solid #756e63;
+}
+
+.sidebar__news p,
+.sidebar__events p {
+    color: #98938e;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 0 20px 0;
+    text-decoration: none;
+}
+
+.sidebar__news-links,
+.sidebar__events-links{
+    text-decoration: none;
+    color: #98938e;
+}
+
+.app__sidebar-overlay {
+    width: calc(100vw + 400px);
+    height: 100vh;
+    position: fixed;
+    cursor: url('../../assets/cursor/iconmonstr-x-mark-thin-240.png'), auto;
+    z-index: 100;
+}
+
+.hamburger__active {
+    display: none;
+}
+
+.menunav:last-child {
+    border-bottom: 1px solid #756e63;
+}
+
+.btn__logout button{
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    right: 7rem;
+    font-family: "Roboto", sans-serif; 
+    font-weight: 700;
+    font-size: 1rem;
+    background-color:#98938e;
+    color: #fff;
+    border:  2px solid#706050
+}

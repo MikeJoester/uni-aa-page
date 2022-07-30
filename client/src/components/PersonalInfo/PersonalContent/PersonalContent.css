@@ -1,0 +1,160 @@
+.Personal__Content{
+    margin: 0 auto;
+}
+
+.Personal__wrap{
+    position: relative;
+    top: -3em;
+    background-color: #fff;
+    padding: 2rem 2rem;
+    width: 82.91667%;
+    margin: 0 auto;
+    font-family: "Crimson Pro", sans-serif;
+}
+
+.Personal__nav-place, .Personal__current-place{
+    font-weight: 600;
+    font-size: 1em;
+}
+.Personal__nav-place a{
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+}
+.Personal__nav-place a:hover{
+    text-decoration: underline;
+}
+
+.Personal__Name{
+    padding: 2rem 0;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.student__information{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin : 0 auto 2rem;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.student__information-title{
+    font-family: 'Crimson Pro', sans-serif;
+    font-weight: 600;
+    font-size: 1.75rem;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+}
+
+.student__info-col1{
+    /* display: flex; */
+    width: 47%;
+}
+.student__information input{
+    padding: 0.6rem 0.5rem;
+    width: 100%;
+    border: 1px solid rgb(126, 126, 126);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.student__information p {
+    margin-bottom: 5px;
+}
+
+.student__info-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.student__info-name, .student__info-gender{
+    width: 47%;
+}
+
+.student__information .student__info-row input{
+    width: 100%;
+}
+
+.button__save{
+    display: flex;
+    justify-content:center;
+}
+
+.btn__profile{
+    width: 25%;
+    height: 2.5rem;
+    border-radius: 5px;
+    background-color: #300600;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    .btn__profile{
+        font-size: 0.9rem;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .student__information{
+        display: flex;
+        flex-direction: row;
+        font-size: 0.8rem;
+    }
+    
+    .student__information-title{
+        font-size: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .btn__profile{
+        font-size: 0.8rem;
+    }
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .student__information{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .student__info-row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .student__information-title{
+        font-size: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .student__info-name, .student__info-gender,
+    .student__information .student__info-row input,
+    .student__info-col1{
+        width: 100%;
+    }
+
+    .student__information-title{
+        font-size: 1.25rem;
+        padding-left: 1rem;
+    }
+
+    .btn__profile{
+        font-size: 0.7rem;
+        width: 50%;
+        height: 2rem;
+    }
+}

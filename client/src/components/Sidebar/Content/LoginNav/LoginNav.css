@@ -1,0 +1,65 @@
+.loginnav-item {
+    font-size: 20px;
+    font-family: 'Crimson Pro', san-serif;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginnav-title {
+    display: flex;
+    padding: 0.6rem 0;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #756e63;
+
+    transition: all .3s ease;
+}
+
+.loginnav-title-main {
+    color: white;
+}
+
+.loginnav-title-sub {
+    color: #98938e;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+.loginnav-title:hover {
+    padding-left: 0.7rem;
+    background-color: #756e63;
+}
+
+.loginnav-title:hover > .loginnav-title-sub {
+    color: white;
+}
+
+
+.loginnav-title .loginnav-toggle {
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 300;
+    padding-right: 0.8rem;
+    transition: transform .3s;
+}
+
+.loginnav-item.open > .loginnav-title .loginnav-toggle {
+    transform: rotate(45deg);
+}
+
+.loginnav-content {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 1rem;
+    padding-left: 1rem;
+    transition: max-height .25s ease;
+}
+
+.loginnav-item.open > .loginnav-content {
+    max-height: 200px;
+    transition: max-height .25s ease;
+}
+
+

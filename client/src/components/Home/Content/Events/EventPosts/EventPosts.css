@@ -1,0 +1,36 @@
+.events__block-links{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    font-family: "Roboto", sans-serif;
+}
+
+.events__block-links .new__title{
+    text-transform: uppercase;
+}
+
+.events__block-links .events__date{
+    font-size: 0.8rem;
+    color: rgb(143, 143, 143);
+}
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    .events__block-links{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    .events__block-links .events__date{
+        font-size: 0.65rem;
+    }
+}

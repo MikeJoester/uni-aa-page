@@ -1,20 +1,25 @@
-.new__block{
-    z-index: 1;
-    background-color: #fff;
+.new__block-links{
     display: flex;
     flex-direction: row;
-    width: 31.67%;
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
 }
-.new__img{
-    width: 200px;
-    height: auto;
-    object-fit: cover;
+
+/*Tablet & mobile*/
+@media (min-width: 63.9375em) and (max-width: 80em) {
+    .new__block-links{
+        display: flex;
+        flex-direction: column;
+    }
 }
-.new__title{
-    display: flex;
-    align-items: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-    padding: 1rem 1rem;
-    line-height: 1.5;
+
+/*Tablet*/
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    
+}
+/*Mobile*/
+@media (max-width: 46.1875em) {
+    
 }

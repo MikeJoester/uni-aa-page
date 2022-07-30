@@ -10,7 +10,7 @@ const HomeContent = () =>{
             <div className="content__news layout__divided">
                 <div className="bg__news center">
                     <div className="content__news-row">
-                        <div className="new__block">
+                        {/* <div className="new__block">
                             <img className="new__img" src={images.Nig} alt="" />
                             <p className="new__title">
                                 ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
@@ -27,14 +27,14 @@ const HomeContent = () =>{
                             <p className="new__title">
                                 ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
                             </p>
-                        </div>
-                        {/* {news.newspost.map((newspost) =>(
+                        </div> */}
+                        {news.news.map((news) =>(
                             <NewsPost 
-                            link={newspost.link}
-                            image={newspost.image} 
-                            tittle={newspost.tittle} 
+                            link={news.link}
+                            image={news.image} 
+                            title={news.title} 
                             />
-                            ))} */}
+                            ))}
                     </div>
                 </div>
             </div>

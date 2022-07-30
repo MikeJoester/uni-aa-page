@@ -1,0 +1,22 @@
+.app-login-main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+.app-login-main h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.vnuk-login-logo {
+    margin: 0;
+    width: 20%;
+    align-items: flex-start;
+}
+
+.login-form-group p {
+    font-weight: 500;
+    color: #E0E0E0;
+    font-size: 18px;
+}

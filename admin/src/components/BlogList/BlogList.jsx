@@ -6,6 +6,10 @@ import {
   Stack,
   Button,
   IconButton,
+  Modal,
+  Backdrop,
+  Fade,
+  TextField,
 } from '@mui/material';
 
 import { DataGrid } from '@mui/x-data-grid';
@@ -27,6 +31,18 @@ const CreateButton = styled(Button)(() => ({
       backgroundColor: '#5b4d82',
     },
 }));
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '40%',
+  bgcolor: 'background.paper',
+  // border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 100 },
@@ -65,6 +81,7 @@ const columns = [
 ];
 
 const BlogList = () => {
+
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchPosts = async() => {
@@ -84,7 +101,6 @@ const BlogList = () => {
       desc: val.blog_description
     }
   });
-  console.log(rows);
   return (
     <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248'}}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">

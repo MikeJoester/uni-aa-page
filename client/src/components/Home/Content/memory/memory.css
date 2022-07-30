@@ -27,7 +27,7 @@ figure{
 figure .memory__img{
     border: none;
     display: block;
-    height: 350px;
+    height: 250px;
     width: 100%;
     object-fit: cover;
 }

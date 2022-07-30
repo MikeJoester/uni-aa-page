@@ -1,6 +1,6 @@
 .Home__events{
     position: relative;
-    z-index: 0;
+    z-index: 40;
 }
 
 .content__events::before{
@@ -76,6 +76,7 @@
     flex-direction: row;
     align-items: center;
     padding: 1rem 0;
+    text-decoration: none;
 }
 
 .events__img{
