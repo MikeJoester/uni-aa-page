@@ -14,21 +14,21 @@ const HomeExplore = () =>{
                         </h2>
                         <ul>
                             <li>
-                                <Link to="/SchoolCurriculum">
-                                    <a href="#">Announcements</a>
+                                <Link to="/Announcement">
+                                    Announcements
                                 </Link>
                             </li>
                             <li className="after__login">
-                                <a href="#">Credit Registration</a>
+                                Credit Registration
                             </li>
                             <li>
                                 <Link to="/SchoolCurriculum">
-                                    <a href="#">School Curriculum</a>
+                                    School Curriculum
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/SchoolCurriculum">
-                                    <a href="#">Rules & Regulations</a>
+                                <Link to="/Rules">
+                                    Rules & Regulations
                                 </Link>  
                             </li>
                         </ul>
