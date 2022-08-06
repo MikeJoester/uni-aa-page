@@ -30,13 +30,15 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: '40%',
   bgcolor: 'background.paper',
-  // border: '2px solid #000',
+  fontFamily: 'Lato',
+  borderRadius:'10px',
   boxShadow: 24,
   p: 4,
 };
 
 const CreateButton = styled(Button)(() => ({
   color: '#fff',
+  height:'100%',
   backgroundColor: '#000248',
   fontSize: '20px',
   fontWeight: 'bold',
@@ -115,13 +117,9 @@ const StudentList = () => {
     }
   });
 
-  // function redirect(uEmail) {
-  //   console.log(uEmail);
-  // }
-
   return (
-    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248'}}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
+    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{height:'5%'}}>
         <h1>Manage Students</h1>
         <CreateButton onClick={handleOpen}>Add Student</CreateButton>
         <Modal
@@ -134,23 +132,28 @@ const StudentList = () => {
             }}
         >
             <Fade in={open}>
-            <Stack sx={style} spacing={3}>
-                <TextField id="outlined-basic" label="Student ID" variant="outlined" />
-                <Stack direction="row" sx={{width:'100%'}} alignItems="center">
-                <h4>First Name:</h4>
-                <TextField id="outlined-basic" label="First Name" variant="outlined" />
-                <h4>Last Name:</h4>
-                <TextField id="outlined-basic" label="Last Name" variant="outlined" />
-                </Stack>
-                <TextField id="outlined-basic" label="Birth Date" variant="outlined" />
-                <TextField id="outlined-basic" label="Gender" variant="outlined" />
-                <TextField id="outlined-basic" label="Major" variant="outlined" />
-                <TextField id="outlined-basic" label="Class" variant="outlined" />
-                <TextField id="outlined-basic" label="Email" variant="outlined" />
-                <TextField id="outlined-basic" label="Phone" variant="outlined" />
-                <TextField id="outlined-basic" label="Credit" variant="outlined" />
-                <Button>Add Student</Button>
-            </Stack>
+              <Stack sx={style} spacing={3} direction="column">
+                  <h2>Add New Student Information To The Database</h2>
+                  <Stack direction="row" spacing={4}>
+                    <Stack direction="column" spacing={3}>
+                      <TextField id="outlined-basic" label="Student ID" variant="outlined" />
+                      <Stack direction="row" sx={{width:'100%'}} alignItems="center" spacing={3}>
+                        <TextField id="outlined-basic" label="First Name" variant="outlined" />
+                        <TextField id="outlined-basic" label="Last Name" variant="outlined" />
+                      </Stack>
+                      <TextField id="outlined-basic" label="Birth Date" variant="outlined" />
+                      <TextField id="outlined-basic" label="Gender" variant="outlined" />
+                      <TextField id="outlined-basic" label="Major" variant="outlined" />
+                    </Stack>
+                    <Stack direction="column" spacing={3}>
+                      <TextField id="outlined-basic" label="Class" variant="outlined" />
+                      <TextField id="outlined-basic" label="Email" variant="outlined" />
+                      <TextField id="outlined-basic" label="Phone" variant="outlined" />
+                      <TextField id="outlined-basic" label="Credit" variant="outlined" />
+                      <CreateButton>Add Student</CreateButton>
+                    </Stack>
+                  </Stack>
+              </Stack>
             </Fade>
     </Modal>
       </Stack>
@@ -158,7 +161,7 @@ const StudentList = () => {
         sx={{fontSize:'17px'}}
         rows={rows}
         columns={columns}
-        pageSize={10}
+        pageSize={5}
         rowsPerPageOptions={[5]}/>
     </Stack>
   )

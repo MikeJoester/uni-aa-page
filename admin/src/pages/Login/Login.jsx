@@ -169,6 +169,56 @@ const Login = () => {
                 </Box>
             </Stack>
         </Stack>
+        <Stack direction="column" backgroundColor="#fff" sx={{width:'50%', height:'100%'}} spacing={5}>
+            <img src="https://vnuk.edu.vn/wp-content/uploads/2021/01/vnuk-symbol-only-official.png" className="vnuk-login-logo" alt="vnuk logo"/>
+            
+            <Stack sx={{pt:'20%'}}>
+                <Stack direction="column" sx={{px:'20%'}} alignItems="center">
+                    <h1>Log in to</h1>
+                    <h1>VNUK Academic Affairs</h1>
+                </Stack>
+                
+                <Box component='form' noValidate autoComplete="off" sx={{
+                    width: '100%',
+                    input: {
+                        color:'black'
+                    },
+                }}>
+                <ThemeProvider theme={FormTheme}>
+                    <Stack direction="column" sx={{px:'20%'}} spacing={3}>
+                        <LoginTextField fullWidth label="Email" id="custom-css-outlined-input" variant="standard"
+                        inputRef={userRef}/>
+                        <LoginTextField
+                            fullWidth label="Password"
+                            variant="standard"
+                            type={values.showPassword ? 'text' : 'password'}
+                            value={values.password}
+                            onChange={handleChange('password')}
+                            id="outlined-adornment-password" 
+                            style={{ marginTop: 25, marginBottom: 25 }}
+                            inputRef={passwordRef}
+                            InputProps= {
+                            {endAdornment:
+                                <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    color="primary"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                >
+                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                                </InputAdornment>
+                            }}
+                        />
+                        <LoginButton variant="contained" style={{width: '100%'}} color="secondary"
+                        >Sign In</LoginButton>
+                    </Stack>
+                    </ThemeProvider>
+                </Box>
+            </Stack>
+        </Stack>
     </div>
   )
 }

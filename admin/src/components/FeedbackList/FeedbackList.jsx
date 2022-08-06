@@ -44,21 +44,20 @@ const style = {
 };
 
 const columns = [
-  { field: 'id', headerName: 'Course Code', width: 150 },
-  { field: 'name', headerName: 'Name', width: 290 },
-  { field: 'credits', headerName: 'Credits', width: 150 },
+  { field: 'id', headerName: 'ID', width: 100 },
+  { field: 'name', headerName: 'Sender', width: 290 },
   {
     field: 'semester',
-    headerName: 'Semester',
+    headerName: 'Date',
     type: 'string',
-    width: 230,
+    width: 250,
   },
   {
-    field: 'optional',
-    headerName: 'Optional',
+    field: 'desc',
+    headerName: 'Description',
     // description: 'This column has a value getter and is not sortable.',
     // sortable: false,
-    width: 150,
+    width: 250,
   },
   { 
     field:'action',
@@ -79,7 +78,7 @@ const columns = [
   },
 ];
 
-const CourseList = () => {
+const FeedbackList = () => {
 
   const [courses, setCourses] = useState([]);
   useEffect(() => {
@@ -91,22 +90,21 @@ const CourseList = () => {
     fetchCourses();
   }, []);
 
-  var rows = courses.map((val) => {
-    return {
-      id: val.course_code,
-      name: val.course_name,
-      credits: val.credit,
-      semester: val.semester,
-      optional: val.optional
-    }
-  });
-  //var rows = [];
+  // var rows = courses.map((val) => {
+  //   return {
+  //     id: val.course_code,
+  //     name: val.course_name,
+  //     credits: val.credit,
+  //     semester: val.semester,
+  //     optional: val.optional
+  //   }
+  // });
+  var rows = [];
 
   return (
     <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <h1>View Courses</h1>
-        <CreateButton>Add Course</CreateButton>
+        <h1>View Feedbacks from students / clients</h1>
       </Stack>
       <DataGrid
         sx={{fontSize:'17px'}}
@@ -120,4 +118,4 @@ const CourseList = () => {
   )
 }
 
-export default CourseList;
+export default FeedbackList;

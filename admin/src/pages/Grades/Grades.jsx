@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useLocation} from 'react-router';
+import { AdminNavbar } from '../../components';
+import './Grades.css';
 import axios from 'axios';
 
 import {
@@ -59,55 +61,58 @@ const Grades = () => {
     });
 
   return (
-    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248'}}>
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
-            <h1>Student's Grade:</h1>
-            <CreateButton>Edit</CreateButton>
-        </Stack>
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell><b>Course Name</b></TableCell>
-                        <TableCell align="center"><b>Credits</b></TableCell>
-                        <TableCell align="center"><b>AT</b></TableCell>
-                        <TableCell align="center"><b>FE</b></TableCell>
-                        <TableCell align="center"><b>Pr</b></TableCell>
-                        <TableCell align="center"><b>PA</b></TableCell>
-                        <TableCell align="center"><b>Qz</b></TableCell>
-                        <TableCell align="center"><b>RP</b></TableCell>
-                        <TableCell align="center"><b>ME</b></TableCell>
-                        <TableCell align="center"><b>PA2</b></TableCell>
-                        <TableCell align="center"><b>PRE</b></TableCell>
-                        <TableCell align="center"><b>T10</b></TableCell>
-                        <TableCell align="center"><b>Grading</b></TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <TableRow
-                        key={row.courseName}
-                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">{row.courseName}</TableCell>
-                            <TableCell align="center">{row.credits}</TableCell>
-                            <TableCell align="center">{row.AT==="null" ? '' : row.AT}</TableCell>
-                            <TableCell align="center">{row.FE==="null"? '' : row.FE}</TableCell>
-                            <TableCell align="center">{row.Pr==="null"? '' : row.Pr}</TableCell>
-                            <TableCell align="center">{row.PA==="null"? '' : row.PA}</TableCell>
-                            <TableCell align="center">{row.Qz==="null"? '' : row.Qz}</TableCell>
-                            <TableCell align="center">{row.RP==="null"? '' : row.RP}</TableCell>
-                            <TableCell align="center">{row.ME==="null"? '' : row.ME}</TableCell>
-                            <TableCell align="center">{row.PA2==="null"? '' : row.PA2}</TableCell>
-                            <TableCell align="center">{row.PRE==="null"? '' : row.PRE}</TableCell>
-                            <TableCell align="center">{row.T10==="null"? '' : row.T10}</TableCell>
-                            <TableCell align="center">A+</TableCell>
+    <div className="dashboard-main">
+        <AdminNavbar/>
+        <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
+            <Stack direction="row" justifyContent="space-between" alignItems="center">
+                <h1>Student's Grade:</h1>
+                <CreateButton>Edit</CreateButton>
+            </Stack>
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell><b>Course Name</b></TableCell>
+                            <TableCell align="center"><b>Credits</b></TableCell>
+                            <TableCell align="center"><b>AT</b></TableCell>
+                            <TableCell align="center"><b>FE</b></TableCell>
+                            <TableCell align="center"><b>Pr</b></TableCell>
+                            <TableCell align="center"><b>PA</b></TableCell>
+                            <TableCell align="center"><b>Qz</b></TableCell>
+                            <TableCell align="center"><b>RP</b></TableCell>
+                            <TableCell align="center"><b>ME</b></TableCell>
+                            <TableCell align="center"><b>PA2</b></TableCell>
+                            <TableCell align="center"><b>PRE</b></TableCell>
+                            <TableCell align="center"><b>T10</b></TableCell>
+                            <TableCell align="center"><b>Grading</b></TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
-    </Stack>
+                    </TableHead>
+                    <TableBody>
+                        {rows.map((row) => (
+                            <TableRow
+                            key={row.courseName}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="row">{row.courseName}</TableCell>
+                                <TableCell align="center">{row.credits}</TableCell>
+                                <TableCell align="center">{row.AT==="null" ? '' : row.AT}</TableCell>
+                                <TableCell align="center">{row.FE==="null"? '' : row.FE}</TableCell>
+                                <TableCell align="center">{row.Pr==="null"? '' : row.Pr}</TableCell>
+                                <TableCell align="center">{row.PA==="null"? '' : row.PA}</TableCell>
+                                <TableCell align="center">{row.Qz==="null"? '' : row.Qz}</TableCell>
+                                <TableCell align="center">{row.RP==="null"? '' : row.RP}</TableCell>
+                                <TableCell align="center">{row.ME==="null"? '' : row.ME}</TableCell>
+                                <TableCell align="center">{row.PA2==="null"? '' : row.PA2}</TableCell>
+                                <TableCell align="center">{row.PRE==="null"? '' : row.PRE}</TableCell>
+                                <TableCell align="center">{row.T10==="null"? '' : row.T10}</TableCell>
+                                <TableCell align="center">A+</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Stack>
+    </div>
   )
 }
 

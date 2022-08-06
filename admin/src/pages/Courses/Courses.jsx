@@ -1,9 +1,10 @@
 import React from 'react';
-import {CourseList} from '../../components';
+import {CourseList, AdminNavbar} from '../../components';
 
 const Courses = () => {
   return (
     <div className="dashboard-main">
+      <AdminNavbar/>
       <CourseList/>
     </div>
   )

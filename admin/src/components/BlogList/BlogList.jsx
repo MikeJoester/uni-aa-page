@@ -102,7 +102,7 @@ const BlogList = () => {
     }
   });
   return (
-    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248'}}>
+    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <h1>Manage Posts</h1>
         <CreateButton>Create Post</CreateButton>
