@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import {Context} from './context/Context';
 
 import {
   Dashboard,
@@ -20,6 +21,7 @@ import {
 
 import './App.css';
 
+
 const App = () => {
   function ScrollToTop() {
 
@@ -34,19 +36,21 @@ const App = () => {
     return null;
   }
 
+  const {user} = useContext(Context);
+
   return (
     <div className="App">
       <Router>
         <ScrollToTop/>
         <Routes>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/' element={<Dashboard/>}/>
-          <Route path='/students' element={<Students/>}/>
-          <Route path='/blogs' element={<Blogs/>}/>
-          <Route path='/settings' element={<Settings/>}/>
-          <Route path='/courses' element={<Courses/>}/>
-          <Route path='/feedbacks' element={<Feedbacks/>}/>
-          <Route path='/grades/:email' element={<Grades/>}/>
+          <Route path='/login' element={user ? <Dashboard/> : <Login/>}/>
+          <Route path='/' element={user ? <Dashboard/> : <Login/>}/>
+          <Route path='/students' element={user ? <Students/> : <Login/>}/>
+          <Route path='/blogs' element={user ? <Blogs/> : <Login/>}/>
+          <Route path='/settings' element={user ? <Settings/> : <Login/>}/>
+          <Route path='/courses' element={user ? <Courses/> : <Login/>}/>
+          <Route path='/feedbacks' element={user ? <Feedbacks/> : <Login/>}/>
+          <Route path='/grades/:email' element={user ? <Grades/> : <Login/>}/>
         </Routes>
       </Router>
     </div>
