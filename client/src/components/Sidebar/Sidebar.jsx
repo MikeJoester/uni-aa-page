@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import "./Sidebar.css";
-import menuitems from '../../constants/sidebar.json'
-import loginitems from '../../constants/logedin.json'
+import menuitems from "../../constants/sidebar.json";
+import loginitems from "../../constants/logedin.json";
 import NewsNav from "./Content/NewsNav/NewsNav";
 import MenuNav from "./Content/MenuNav/MenuNav";
 import LoginNav from "./Content/LoginNav/LoginNav";
@@ -21,14 +21,17 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   const google = window.google;
 
   function handleCallbackResponse(response) {
+    localStorage.clear();
     let userObject = jwt_decode(response.credential);
-    console.log(userObject.email);
+    console.log(userObject);
     const mailPath = userObject.email.split("@")[1];
     if (mailPath === "vnuk.edu.vn") {
       setLogin(true);
       setUser(userObject);
+      localStorage.setItem("user", response.credential);
       document.getElementById("btn__login login").hidden = true;
       document.getElementById("btn__logout logout").hidden = false;
+      // console.log(localStorage.getItem("user"));
     }
   }
 
@@ -37,24 +40,6 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
     setLogin(false);
     setUser({});
     setStudent({});
-    document.getElementById("btn__login login").hidden = false;
-    document.getElementById("btn__logout logout").hidden = true;
-  }
-
-  useEffect(() => {
-    if (login) {
-      const getStudent = async () => {
-        const res = await axios.get(
-          "http://localhost:5000/students/studentEmail/" + user.email
-        );
-        setStudent(res.data[0]);
-        console.log(student);
-      };
-      getStudent();
-    }
-  }, [student, user]);
-
-  useEffect(() => {
     google.accounts.id.initialize({
       client_id:
         "43504168610-a1kbfok85h46f76qbbphdqjvljvm6ujn.apps.googleusercontent.com",
@@ -65,8 +50,51 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
       document.getElementById("btn__login login"),
       { theme: "outline", size: "medium", text: "signin_with" }
     );
+    document.getElementById("btn__login login").hidden = false;
+    document.getElementById("btn__logout logout").hidden = true;
+    localStorage.clear();
+  }
 
-    google.accounts.id.prompt();
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      const getStudent = async () => {
+        const res = await axios.get(
+          "http://localhost:5000/students/studentEmail/" + user.email
+        );
+        setStudent(res.data[0]);
+        // console.log(res.data[0]);
+      };
+      getStudent();
+      // console.log(student);
+    }
+  }, [student, user]);
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      let userObject = jwt_decode(localStorage.getItem("user"));
+      console.log(userObject);
+      const mailPath = userObject.email.split("@")[1];
+      if (mailPath === "vnuk.edu.vn") {
+        setLogin(true);
+        setUser(userObject);
+        document.getElementById("btn__login login").hidden = true;
+        document.getElementById("btn__logout logout").hidden = false;
+        // console.log(localStorage.getItem("user"));
+      }
+    } else {
+      google.accounts.id.initialize({
+        client_id:
+          "43504168610-a1kbfok85h46f76qbbphdqjvljvm6ujn.apps.googleusercontent.com",
+        callback: handleCallbackResponse,
+      });
+
+      google.accounts.id.renderButton(
+        document.getElementById("btn__login login"),
+        { theme: "outline", size: "medium", text: "signin_with" }
+      );
+
+      google.accounts.id.prompt();
+    }
   }, []);
 
   return (
@@ -122,12 +150,12 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
         >
           <div className="sidebar__menu-main">
             <div className="menunav">
-              { menuitems.map((item, index) => <MenuNav key={index} item={item}/>)}
+              {menuitems.map((item, index) => (
+                <MenuNav key={index} item={item} />
+              ))}
             </div>
           </div>
-          <div className="sidebar__menu-sub">
-
-          </div>
+          <div className="sidebar__menu-sub"></div>
         </div>
         <div
           className={
@@ -141,7 +169,12 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
             <NewsNav />
             <NewsNav />
             <p>
-              <a className="sidebar__news-links" href="https://vnuk.edu.vn/tin-tuc/">More news</a> 
+              <a
+                className="sidebar__news-links"
+                href="https://vnuk.edu.vn/tin-tuc/"
+              >
+                More news
+              </a>
             </p>
           </div>
           <div className="sidebar__events">
@@ -149,7 +182,12 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
             <NewsNav />
             <NewsNav />
             <p>
-              <a className="sidebar__events-links" href="https://vnuk.edu.vn/su-kien/">More events</a>
+              <a
+                className="sidebar__events-links"
+                href="https://vnuk.edu.vn/su-kien/"
+              >
+                More events
+              </a>
             </p>
           </div>
         </div>
@@ -164,14 +202,12 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
 
           <div class="btn__logout logout" id="btn__logout logout" hidden>
             <div className="loginnav">
-              { loginitems.map((item, index) => <LoginNav key={index} item={item}/>)}
+              {loginitems.map((item, index) => (
+                <LoginNav key={index} item={item} />
+              ))}
             </div>
-            <button onClick={(e) => handleSignOut(e)}>
-              {" "}
-              Sign out
-            </button>
+            <button onClick={(e) => handleSignOut(e)}> Sign out</button>
           </div>
-          
         </div>
       </div>
       <div

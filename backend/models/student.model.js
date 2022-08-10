@@ -11,7 +11,6 @@ const studentSchema = new Schema({
     full_name: {
         type: String,
         require: true,
-        minlength: 3
     },
     birth_date: {
         type: Date,
