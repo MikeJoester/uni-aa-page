@@ -63,7 +63,7 @@ router.patch("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     try {
         const student = await Student.findByIdAndDelete(req.params.id)
-        const updateClassroom = await Classroom.findOneAndUpdate({ class_name: req.params.class }, { $pull: { students: req.params.id } })
+        await Classroom.findOneAndUpdate({ class_name: req.params.class }, { $pull: { students: req.params.id } })
         res.status(200).json(student)
     } catch (err) {
         res.status(500).json(err)

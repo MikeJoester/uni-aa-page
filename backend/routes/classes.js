@@ -49,6 +49,7 @@ router.patch("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     try {
         const classroom = await Classroom.findByIdAndDelete(req.params.id)
+        await Major.findOneAndUpdate({ major_code: req.params.major }, { $pull: { classes: req.params.id } })
         res.status(200).json(classroom)
     } catch (err) {
         res.status(500).json(err)
