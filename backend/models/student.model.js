@@ -13,7 +13,7 @@ const studentSchema = new Schema({
         require: true,
     },
     birth_date: {
-        type: Date,
+        type: String,
         require: true,
     },
     birth_place: {
@@ -39,13 +39,12 @@ const studentSchema = new Schema({
         require: true
     },
     major: {
-        type: Schema.Types.ObjectId,
-        ref: 'Major',
-        require: true
+        type: String,
+        require: true,
     },
     class: {
-        type: Schema.Types.ObjectId,
-        ref: 'Class'
+        type: String,
+        require: true,
     },
     credit: {
         type: Number,
