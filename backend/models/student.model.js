@@ -31,7 +31,6 @@ const studentSchema = new Schema({
     },
     googleID: {
         type: String,
-        unique: true,
         require: false
     },
     phone: {
@@ -40,7 +39,7 @@ const studentSchema = new Schema({
     },
     major: {
         type: String,
-        require: true,
+        require: true
     },
     class: {
         type: String,

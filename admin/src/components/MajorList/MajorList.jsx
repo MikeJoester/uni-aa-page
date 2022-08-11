@@ -19,11 +19,9 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const MajorList = () => {
-  return (
-    <Stack>
-
-    </Stack>
-  )
+    return (
+        <Stack>ASS</Stack>
+    )
 }
 
 export default MajorList
