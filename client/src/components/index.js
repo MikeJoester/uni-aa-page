@@ -47,6 +47,8 @@ import RegisterHeader from "./RegisterCredit/RegisterHeader/RegisterHeader";
 //Survey
 import SurveyHeader from "./Survey/SurveyHeader/SurveyHeader";
 import SurveyBody from "./Survey/SurveyBody/SurveyBody";
+import SurveyPost from "./Survey/SurveyBody/SurveyPost/SurveyPost";
+
 //Rules
 import RulesHeader from "./Rules/RulesHeader/RulesHeader";
 import RulesBody from "./Rules/RulesBody/RulesBody";
@@ -89,5 +91,6 @@ export {
     SurveyHeader,
     SurveyBody,
     RulesHeader,
-    RulesBody
+    RulesBody,
+    SurveyPost,
 }

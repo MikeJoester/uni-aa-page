@@ -1,5 +1,7 @@
 import React from 'react'
 import './SurveyBody.css'
+import SurveyPost  from './SurveyPost/SurveyPost'
+import surveys from '../../../constants/surveys'
 
 const SurveyBody = () =>{
     return(
@@ -22,35 +24,16 @@ const SurveyBody = () =>{
                         </div>
                     </div>
                 </div>
-                <div className="Survey__content-box">
-                    <a href="https://forms.gle/DXosXwqgGgkbEAqc8" className="Survey__links">
-                        <div className="Survey__section">
-                            <div className="Survey__title">
-                                <p className="Survey__course-name">
-                                    Mobile Application Development
-                                </p>
-                                <p>Lecturer: Tran The Vu</p>
-                            </div>
-                            <div className="Survey__date">
-                                <p className="Survey__submitted">Date: Jun 21, 2022</p>
-                                <p className="Suvery__expiration-date">Submit: Jun 28, 2022</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://forms.gle/DXosXwqgGgkbEAqc8" className="Survey__links">
-                        <div className="Survey__section">
-                            <div className="Survey__title">
-                                <p className="Survey__course-name">
-                                    Data structure and Algorithms
-                                </p>
-                                <p>Lecturer: Tran Ngoc Anh</p>
-                            </div>
-                            <div className="Survey__date">
-                                <p className="Survey__submitted">Date: Jun 21, 2022</p>
-                                <p className="Suvery__expiration-date">Submit: Jun 28, 2022</p>
-                            </div>
-                        </div>
-                    </a>
+                <div>
+                {surveys.surveys.map((surveys) =>(
+                    <SurveyPost 
+                    nameCourse={surveys.nameCourse}
+                    Lecturer={surveys.Lecturer}
+                    DateSurvey={surveys.DateSurvey}
+                    Submitted={surveys.Submitted}
+                    linkForm={surveys.linkForm}
+                    />
+                    ))}
                 </div>
             </div>
         </div>

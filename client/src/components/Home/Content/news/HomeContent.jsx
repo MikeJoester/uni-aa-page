@@ -10,24 +10,6 @@ const HomeContent = () =>{
             <div className="content__news layout__divided">
                 <div className="bg__news center">
                     <div className="content__news-row">
-                        {/* <div className="new__block">
-                            <img className="new__img" src={images.Nig} alt="" />
-                            <p className="new__title">
-                                ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
-                            </p>
-                        </div>
-                        <div className="new__block">
-                            <img className="new__img" src={images.Nig} alt="" />
-                            <p className="new__title">
-                                ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
-                            </p>
-                        </div>
-                        <div className="new__block">
-                            <img className="new__img" src={images.Nig} alt="" />
-                            <p className="new__title">
-                                ANTI-BACKPACK DAY FINALLY COMES TO VN-UK!!!!!
-                            </p>
-                        </div> */}
                         {news.news.map((news) =>(
                             <NewsPost 
                             link={news.link}

@@ -1,0 +1,78 @@
+.Rules__Content{
+    margin: 0 auto;
+}
+
+.Rules__wrap{
+    position: relative;
+    top: -3em;
+    background-color: #fff;
+    padding: 2rem 2rem;
+    width: 82.91667%;
+    margin: 0 auto;
+    font-family: "Crimson Pro", sans-serif;
+}
+
+.Rules__nav-place, .Rules__current-place{
+    font-weight: 600;
+    font-size: 1em;
+}
+.Rules__nav-place a{
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+}
+.Rules__nav-place a:hover{
+    text-decoration: underline;
+}
+
+.Rules__Name{
+    padding: 2rem 0;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.rules__detail{
+    border-top: 3px solid #300600;
+}
+
+.school__rules{
+    padding-top: 2rem;
+    width: 100%;
+}
+
+.school__rule-heading{
+    padding: 1rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #300600;
+    text-transform: uppercase;
+}
+
+.school__rules ol{
+    padding: 0 2rem;
+    line-height: 1.4;
+}
+
+.btn__rule-link{
+    text-decoration: none;
+    padding: 2rem;
+    font-size: 1.3rem;
+    font-family: 'Crimson Pro', sans-serif;
+    font-weight: 600;
+    color: #300600;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.school__rule-btn{
+    border: 2px solid #300600;
+    display: block;
+    width: 25%;
+    padding: 0.5rem 2rem;
+    text-align: center;
+}
+
+.school__rule-btn:hover{
+    background-color: #300600;
+    color: #fff;
+}
