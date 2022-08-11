@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
 
     try {
         const savedClass = await newClass.save()
-        const updateClassroomToMajor = await Major.findOneAndUpdate({ major_name: newClass.major }, { $push: { classes: newClass._id } })
+        const updateClassroomToMajor = await Major.findOneAndUpdate({ major_code: newClass.major }, { $push: { classes: newClass._id } })
         res.status(200).json(savedClass)
     } catch (err) {
         res.status(500).json(err)

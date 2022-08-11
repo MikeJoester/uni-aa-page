@@ -25,6 +25,10 @@ const courseSchema = new Schema({
     semester: {
         type: String,
         require: true
+    },
+    major: {
+        type: String,
+        require: true
     }
 }, {
     timestamps: true,
