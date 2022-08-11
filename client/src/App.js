@@ -40,8 +40,8 @@ const App = () => {
   }, [toggleMenu])
 
   useEffect(() => {
-    if (localStorage.getItem('user')) {
-      console.log(localStorage.getItem('user'));
+    if (localStorage.getItem('student')) {
+      console.log(localStorage.getItem('student'));
     }
   }, [])
 

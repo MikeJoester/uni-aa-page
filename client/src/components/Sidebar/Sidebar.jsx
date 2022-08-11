@@ -29,7 +29,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
     if (mailPath === "vnuk.edu.vn") {
       setLogin(true);
       setUser(userObject);
-      localStorage.setItem("user", response.credential);
+      localStorage.setItem("student", response.credential);
       document.getElementById("btn__login login").hidden = true;
       document.getElementById("btn__logout logout").hidden = false;
       // console.log(localStorage.getItem("user"));
@@ -58,25 +58,25 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
     window.location.reload();
   }
 
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      const getStudent = async () => {
-        const res = await axios.get(
-          "http://localhost:5000/students/studentEmail/" + user.email
-        );
-        setStudent(res.data[0]);
-        setName(res.data[0].full_name.toUpperCase());
-        // console.log(res.data[0]);
-      };
-      getStudent();
-      // console.log(student);
-    }
-  }, [student, user, studentName]);
+  // useEffect(() => {
+  //   if (localStorage.getItem("user")) {
+  //     const getStudent = async() => {
+  //       const res = await axios.get(
+  //         "http://localhost:5000/students/studentEmail/" + user.email
+  //       );
+  //       setStudent(res.data[0]);
+  //       setName(res.data[0].full_name.toUpperCase());
+  //       // console.log(res.data[0]);
+  //     };
+  //     getStudent();
+  //     // console.log(student);
+  //   }
+  // }, [student, user, studentName]);
 
   useEffect(() => {
-    console.log(localStorage.getItem("user"));
-    if (localStorage.getItem("user")) {
-      let userObject = jwt_decode(localStorage.getItem("user"));
+    console.log(localStorage.getItem("student"));
+    if (localStorage.getItem("student")) {
+      let userObject = jwt_decode(localStorage.getItem("student"));
       console.log(userObject);
       const mailPath = userObject.email.split("@")[1];
       if (mailPath === "vnuk.edu.vn") {
@@ -84,6 +84,15 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
         setUser(userObject);
         document.getElementById("btn__login login").hidden = true;
         document.getElementById("btn__logout logout").hidden = false;
+        const getStudent = async() => {
+          const res = await axios.get(
+            "http://localhost:5000/students/studentEmail/" + user.email
+          );
+          setStudent(res.data[0]);
+          setName(res.data[0].full_name.toUpperCase());
+          // console.log(res.data[0]);
+        };
+        getStudent();
         // console.log(localStorage.getItem("user"));
       }
       return;
@@ -101,7 +110,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
 
     google.accounts.id.prompt();
     // }
-  }, []);
+  }, [student, user, studentName]);
 
   return (
     <div className={"app__sidebar " + (toggleMenu && "sidebar__active")}>
