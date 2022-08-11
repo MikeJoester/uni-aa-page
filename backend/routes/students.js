@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
     const newStudent = new Student(req.body)
     try {
         const savedStudent = await newStudent.save()
-        const updateClassroom = await Classroom.findOneAndUpdate({ _id: newStudent.class }, { $push: { students: newStudent._id } })
+        const updateClassroom = await Classroom.findOneAndUpdate({ class_name: newStudent.class }, { $push: { students: newStudent._id } })
         res.status(200).json(savedStudent)
 
         return
