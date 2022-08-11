@@ -19,6 +19,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   const [user, setUser] = useState({});
   const [student, setStudent] = useState({});
   const google = window.google;
+  const [studentName, setName] = useState("LOGIN");
 
   function handleCallbackResponse(response) {
     localStorage.clear();
@@ -40,6 +41,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
     setLogin(false);
     setUser({});
     setStudent({});
+    setName("LOGIN");
     google.accounts.id.initialize({
       client_id:
         "43504168610-a1kbfok85h46f76qbbphdqjvljvm6ujn.apps.googleusercontent.com",
@@ -53,6 +55,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
     document.getElementById("btn__login login").hidden = false;
     document.getElementById("btn__logout logout").hidden = true;
     localStorage.clear();
+    window.location.reload();
   }
 
   useEffect(() => {
@@ -62,12 +65,13 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
           "http://localhost:5000/students/studentEmail/" + user.email
         );
         setStudent(res.data[0]);
+        setName(res.data[0].full_name.toUpperCase());
         // console.log(res.data[0]);
       };
       getStudent();
       // console.log(student);
     }
-  }, [student, user]);
+  }, [student, user, studentName]);
 
   useEffect(() => {
     if (localStorage.getItem("user")) {
@@ -127,7 +131,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
               toggleTab(3);
             }}
           >
-            LOGIN
+            {studentName != "LOGIN" ? studentName : "LOGIN"}
           </li>
         </ul>
       </div>

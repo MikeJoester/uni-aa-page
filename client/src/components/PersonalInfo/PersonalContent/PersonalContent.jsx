@@ -9,7 +9,7 @@ const PersonalContent = () => {
   const [major, setMajor] = useState("");
   useEffect(() => {
     let userObject = jwt_decode(localStorage.getItem("user"));
-    console.log(userObject);
+    // console.log(userObject);
     if (localStorage.getItem("user")) {
       const getStudent = async () => {
         const res = await axios.get(

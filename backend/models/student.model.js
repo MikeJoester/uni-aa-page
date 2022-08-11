@@ -50,6 +50,15 @@ const studentSchema = new Schema({
     credit: {
         type: Number,
         require: true
+    },
+    address: {
+        type: String,
+        require: true
+    },
+    identity_number: {
+        type: String,
+        require: true,
+        unique: true
     }
 }, {
     timestamps: true,
