@@ -49,7 +49,8 @@ const studentSchema = new Schema({
     },
     credit: {
         type: Number,
-        require: true
+        require: false,
+        default: 0,
     },
     address: {
         type: String,
