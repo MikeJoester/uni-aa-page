@@ -4,6 +4,7 @@ import DashboardMain from "./DashboardMain/DashboardMain";
 import BlogList from "./BlogList/BlogList";
 import CourseList from "./CourseList/CourseList";
 import FeedbackList from "./FeedbackList/FeedbackList";
+import MajorList from "./MajorList/MajorList";
 
 export {
     AdminNavbar,
@@ -11,5 +12,6 @@ export {
     StudentList,
     DashboardMain,
     CourseList,
+    MajorList,
     FeedbackList,
 }

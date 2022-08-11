@@ -1,12 +1,13 @@
 import React from 'react';
 import './Students.css';
-import {StudentList, AdminNavbar} from '../../components';
+import {StudentList, AdminNavbar, MajorList} from '../../components';
 
 const Students = () => {
   return (
     <div className="dashboard-main">
         <AdminNavbar/>
-        <StudentList/>
+        {/* <StudentList/> */}
+        <MajorList/>
     </div>
   )
 }

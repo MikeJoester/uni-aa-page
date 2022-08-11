@@ -26,9 +26,11 @@ router.post("/login", async (req, res) => {
         const user = await User.findOne({ username: req.body.username })
         const validated = await bcrypt.compare(req.body.password, user.password)
         if (user && validated)
-            res.status(200).json("success")
+            res.status(200).json(user)
         else
-            res.status(400).json("fail")
+            res.status(400).json("Something's wrong I can feel it")
+
+        
     } catch (err) {
         res.status(500).json(err)
     }

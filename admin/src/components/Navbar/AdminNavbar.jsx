@@ -5,7 +5,8 @@ import {
     Stack,
     ListItemButton,
     ListItemIcon,
-    ListItemText,    
+    ListItemText,
+    Collapse,    
 } from '@mui/material';
 
 import { useNavigate } from "react-router-dom";
@@ -16,6 +17,9 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ForumIcon from '@mui/icons-material/Forum';
 import SettingsIcon from '@mui/icons-material/Settings';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import SchoolIcon from '@mui/icons-material/School';
 
 import './AdminNavbar.css';
 
@@ -46,6 +50,11 @@ const AdminNavbar = () => {
         navigate('/feedbacks');
     }
 
+    const [open, setOpen] = React.useState(true);
+    const handleClick = () => {
+        setOpen(!open);
+      };
+
   return (
     <List
         sx={{width: '100%', maxWidth: 345, bgcolor:'#000248', pt:'45px'}}
@@ -67,9 +76,9 @@ const AdminNavbar = () => {
 
             <ListItemButton onClick={navigateStudents}>
                 <ListItemIcon sx={{color:'white'}}>
-                    <GroupIcon fontSize="large"/>
+                    <SchoolIcon fontSize="large"/>
                 </ListItemIcon>
-                <ListItemText primary="Students" primaryTypographyProps={{
+                <ListItemText primary="Majors" primaryTypographyProps={{
                         color: 'white',
                         fontWeight: 'medium',
                         variant: 'h6',

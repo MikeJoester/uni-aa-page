@@ -131,7 +131,7 @@ const StudentList = () => {
       "birth_place": bPlace.current.value,
       "gender": gender,
       "email": mail.current.value,
-      "googleID": Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
+      "googleID": "",
       "phone": phone.current.value,
       "major": major.current.value,
       "class": sClass.current.value,

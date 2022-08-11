@@ -68,7 +68,7 @@ const Settings = () => {
             defaultValue="" type="password"></TextField>
           </Stack>
           <Stack direction="column" alignItems="center">
-            <Button sx={{height:'40px', fontSize:'20px', width:'50%'}} variant="contained">Change Password</Button>
+            <Button sx={{height:'40px', fontSize:'20px', width:'50%'}}variant="contained">Change Password</Button>
           </Stack>
         </Stack>
       </Stack>
