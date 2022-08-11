@@ -74,6 +74,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   }, [student, user, studentName]);
 
   useEffect(() => {
+    console.log(localStorage.getItem("user"));
     if (localStorage.getItem("user")) {
       let userObject = jwt_decode(localStorage.getItem("user"));
       console.log(userObject);
@@ -85,20 +86,21 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
         document.getElementById("btn__logout logout").hidden = false;
         // console.log(localStorage.getItem("user"));
       }
-    } else {
-      google.accounts.id.initialize({
-        client_id:
-          "43504168610-a1kbfok85h46f76qbbphdqjvljvm6ujn.apps.googleusercontent.com",
-        callback: handleCallbackResponse,
-      });
-
-      google.accounts.id.renderButton(
-        document.getElementById("btn__login login"),
-        { theme: "outline", size: "medium", text: "signin_with" }
-      );
-
-      google.accounts.id.prompt();
+      return;
     }
+    google.accounts.id.initialize({
+      client_id:
+        "43504168610-a1kbfok85h46f76qbbphdqjvljvm6ujn.apps.googleusercontent.com",
+      callback: handleCallbackResponse,
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("btn__login login"),
+      { theme: "outline", size: "medium", text: "signin_with" }
+    );
+
+    google.accounts.id.prompt();
+    // }
   }, []);
 
   return (
