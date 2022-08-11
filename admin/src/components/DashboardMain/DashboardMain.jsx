@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios';
+import images from '../../constants/images';
 
 import {
     Stack,
@@ -104,10 +105,10 @@ const DashboardMain = () => {
             <h1>Dashboard</h1>
             <Stack direction="row" justifyContent="space-around" spacing={2} alignItems="center" >
                 <Stack direction="column" alignItems="flex-end" >
-                    <h3>Nguyen Van A</h3>
+                    <Link to="/settings"><h3>Nguyen Van Liem</h3></Link>
                     <p>Admin</p>
                 </Stack>
-                <div className="icon-circle-container"></div>
+                <Link to="/settings"><img className="icon-circle-container" src={images.avatar1}/></Link>
             </Stack>
         </Stack>
 
@@ -170,7 +171,7 @@ const DashboardMain = () => {
                 <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
                     <Stack direction="row" justifyContent="space-between" alignItems="center">
                         <Stack direction="row" spacing={4} alignItems="center">
-                            <div className="icon-circle-container"></div>
+                            <img className="icon-circle-container" src={images.avatar1}/>
                             <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
                                 <h3>{p.full_name}</h3>
                                 <p>Class: <b>{p.class.class_name}</b></p>
@@ -206,7 +207,7 @@ const DashboardMain = () => {
                 <Stack direction="column" spacing={2} justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
+                        <img className="icon-circle-container" src={images.avatar1}/>
                         <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
                             <h3>Sussus Amogus</h3>
                             <p>Never gonna give you up, never gonna let you down...</p>
@@ -220,7 +221,7 @@ const DashboardMain = () => {
                 <Stack direction="column" spacing={2} justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
+                        <img className="icon-circle-container" src={images.avatar1}/>
                         <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
                             <h3>Sussus Amogus</h3>
                             <p>Never gonna give you up, never gonna let you down...</p>
@@ -234,7 +235,7 @@ const DashboardMain = () => {
                 <Stack direction="column" spacing={2} justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
+                        <img className="icon-circle-container" src={images.avatar1}/>
                         <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
                             <h3>Sussus Amogus</h3>
                             <p>Never gonna give you up, never gonna let you down...</p>
@@ -248,7 +249,7 @@ const DashboardMain = () => {
                 <Stack direction="column" spacing={2} justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" spacing={4} alignItems="center">
-                        <div className="icon-circle-container"></div>
+                        <img className="icon-circle-container" src={images.avatar1}/>
                         <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
                             <h3>Sussus Amogus</h3>
                             <p>Never gonna give you up, never gonna let you down...</p>

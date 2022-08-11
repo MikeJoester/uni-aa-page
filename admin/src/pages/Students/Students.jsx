@@ -1,10 +1,11 @@
 import React from 'react';
 import './Students.css';
-import {StudentList} from '../../components';
+import {StudentList, AdminNavbar} from '../../components';
 
 const Students = () => {
   return (
     <div className="dashboard-main">
+        <AdminNavbar/>
         <StudentList/>
     </div>
   )

@@ -1,8 +1,9 @@
 .app-login-main {
-    height: 100vh;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
+    background-color: #fff;
 }
 .app-login-main h1 {
     font-size: 50px;

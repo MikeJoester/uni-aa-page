@@ -5,6 +5,7 @@ import {AdminNavbar, BlogList} from '../../components';
 const Blogs = () => {
   return (
     <div className="dashboard-main">
+        <AdminNavbar/>
         <BlogList/>
     </div>
   )

@@ -1,10 +1,11 @@
 import React from 'react';
-import {AdminNavbar, DashboardMain} from '../../components';
+import {AdminNavbar, FeedbackList} from '../../components';
 
 const Feedbacks = () => {
   return (
     <div className="dashboard-main">
-      Feedbacks
+      <AdminNavbar/>
+      <FeedbackList/>
     </div>
   )
 }
