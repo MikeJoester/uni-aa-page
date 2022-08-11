@@ -17,7 +17,11 @@ const classSchema = new Schema({
     students: [{
         type: Schema.Types.ObjectId,
         ref: 'Student'
-    }]
+    }],
+    major: {
+        type: String,
+        require: true
+    }
 }, {
     timestamps: true,
 });

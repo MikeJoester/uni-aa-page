@@ -17,6 +17,10 @@ const majorSchema = new Schema({
     courses: [{
         type: Schema.Types.ObjectId,
         ref: 'Course'
+    }],
+    classes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Class'
     }]
 }, {
     timestamps: true,

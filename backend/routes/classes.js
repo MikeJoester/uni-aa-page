@@ -1,5 +1,6 @@
 const router = require('express').Router()
 let Classroom = require('../models/class.model')
+let Major = require('../models/major.model')
 
 // GET ALL CLASSES
 router.get("/", async (req, res) => {
@@ -24,8 +25,10 @@ router.get("/:id", async (req, res) => {
 // CREATE CLASS
 router.post("/", async (req, res) => {
     const newClass = new Classroom(req.body)
+
     try {
         const savedClass = await newClass.save()
+        const updateClassroomToMajor = await Major.findOneAndUpdate({ major_name: newClass.major }, { $push: { classes: newClass._id } })
         res.status(200).json(savedClass)
     } catch (err) {
         res.status(500).json(err)
