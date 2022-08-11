@@ -50,7 +50,7 @@ const StudentResult = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [gradeList, setGrade] = useState([]);
-  let userObject = jwt_decode(localStorage.getItem("user"));
+  let userObject = jwt_decode(localStorage.getItem("student"));
   console.log(userObject);
 
   useEffect(() => {
