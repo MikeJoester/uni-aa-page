@@ -5,8 +5,8 @@ import jwt_decode from "jwt-decode";
 
 const PersonalContent = () => {
   const [student, setStudent] = useState({});
-  const [classes, setClass] = useState("");
-  const [major, setMajor] = useState("");
+  // const [classes, setClass] = useState("");
+  // const [major, setMajor] = useState("");
   useEffect(() => {
     let userObject = jwt_decode(localStorage.getItem("user"));
     // console.log(userObject);
@@ -15,18 +15,18 @@ const PersonalContent = () => {
         const res = await axios.get(
           "http://localhost:5000/students/studentEmail/" + userObject.email
         );
-        const getClass = await axios.get(
-          "http://localhost:5000/classes/" + res.data[0].class
-        );
-        const getMajor = await axios.get(
-          "http://localhost:5000/majors/" + res.data[0].major
-        );
+        // const getClass = await axios.get(
+        //   "http://localhost:5000/classes/" + res.data[0].class
+        // );
+        // const getMajor = await axios.get(
+        //   "http://localhost:5000/majors/" + res.data[0].major
+        // );
         setStudent(res.data[0]);
         console.log(res.data[0]);
-        setClass(getClass.data.class_name);
-        console.log(getClass.data.class_name);
-        setMajor(getMajor.data.major_name);
-        console.log(getMajor.data.major_name);
+        // setClass(getClass.data.class_name);
+        // console.log(getClass.data.class_name);
+        // setMajor(getMajor.data.major_name);
+        // console.log(getMajor.data.major_name);
       };
       getStudent();
       console.log(student);
@@ -86,15 +86,19 @@ const PersonalContent = () => {
           <div className="student__info-col1">
             <div className="student__info-ID">
               <p>Identity card</p>
-              <input type="text" disabled placeholder={student._id} />
+              <input
+                type="text"
+                disabled
+                placeholder={student.identity_number}
+              />
             </div>
             <div className="student__Major">
               <p>Major</p>
-              <input type="text" disabled placeholder={major} />
+              <input type="text" disabled placeholder={student.major} />
             </div>
             <div className="student__Class">
               <p>Class</p>
-              <input type="text" disabled placeholder={classes} />
+              <input type="text" disabled placeholder={student.class} />
             </div>
             <div className="student__ID">
               <p>Student ID</p>
@@ -117,7 +121,7 @@ const PersonalContent = () => {
           <div className="student__info-col1">
             <div className="student__address">
               <p>Address</p>
-              <input type="text" placeholder={student.birth_place} />
+              <input type="text" placeholder={student.address} />
             </div>
           </div>
         </div>
