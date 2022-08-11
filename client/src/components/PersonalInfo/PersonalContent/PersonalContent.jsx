@@ -69,14 +69,7 @@ const PersonalContent = () => {
             </div>
             <div className="student__Birthday">
               <p>Birth Day</p>
-              <input
-                type="text"
-                disabled
-                placeholder={student.birth_date
-                  .replace("-", "/")
-                  .split("T")[0]
-                  .replace("-", "/")}
-              />
+              <input type="text" disabled placeholder={student.birth_date} />
             </div>
             <div className="student__Birthplace">
               <p>Credit</p>
