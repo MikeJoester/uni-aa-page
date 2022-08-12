@@ -1,36 +1,36 @@
 [
-    {
-        "title": "Profile",
-        "childrens": [
-            {
-                "title": "Personal Information",
-                "path": "/PersonalInformation"
-            },
-            {
-                "title": "Notice from lecture to class",
-                "path": "/Notification"
-            },
-            {
-                "title": "School Curriculum",
-                "path": "/SchoolCurriculum"
-            },
-            {
-                "title": "Learning & Training Results",
-                "path": "/transcript/:email"
-            }
-        ]
-    },
-    {
-        "title": "Register courses",
-        "childrens": [
-            {
-                "title": "Survey",
-                "path": "/Survey"
-            },
-            {
-                "title": "Credit Registration",
-                "path": "/CreditRegister"
-            }
-        ]
-    }
+  {
+    "title": "Profile",
+    "childrens": [
+      {
+        "title": "Personal Information",
+        "path": "/PersonalInformation"
+      },
+      {
+        "title": "Notice from lecture to class",
+        "path": "/Notification"
+      },
+      {
+        "title": "School Curriculum",
+        "path": "/SchoolCurriculum"
+      },
+      {
+        "title": "Learning & Training Results",
+        "path": "/Transcript"
+      }
+    ]
+  },
+  {
+    "title": "Register courses",
+    "childrens": [
+      {
+        "title": "Survey",
+        "path": "/Survey"
+      },
+      {
+        "title": "Credit Registration",
+        "path": "/CreditRegister"
+      }
+    ]
+  }
 ]

@@ -39,11 +39,11 @@ const App = () => {
     }
   }, [toggleMenu])
 
-  useEffect(() => {
-    if (localStorage.getItem('student')) {
-      console.log(localStorage.getItem('student'));
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (localStorage.getItem('student')) {
+  //     console.log(localStorage.getItem('student'));
+  //   }
+  // }, [])
 
 
   return (
@@ -57,7 +57,7 @@ const App = () => {
         <Route path='/SchoolCurriculum' element={<Curriculum />} />
         <Route path='/SchoolCurriculum/details' element={<CurriDetails />} />
         <Route path='/Notification' element={<Notification />} />
-        <Route path='/transcript/:email' element={<Transcript />} />
+        <Route path='/Transcript/' element={<Transcript />} />
         <Route path='/PersonalInformation' element={<PersonalInfo />} />
         <Route path='/CreditRegister' element={<RegisterCredit />} />
         <Route path='/Announcement' element={<NewsPage />} />

@@ -5,31 +5,19 @@ import jwt_decode from "jwt-decode";
 
 const PersonalContent = () => {
   const [student, setStudent] = useState({});
-  // const [classes, setClass] = useState("");
-  // const [major, setMajor] = useState("");
   useEffect(() => {
-    let userObject = jwt_decode(localStorage.getItem("user"));
+    let userObject = jwt_decode(localStorage.getItem("student"));
     // console.log(userObject);
-    if (localStorage.getItem("user")) {
+    if (localStorage.getItem("student")) {
       const getStudent = async () => {
         const res = await axios.get(
           "http://localhost:5000/students/studentEmail/" + userObject.email
         );
-        // const getClass = await axios.get(
-        //   "http://localhost:5000/classes/" + res.data[0].class
-        // );
-        // const getMajor = await axios.get(
-        //   "http://localhost:5000/majors/" + res.data[0].major
-        // );
         setStudent(res.data[0]);
-        console.log(res.data[0]);
-        // setClass(getClass.data.class_name);
-        // console.log(getClass.data.class_name);
-        // setMajor(getMajor.data.major_name);
-        // console.log(getMajor.data.major_name);
+        // console.log(res.data[0]);
       };
       getStudent();
-      console.log(student);
+      // console.log(student);
     }
   }, []);
 

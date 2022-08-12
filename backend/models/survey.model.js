@@ -13,11 +13,11 @@ const surveySchema = new Schema({
         require: true
     },
     post_date: {
-        type: Date,
+        type: String,
         default: Date.now,
     },
     deadline: {
-        type: Date,
+        type: String,
         require: true,
     },
     form_link: {

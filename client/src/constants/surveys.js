@@ -28,9 +28,9 @@ const surveys = [
         Submitted: 'Jun 28, 2022',
         linkForm: 'https://forms.gle/DXosXwqgGgkbEAqc8'
     },
-    
+
 ]
 
-export default{
+export default {
     surveys,
 }

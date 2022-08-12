@@ -10,7 +10,7 @@ require('dotenv').config()
 const app = express()
 const port = process.env.PORT || 5000
 
-app.use(cors())
+app.use(cors({ origin: true, credentials: true }))
 app.use(express.json())
 app.use(session({
     secret: 'keyboard cat',
@@ -30,15 +30,15 @@ mongoose.connect(uri, {
     .catch(err => console.log(err))
 
 const storage = multer.diskStorage({
-    destination : (req, file, cb) => {
+    destination: (req, file, cb) => {
         cb(null, "images")
     },
-    filename : (req, file, cb) => {
+    filename: (req, file, cb) => {
         cb(null, req.body.name)
     },
 });
 
-const upload = multer({storage : storage})
+const upload = multer({ storage: storage })
 app.post("/upload", upload.single("file"), (req, res) => {
     res.status(200).json("Image has been uploaded");
 })
