@@ -7,6 +7,7 @@ import loginitems from "../../constants/logedin.json";
 import NewsNav from "./Content/NewsNav/NewsNav";
 import MenuNav from "./Content/MenuNav/MenuNav";
 import LoginNav from "./Content/LoginNav/LoginNav";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   const [toggleContent, setToggleContent] = useState(1);
@@ -20,6 +21,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   const [student, setStudent] = useState({});
   const google = window.google;
   const [studentName, setName] = useState("LOGIN");
+  const navigate = useNavigate();
 
   function handleCallbackResponse(response) {
     localStorage.clear();
@@ -54,7 +56,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
     document.getElementById("btn__login login").hidden = false;
     document.getElementById("btn__logout logout").hidden = true;
     localStorage.clear();
-    window.location.reload();
+    navigate("/");
   }
 
   // useEffect(() => {
