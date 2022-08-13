@@ -35,7 +35,7 @@ const AdminNavbar = () => {
     }
 
     const navigateStudents = () => {
-        navigate('/students');
+        navigate('/majors');
     }
 
     const navigateSettings = () => {

@@ -134,8 +134,10 @@ const Login = () => {
             });
             
             dispatch({type : "LOGIN_SUCCESS", payload : res.data});
+            if(!alert('Login Success!')){window.location.reload();}
         } catch (error) {
             dispatch({type : "LOGIN_FAILURE"});
+            alert('Login Failed! Username or Password is incorrect!');
         }
     }
     console.log(user);

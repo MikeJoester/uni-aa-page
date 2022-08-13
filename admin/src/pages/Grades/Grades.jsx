@@ -14,6 +14,15 @@ import {
   TableHead,
   TableRow,
   Paper,
+  IconButton,
+  Modal,
+  Backdrop,
+  Fade,
+  TextField,
+  InputLabel,
+  MenuItem,
+  Select,
+  FormControl,
 } from '@mui/material';
 
 import {
@@ -22,6 +31,19 @@ import {
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '35%',
+    bgcolor: 'background.paper',
+    fontFamily: 'Lato',
+    borderRadius:'10px',
+    boxShadow: 24,
+    p: 4,
+  };
 
 const CreateButton = styled(Button)(() => ({
     color: '#fff',
@@ -43,6 +65,12 @@ function createData(courseName, credits, AT, FE, Pr, PA, Qz, RP, ME, PA2, PRE, T
 // ];
 
 const Grades = () => {
+    //modal
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    //fetch Grade
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [gradeList, setGrade] = useState([]);
@@ -66,7 +94,23 @@ const Grades = () => {
         <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
                 <h1>Student's Grade:</h1>
-                <CreateButton>Edit</CreateButton>
+                <CreateButton onClick={handleOpen}>Add / Edit Grade</CreateButton>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                    timeout: 500,
+                    }}
+                >
+                    <Fade in={open}>
+                    <Stack sx={style} spacing={3} direction="column">
+                        <h2>Edit Transcript Information </h2>
+                        <CreateButton sx={{height:'60px'}}>Update Transcript</CreateButton>
+                    </Stack>
+                    </Fade>
+                </Modal>
             </Stack>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
