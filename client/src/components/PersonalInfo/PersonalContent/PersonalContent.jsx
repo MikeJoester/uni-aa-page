@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./PersonalContent.css";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { useAlert, positions, Provider as AlertProvider } from "react-alert";
 
 const PersonalContent = () => {
   const [student, setStudent] = useState({});
+  const [isUpdate, setUpdate] = useState(false);
+  const [buttonText, setButtonText] = useState("Change");
+  const studentPhone = useRef();
+  const studentAddress = useRef();
+  const alert = useAlert();
+  const userObject = jwt_decode(localStorage.getItem("student"));
+
   useEffect(() => {
-    let userObject = jwt_decode(localStorage.getItem("student"));
     // console.log(userObject);
     if (localStorage.getItem("student")) {
       const getStudent = async () => {
@@ -20,6 +27,43 @@ const PersonalContent = () => {
       // console.log(student);
     }
   }, []);
+
+  const handleChangeAndSave = async (e) => {
+    e.preventDefault();
+    try {
+      if (!isUpdate) {
+        document.getElementById("info__student-phone").disabled = false;
+        document.getElementById("info__student-address").disabled = false;
+        setUpdate(!isUpdate);
+        setButtonText("Save");
+      } else {
+        const updatedAddress =
+          studentAddress.current.value === ""
+            ? student.address
+            : studentAddress.current.value;
+        const updatedPhone =
+          studentPhone.current.value === ""
+            ? student.phone
+            : studentPhone.current.value;
+        const updatedData = await axios.patch(
+          `http://localhost:5000/students/${student._id}`,
+          {
+            address: updatedAddress,
+            phone: updatedPhone,
+          }
+        );
+        console.log(updatedData.data);
+        document.getElementById("info__student-phone").disabled = true;
+        document.getElementById("info__student-address").disabled = true;
+        setUpdate(!isUpdate);
+        setButtonText("Change");
+        alert.show("Successfully saved");
+      }
+    } catch (err) {
+      console.log(err);
+      alert.show("Something went wrong");
+    }
+  };
 
   return (
     <div className="Personal__Content">
@@ -95,20 +139,36 @@ const PersonalContent = () => {
               <input type="text" disabled placeholder={student.email} />
             </div>
             <div className="student__phone">
-              <p>phone</p>
-              <input type="text" placeholder={student.phone} />
+              <p>Phone</p>
+              <input
+                id="info__student-phone"
+                type="text"
+                disabled
+                placeholder={student.phone}
+                ref={studentPhone}
+              />
             </div>
           </div>
           <div className="student__info-col1">
             <div className="student__address">
               <p>Address</p>
-              <input type="text" placeholder={student.address} />
+              <input
+                id="info__student-address"
+                type="text"
+                disabled
+                placeholder={student.address}
+                ref={studentAddress}
+              />
             </div>
           </div>
         </div>
         <div className="button__save">
-          <button className="btn__profile" type="submit">
-            Change & save
+          <button
+            className="btn__profile"
+            type="submit"
+            onClick={handleChangeAndSave}
+          >
+            {buttonText}
           </button>
         </div>
       </div>

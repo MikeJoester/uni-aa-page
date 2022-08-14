@@ -8,6 +8,7 @@ import NewsNav from "./Content/NewsNav/NewsNav";
 import MenuNav from "./Content/MenuNav/MenuNav";
 import LoginNav from "./Content/LoginNav/LoginNav";
 import { useNavigate } from "react-router-dom";
+import { useAlert, positions, Provider as AlertProvider } from "react-alert";
 
 const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   const [toggleContent, setToggleContent] = useState(1);
@@ -22,11 +23,12 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   const google = window.google;
   const [studentName, setName] = useState("LOGIN");
   const navigate = useNavigate();
+  const alert = useAlert();
 
   function handleCallbackResponse(response) {
     localStorage.clear();
     let userObject = jwt_decode(response.credential);
-    console.log(userObject);
+    // console.log(userObject);
     const mailPath = userObject.email.split("@")[1];
     if (mailPath === "vnuk.edu.vn") {
       setLogin(true);
@@ -34,6 +36,9 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
       localStorage.setItem("student", response.credential);
       document.getElementById("btn__login login").hidden = true;
       document.getElementById("btn__logout logout").hidden = false;
+    } else {
+      alert.show("Please use VNUK email to login");
+      // <Alert severity="error">This is an error alert — check it out!</Alert>;
     }
   }
 
