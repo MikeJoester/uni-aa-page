@@ -36,6 +36,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
       localStorage.setItem("student", response.credential);
       document.getElementById("btn__login login").hidden = true;
       document.getElementById("btn__logout logout").hidden = false;
+      alert.show("Login Successfully");
     } else {
       alert.show("Please use VNUK email to login");
       // <Alert severity="error">This is an error alert — check it out!</Alert>;
