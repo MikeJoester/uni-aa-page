@@ -4,6 +4,7 @@
     font-weight: 700;
     text-decoration: none;
     display: flex;
+    cursor: pointer;
     flex-direction: column;
 }
 

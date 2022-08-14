@@ -138,13 +138,20 @@
     border-bottom: 1px solid #756e63;
 }
 
-.btn__logout button{
+.btn__logout .Nav__button-logout{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn__logout .Nav__button-logout button{
+    cursor: pointer;
     height: 2.5rem;
     width: 10rem;
     border-radius: 5px;
-    position: absolute;
+    /* position: absolute;
     top: 50%;
-    right: 7rem;
+    right: 7rem; */
     font-family: "Roboto", sans-serif; 
     font-weight: 700;
     font-size: 1rem;

@@ -5,6 +5,7 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .loginnav-title {

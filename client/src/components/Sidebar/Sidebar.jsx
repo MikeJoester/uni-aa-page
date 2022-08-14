@@ -225,7 +225,9 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
                 <LoginNav key={index} item={item} />
               ))}
             </div>
-            <button onClick={(e) => handleSignOut(e)}> Sign out</button>
+            <div className="Nav__button-logout">
+              <button onClick={(e) => handleSignOut(e)}> Sign out</button>
+            </div>
           </div>
         </div>
       </div>
