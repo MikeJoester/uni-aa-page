@@ -8,6 +8,7 @@ const PersonalContent = () => {
   const [student, setStudent] = useState({});
   const [isUpdate, setUpdate] = useState(false);
   const [buttonText, setButtonText] = useState("Change");
+  const [isSuccessful, setSuccess] = useState();
   const studentPhone = useRef();
   const studentAddress = useRef();
   const alert = useAlert();
@@ -30,12 +31,14 @@ const PersonalContent = () => {
 
   const handleChangeAndSave = async (e) => {
     e.preventDefault();
+    setSuccess(false);
     try {
       if (!isUpdate) {
         document.getElementById("info__student-phone").disabled = false;
         document.getElementById("info__student-address").disabled = false;
         setUpdate(!isUpdate);
         setButtonText("Save");
+        alert.show("You can change Address and Phone");
       } else {
         const updatedAddress =
           studentAddress.current.value === ""
@@ -52,16 +55,19 @@ const PersonalContent = () => {
             phone: updatedPhone,
           }
         );
-        console.log(updatedData.data);
+        // console.log(updatedData.data);
         document.getElementById("info__student-phone").disabled = true;
         document.getElementById("info__student-address").disabled = true;
         setUpdate(!isUpdate);
         setButtonText("Change");
         alert.show("Successfully saved");
+        setSuccess(true);
       }
     } catch (err) {
       console.log(err);
-      alert.show("Something went wrong");
+      if (!isSuccessful) {
+        alert.show("Something went wrong");
+      }
     }
   };
 
