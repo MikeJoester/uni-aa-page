@@ -98,7 +98,7 @@ const MajorList = () => {
                                             e.preventDefault();
                                             setOpen(true);
                                             try {
-                                                const res = await axios.get(`http://localhost:5000/majors/${val._id}`);
+                                                const res = await axios.get(`https://uni-aa-page.herokuapp.com/majors/${val._id}`);
                                                 setClassList(res.data.classes);
                                             } catch (error) {
                                                 console.log(error);
@@ -116,13 +116,14 @@ const MajorList = () => {
                     <h1>Classes List</h1>
                     <DataGrid
                     sx={{fontSize:'17px', width:'100%'}}
-                    rows={classList.map((val)=>{
-                        return {
-                            id : val._id,
-                            name : val.class_name,
-                            total : val.students.length
-                        }
-                    })}
+                    // rows={classList.map((val)=>{
+                    //     return {
+                    //         id : val._id,
+                    //         name : val.class_name,
+                    //         total : val.students.length
+                    //     }
+                    // })}
+                    rows={[]}
                     columns={columns}
                     pageSize={10}
                     rowsPerPageOptions={[5]}
