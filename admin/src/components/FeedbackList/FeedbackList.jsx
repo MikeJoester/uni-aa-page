@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import {PacmanLoader} from "react-spinners";
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import {
@@ -15,6 +17,7 @@ import { DataGrid } from '@mui/x-data-grid';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import InfoIcon from '@mui/icons-material/Info';
 
 import {
   styled,
@@ -45,30 +48,34 @@ const style = {
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'name', headerName: 'Sender', width: 290 },
+  { field: 'name', headerName: 'Course Name', width: 290 },
+  { field: 'lecturer', headerName: 'Lecturer Name', width: 290 },
   {
-    field: 'semester',
-    headerName: 'Date',
+    field: 'date',
+    headerName: 'Post Date',
     type: 'string',
     width: 250,
   },
   {
-    field: 'desc',
-    headerName: 'Description',
-    // description: 'This column has a value getter and is not sortable.',
-    // sortable: false,
+    field: 'deadline',
+    headerName: 'Deadline',
     width: 250,
   },
   { 
     field:'action',
     headerName: 'Action',
-    width: 150,
+    width: 200,
     renderCell: (params) => {
       return(
-        <Stack direction='row' spacing={3} justifyContent='space-between'>
+        <Stack direction='row' spacing={2} justifyContent='space-between'>
           <IconButton>
             <EditIcon/>
           </IconButton>
+          <a href={params.row.link} target="_blank">
+            <IconButton>
+              <InfoIcon/>
+            </IconButton>
+          </a>
           <IconButton sx={{color: 'red'}}>
             <DeleteIcon/>
           </IconButton>
@@ -79,42 +86,104 @@ const columns = [
 ];
 
 const FeedbackList = () => {
+  //loading screen
+  const [loading, setLoading] = useState(false);
 
-  const [courses, setCourses] = useState([]);
+  //modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [feedbacks, setFeedbacks] = useState([]);
   useEffect(() => {
-    const fetchCourses = async() => {
-      const res = await axios.get("http://localhost:5000/courses/");
-      setCourses(res.data);
-      console.log(res.data)
+    setLoading(true);
+    const fetchFbs = async() => {
+      const res = await axios.get("https://uni-aa-page.herokuapp.com/surveys/");
+      setFeedbacks(res.data);
+      setLoading(false);
     }
-    fetchCourses();
+    fetchFbs();
   }, []);
 
-  // var rows = courses.map((val) => {
-  //   return {
-  //     id: val.course_code,
-  //     name: val.course_name,
-  //     credits: val.credit,
-  //     semester: val.semester,
-  //     optional: val.optional
-  //   }
-  // });
-  var rows = [];
+  const link = useRef();
+  const name = useRef();
+  const lecturer= useRef();
+  const dline = useRef();
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    const newForm = {
+      "form_link" : link.current.value,
+      "course_name" : name.current.value,
+      "lecturer_name" : lecturer.current.value,
+      "deadline" : dline.current.value,
+    };
+
+    try {
+      const res = await axios.post("https://uni-aa-page.herokuapp.com/surveys", newForm);
+      console.log(newForm);
+      if(!alert('New Form Added!')){window.location.reload();}
+    } catch (error) {}
+  }
 
   return (
-    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <h1>View Feedbacks from students / clients</h1>
-      </Stack>
-      <DataGrid
-        sx={{fontSize:'17px'}}
-        rows={rows} 
-        columns={columns} 
-        pagesize={10} 
-        pageSize={10}
-        rowsPerPageOptions={[5]}
-        checkboxSelection/>
-    </Stack>
+    <div className="dashboard-main-view">
+      {
+        loading ?
+        <Stack sx={{height: '51vw', mt:'20%', ml:'30%'}} direction="column" spacing={5}>
+          <h1>Loading...</h1>
+          <PacmanLoader
+          size={150}
+          color={"#000248"}
+          loading={loading}
+          />
+        </Stack>
+        :
+        <Stack direction="column" spacing={4} sx={{mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center">
+            <h1>View Feedbacks from students / clients</h1>
+            <CreateButton onClick={handleOpen}>Add Survey/Form</CreateButton>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                  <Stack sx={style} spacing={3} direction="column">
+                      <h2>Add New Survey / Form</h2>
+                      <TextField id="outlined-basic" label="Form Link" variant="outlined" inputRef={link}/>
+                      <TextField id="outlined-basic" label="Course Name" variant="outlined"inputRef={name}/>
+                      <TextField id="outlined-basic" label="Lecturer Name" variant="outlined"inputRef={lecturer}/>
+                      <TextField id="outlined-basic" label="Deadline" variant="outlined"inputRef={dline}/>
+                      <CreateButton onClick={handleSubmit} sx={{height:'60px'}}>Create Form / Survey</CreateButton>
+                  </Stack>
+                </Fade>
+              </Modal>
+          </Stack>
+          <DataGrid
+            sx={{fontSize:'17px'}}
+            rows={feedbacks.map((val) => {
+              return {
+                id: val._id,
+                name: val.course_name,
+                lecturer: val.lecturer_name,
+                date: val.post_date,
+                deadline: val.deadline,
+                link: val.form_link
+              }
+            })} 
+            columns={columns} 
+            pagesize={10} 
+            pageSize={10}
+            rowsPerPageOptions={[5]}
+            checkboxSelection/>
+        </Stack>
+      }
+    </div>
   )
 }
 

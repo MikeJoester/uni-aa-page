@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import {useNavigate, Link} from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import {Link} from 'react-router-dom';
+import {PacmanLoader} from "react-spinners";
 import axios from 'axios';
 import './MajorList.css';
 
@@ -7,18 +8,29 @@ import {
     Stack,
     Box,
     Button,
-    IconButton,
-    ClickAwayListener,
+    Modal,
+    Backdrop,
+    Fade,
+    TextField,
 } from '@mui/material';
 
 import { DataGrid } from '@mui/x-data-grid';
 
-import EditIcon from '@mui/icons-material/Edit';
-import InfoIcon from '@mui/icons-material/Info';
-
 import {
     styled, 
 } from '@mui/material/styles';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '40%',
+    bgcolor: 'background.paper',
+    // border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
 
 const ViewMoreButton = styled(Button)({
     textTransform: 'none',
@@ -65,72 +77,138 @@ const columns = [ //columns label
 
 const MajorList = () => {
 
+    //loading screen
+    const [loading, setLoading] = useState(false);
+
+    //fetchMajors
     const [majors, setMajors] = useState([]);
     const [open, setOpen] = useState(false);
     const [classList, setClassList] = useState([]);
-    const navigate = useNavigate();
+
+    //Modal Manager
+    const [openmodal, setOpenModal] = useState(false);
+    const handleOpen = () => setOpenModal(true);
+    const handleClose = () => setOpenModal(false);
 
     useEffect(() => {
+        setLoading(true);
         const fetchMajors = async() => {
           const res = await axios.get("https://uni-aa-page.herokuapp.com/majors/");
           setMajors(res.data);
+          setLoading(false);
         }
         fetchMajors();
-    }, [majors]);
+    }, []);
+
+    const className = useRef();
+    const classMajor = useRef();
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        const newClass = {
+            "class_name" : className.current.value,
+            "major" : classMajor.current.value,
+        }
+        // console.log(newClass);
+        try {
+            const res = await axios.post("https://uni-aa-page.herokuapp.com/classes", newClass);
+            if(!alert('New Class Added!')){window.location.reload();}
+        } catch (error) {
+            alert(error)
+        }
+    }
 
     return (
-        <Stack sx={{ mx:'40px', my:'60px', width:'100%'}} direction="row" justifyContent="space-between" spacing={3}>
-            <Stack direction="column" justifyContent="space-between" spacing={5} sx={{width:'50%'}}>
-                <h1>Browse Majors in VNUK</h1>
-                <Stack justifyContent="space-between" spacing={5}>
-                    {majors.map((val) => {
-                        return(
-                            <Box sx={{backgroundColor:'#d9d9d9', borderRadius:'10px', p:'20px'}}>
-                                <Stack direction="row" justifyContent="space-between">
-                                    <Stack direction="column" spacing={3}>
-                                        <h2>{val.major_name}</h2>
-                                        <p>Major Code: <b>{val.major_code}</b></p>
-                                        <p>Total Class: {val.classes.length}</p>
-                                    </Stack>
-                                    <Stack direction="column" justifyContent="space-around">
-                                        <ViewMoreButton 
-                                        onClick={async(e) => {
-                                            e.preventDefault();
-                                            setOpen(true);
-                                            try {
-                                                const res = await axios.get(`https://uni-aa-page.herokuapp.com/majors/${val._id}`);
-                                                setClassList(res.data.classes);
-                                            } catch (error) {
-                                                console.log(error);
-                                            }
-                                        }}>View More</ViewMoreButton>
+        <div className="dashboard-main-view">
+            {
+                loading ?
+                <Stack sx={{height: '51vw', mt:'20%', ml:'30%'}} direction="column" spacing={5}>
+                    <h1>Loading...</h1>
+                    <PacmanLoader
+                    size={150}
+                    color={"#000248"}
+                    loading={loading}
+                    />
+                </Stack>
+                :
+                <Stack sx={{ mx:'40px', my:'60px', width:'100%'}} direction="row" justifyContent="space-between" spacing={3}>
+                    <Stack direction="column" justifyContent="space-between" spacing={5} sx={{width:'50%'}}>
+                        <Stack direction="row" justifyContent="space-between" sx={{width:'100%'}}>
+                            <h1>Browse Majors in VNUK</h1>
+                            <ViewMoreButton sx={{width:'35%'}} onClick={handleOpen}>Add Class</ViewMoreButton>
+                            <Modal
+                                open={openmodal}
+                                onClose={handleClose}
+                                closeAfterTransition
+                                BackdropComponent={Backdrop}
+                                BackdropProps={{
+                                timeout: 500,
+                                }}
+                            >
+                                <Fade in={openmodal}>
+                                <Stack sx={style} spacing={3} direction="column">
+                                    <h1>Add New Class The Database</h1>
+                                    <Stack direction="column" spacing={4}>
+                                        <TextField id="outlined-basic" label="Class Name" variant="outlined" inputRef={className}/>
+                                        <TextField id="outlined-basic" label="Major" variant="outlined"
+                                        inputRef={classMajor}/>
+                                        <ViewMoreButton onClick={handleSubmit}>Add Post</ViewMoreButton>
                                     </Stack>
                                 </Stack>
-                            </Box>
-                        )
-                    })}
-                </Stack>
-            </Stack>
-            {open && 
-                <Stack sx={{width:'47%'}} spacing={5}>
-                    <h1>Classes List</h1>
-                    <DataGrid
-                    sx={{fontSize:'17px', width:'100%'}}
-                    rows={classList.map((val)=>{
-                        return {
-                            id : val._id,
-                            name : val.class_name,
-                            total : val.students.length
-                        }
-                    })}
-                    // rows={[]}
-                    columns={columns}
-                    pageSize={10}
-                    rowsPerPageOptions={[5]}
-                    editMode="cell"/>
+                                </Fade>
+                            </Modal>
+                        </Stack>
+                        <Stack justifyContent="space-between" spacing={5}>
+                            {majors.map((val) => {
+                                return(
+                                    <Box sx={{backgroundColor:'#d9d9d9', borderRadius:'10px', p:'20px'}}>
+                                        <Stack direction="row" justifyContent="space-between">
+                                            <Stack direction="column" spacing={3}>
+                                                <h2>{val.major_name}</h2>
+                                                <p>Major Code: <b>{val.major_code}</b></p>
+                                                <p>Total Class: {val.classes.length}</p>
+                                            </Stack>
+                                            <Stack direction="column" justifyContent="space-around">
+                                                <ViewMoreButton 
+                                                onClick={async(e) => {
+                                                    e.preventDefault();
+                                                    setOpen(true);
+                                                    try {
+                                                        const res = await axios.get(`https://uni-aa-page.herokuapp.com/majors/${val._id}`);
+                                                        setClassList(res.data.classes);
+                                                    } catch (error) {
+                                                        console.log(error);
+                                                    }
+                                                }}>View More</ViewMoreButton>
+                                            </Stack>
+                                        </Stack>
+                                    </Box>
+                                )
+                            })}
+                        </Stack>
+                    </Stack>
+                    {open && 
+                        <Stack sx={{width:'47%'}} spacing={5}>
+                            <h1>Classes List</h1>
+                            <DataGrid
+                            sx={{fontSize:'17px', width:'100%'}}
+                            rows={classList.map((val)=>{
+                                return {
+                                    id : val._id,
+                                    name : val.class_name,
+                                    total : val.students.length
+                                }
+                            })}
+                            // rows={[]}
+                            columns={columns}
+                            pageSize={10}
+                            rowsPerPageOptions={[5]}
+                            editMode="cell"/>
+                        </Stack>
+                    }
                 </Stack>
             }
-        </Stack>
+        </div>
     )
 }
 

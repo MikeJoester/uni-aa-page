@@ -1,29 +1,29 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {Context} from '../../context/Context';
 import images from '../../constants/images';
 import {
     List,
     Stack,
     ListItemButton,
     ListItemIcon,
-    ListItemText,
-    Collapse,    
+    ListItemText,    
 } from '@mui/material';
 
 import { useNavigate } from "react-router-dom";
 
 import HomeIcon from '@mui/icons-material/Home';
-import GroupIcon from '@mui/icons-material/Group';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ForumIcon from '@mui/icons-material/Forum';
 import SettingsIcon from '@mui/icons-material/Settings';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 import SchoolIcon from '@mui/icons-material/School';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import './AdminNavbar.css';
 
 const AdminNavbar = () => {
+    const {user, dispatch} = useContext(Context);
+
     const navigate = useNavigate();
 
     const navigateHome = () => {
@@ -50,10 +50,17 @@ const AdminNavbar = () => {
         navigate('/feedbacks');
     }
 
-    const [open, setOpen] = React.useState(true);
-    const handleClick = () => {
-        setOpen(!open);
-      };
+    const handleLogOut = () => {
+        var answer = window.confirm("Areyou sure you want to log out?");
+
+        if (answer) {
+            dispatch({type : "LOGOUT"});
+            alert("User has logged out!");
+        }
+        else {
+            alert("Decided not to log out!");
+        }
+    }
 
   return (
     <List
@@ -123,6 +130,17 @@ const AdminNavbar = () => {
                     <SettingsIcon fontSize="large"/>
                 </ListItemIcon>
                 <ListItemText primary="Settings" primaryTypographyProps={{
+                        color: 'white',
+                        fontWeight: 'medium',
+                        variant: 'h6',
+                }}/>
+            </ListItemButton>
+
+            <ListItemButton onClick={handleLogOut}>
+                <ListItemIcon sx={{color:'white'}}>
+                    <LogoutIcon fontSize="large"/>
+                </ListItemIcon>
+                <ListItemText primary="Log Out" primaryTypographyProps={{
                         color: 'white',
                         fontWeight: 'medium',
                         variant: 'h6',

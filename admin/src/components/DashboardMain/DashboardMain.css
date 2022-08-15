@@ -1,6 +1,17 @@
+.dashboard-main-view {
+    width: 100%;
+    height: 100%;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
 .icon-circle-container {
     width: 72px;
     height: 72px;
     object-fit: cover;
     border-radius: 40px;
+}
+
+h1 h2 h3 h4 p {
+    margin : 0;
 }

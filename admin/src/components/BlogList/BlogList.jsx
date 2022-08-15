@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {PacmanLoader} from "react-spinners";
 import axios from 'axios';
 import {Context} from '../../context/Context';
 import './BlogList.css';
@@ -84,14 +85,19 @@ const columns = [
 ];
 
 const BlogList = () => {
+  //loading screen
+  const [loading, setLoading] = useState(false);
+
   //Fetch Post List
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     const fetchPosts = async() => {
-      const res = await axios.get("http://localhost:5000/blogs/");
+      const res = await axios.get("https://uni-aa-page.herokuapp.com/blogs/");
       setPosts(res.data);
-      console.log(res.data);
+      // console.log(res.data);
+      setLoading(false);
     }
     fetchPosts();
   }, []);
@@ -134,58 +140,72 @@ const BlogList = () => {
   }
 
   return (
-    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <h1>Manage Posts</h1>
-        <CreateButton onClick={handleOpen}>Create Post</CreateButton>
-        <Modal
-            open={open}
-            onClose={handleClose}
-            closeAfterTransition
-            BackdropComponent={Backdrop}
-            BackdropProps={{
-            timeout: 500,
-            }}
-        >
-            <Fade in={open}>
-              <Stack sx={style} spacing={3} direction="column">
-                  <h1>Add New Post To The Database</h1>
-                  <Stack direction="column" spacing={4}>
-                    <Button variant="contained">Add Image</Button>
-                    <TextField id="outlined-basic" label="Title" variant="outlined"
-                    onChange={e => setTitle(e.target.value)}/>
-                    <TextField id="outlined-basic" label="Category" variant="outlined"
-                    onChange={e => setCat(e.target.value)}/>
-                    <TextareaAutosize
-                      onChange={e => setDesc(e.target.value)}
-                      maxRows={10}
-                      aria-label="maximum height"
-                      placeholder="Write or Paste the post content here..."
-                      style={{ width: "100%", height: '200px', fontSize:'15px' }}
-                    />
-                    <CreateButton onClick={handleSubmit}>Add Post</CreateButton>
+    <div className="dashboard-main-view">
+      {
+        loading ?
+        <Stack sx={{height: '51vw', mt:'20%', ml:'30%'}} direction="column" spacing={5}>
+            <h1>Loading...</h1>
+            <PacmanLoader
+            size={150}
+            color={"#000248"}
+            loading={loading}
+            />
+        </Stack>
+        :
+        <Stack direction="column" spacing={4} sx={{mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center">
+            <h1>Manage Posts</h1>
+            <CreateButton onClick={handleOpen}>Create Post</CreateButton>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                  <Stack sx={style} spacing={3} direction="column">
+                      <h1>Add New Post To The Database</h1>
+                      <Stack direction="column" spacing={4}>
+                        <Button variant="contained">Add Image</Button>
+                        <TextField id="outlined-basic" label="Title" variant="outlined"
+                        onChange={e => setTitle(e.target.value)}/>
+                        <TextField id="outlined-basic" label="Category" variant="outlined"
+                        onChange={e => setCat(e.target.value)}/>
+                        <TextareaAutosize
+                          onChange={e => setDesc(e.target.value)}
+                          maxRows={10}
+                          aria-label="maximum height"
+                          placeholder="Write or Paste the post content here..."
+                          style={{ width: "100%", height: '200px', fontSize:'15px' }}
+                        />
+                        <CreateButton onClick={handleSubmit}>Add Post</CreateButton>
+                      </Stack>
                   </Stack>
-              </Stack>
-            </Fade>
-        </Modal>
-      </Stack>
-      <DataGrid
-        sx={{fontSize:'17px'}}
-        rows={posts.map((val) => {
-          return {
-            id: val._id,
-            title: val.blog_title,
-            category: val.category,
-            date: new Date(val.createdAt).toDateString(),
-            desc: val.blog_description
-          }
-        })} 
-        columns={columns} 
-        pagesize={10} 
-        pageSize={10}
-        rowsPerPageOptions={[5]}
-        checkboxSelection/>
-    </Stack>
+                </Fade>
+            </Modal>
+          </Stack>
+          <DataGrid
+            sx={{fontSize:'17px'}}
+            rows={posts.map((val) => {
+              return {
+                id: val._id,
+                title: val.blog_title,
+                category: val.category,
+                date: new Date(val.createdAt).toDateString(),
+                desc: val.blog_description
+              }
+            })} 
+            columns={columns} 
+            pagesize={10} 
+            pageSize={10}
+            rowsPerPageOptions={[5]}
+            checkboxSelection/>
+        </Stack>
+      }
+    </div>
   )
 }
 

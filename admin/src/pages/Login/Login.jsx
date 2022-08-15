@@ -133,8 +133,9 @@ const Login = () => {
                 password : passwordRef.current.value
             });
             
+            alert('Login Success!');
             dispatch({type : "LOGIN_SUCCESS", payload : res.data});
-            if(!alert('Login Success!')){window.location.reload();}
+            
         } catch (error) {
             dispatch({type : "LOGIN_FAILURE"});
             alert('Login Failed! Username or Password is incorrect!');
@@ -143,90 +144,92 @@ const Login = () => {
     console.log(user);
 
   return (
-    <div className="app-login-main">
-        <Stack direction="column" backgroundColor="#fff" sx={{width:'50%', height:'100%'}}>
-            <img src="https://vnuk.edu.vn/wp-content/uploads/2021/01/vnuk-symbol-only-official.png" className="vnuk-login-logo" alt="vnuk logo"/>
-            
-            <Stack sx={{pt:'20%'}}>
-                <Stack direction="column" sx={{px:'20%'}} alignItems="center">
-                    <h1>Log in to</h1>
-                    <h1>VNUK Academic Affairs</h1>
-                </Stack>
+    <div className="login-main">
+        <Stack direction="row" justifyContent="space-between" sx={{height:'100%', mr:'50px'}} alignItems="center" spacing={10}>
+            <Stack direction="column" backgroundColor="rgb(21,39,94, 0.85)" sx={{width:'50%', height:'100%'}}>
+                {/* <img src="https://vnuk.edu.vn/wp-content/uploads/2021/01/vnuk-symbol-only-official.png" className="vnuk-login-logo" alt="vnuk logo"/> */}
                 
-                <Box component='form' noValidate autoComplete="off" sx={{
-                    width: '100%',
-                    input: {
-                        color:'black'
-                    },
-                }}>
-                <ThemeProvider theme={FormTheme}>
-                    <Stack direction="column" sx={{px:'20%'}} spacing={5}>
-                        <LoginTextField fullWidth label="Username" variant="standard"
-                        inputRef={userRef}/>
-                        <LoginTextField
-                            label="Password"
-                            type="password"
-                            variant="standard"
-                            inputRef={passwordRef}
-                        />
-                        <LoginButton variant="contained" style={{width: '100%', height: '50px'}} color="secondary" onClick={handleLogin} disabled={isFetching}
-                        >Sign In</LoginButton>
+                <Stack sx={{pt:'30%'}}>
+                    <Stack direction="column" sx={{px:'20%'}} alignItems="center">
+                        <h1 className="text-left">Log in to</h1>
+                        <h1 className="text-left">VNUK Academic Affairs</h1>
                     </Stack>
-                    </ThemeProvider>
-                </Box>
+                    
+                    <Box component='form' noValidate autoComplete="off" sx={{
+                        width: '100%',
+                        input: {
+                            color:'#fff'
+                        },
+                    }}>
+                    <ThemeProvider theme={FormTheme}>
+                        <Stack direction="column" sx={{px:'20%'}} spacing={5}>
+                            <LoginTextField fullWidth label="Username" variant="standard"
+                            inputRef={userRef}/>
+                            <LoginTextField
+                                label="Password"
+                                type="password"
+                                variant="standard"
+                                inputRef={passwordRef}
+                            />
+                            <LoginButton variant="contained" style={{width: '100%', height: '50px'}} color="secondary" onClick={handleLogin} disabled={isFetching}
+                            >Sign In</LoginButton>
+                        </Stack>
+                        </ThemeProvider>
+                    </Box>
+                </Stack>
             </Stack>
-        </Stack>
 
-        <Stack direction="column" backgroundColor="#fff" sx={{width:'50%', height:'100%'}}>
-            <Stack sx={{pt:'20%'}}>
-                <Stack direction="column" sx={{px:'20%'}} alignItems="center">
-                    <h1>Admin Register</h1>
-                    <h1>VNUK Academic Affairs</h1>
-                </Stack>
-                
-                <Box component='form' noValidate autoComplete="off" sx={{
-                    width: '100%',
-                    input: {
-                        color:'black'
-                    },
-                }}>
-                <ThemeProvider theme={FormTheme}>
-                    <Stack direction="column" sx={{px:'20%'}} spacing={4}>
-                        <LoginTextField fullWidth label="Full Name" id="custom-css-outlined-input" variant="standard"
-                        onChange={e => setRegName(e.target.value)}/>
-
-                        <LoginTextField fullWidth label="Username" id="custom-css-outlined-input" variant="standard"
-                        onChange={e => setRegUser(e.target.value)}/>
-
-                        <LoginTextField
-                            fullWidth label="Password"
-                            variant="standard"
-                            type={values.showPassword ? 'text' : 'password'}
-                            value={values.password}
-                            onChange={handleChange('password')}
-                            id="outlined-adornment-password"
-                            InputProps= {
-                            {endAdornment:
-                                <InputAdornment position="end">
-                                <IconButton
-                                    aria-label="toggle password visibility"
-                                    color="primary"
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="end"
-                                >
-                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                                </InputAdornment>
-                            }}/>
-
-                        <LoginTextField fullWidth label="Secret Password" type="password" id="custom-css-outlined-input" variant="standard" onChange={e => setSecretPass(e.target.value)}/>
-
-                        <LoginButton variant="contained" style={{width: '100%', height:'50px'}} color="secondary" onClick={handleRegister}
-                        >Register</LoginButton>
+            <Stack direction="column" backgroundColor="rgba(255,255,255, 0.85)" sx={{width:'50%', height:'80%', borderRadius:'40px'}}>
+                <Stack sx={{pt:'15%'}}>
+                    <Stack direction="column" sx={{px:'20%'}} alignItems="center">
+                        <h1>Admin Register</h1>
+                        <h1>VNUK Academic Affairs</h1>
                     </Stack>
-                    </ThemeProvider>
-                </Box>
+                    
+                    <Box component='form' noValidate autoComplete="off" sx={{
+                        width: '100%',
+                        input: {
+                            color:'black'
+                        },
+                    }}>
+                    <ThemeProvider theme={FormTheme}>
+                        <Stack direction="column" sx={{px:'20%'}} spacing={4}>
+                            <LoginTextField fullWidth label="Full Name" id="custom-css-outlined-input" variant="standard"
+                            onChange={e => setRegName(e.target.value)}/>
+
+                            <LoginTextField fullWidth label="Username" id="custom-css-outlined-input" variant="standard"
+                            onChange={e => setRegUser(e.target.value)}/>
+
+                            <LoginTextField
+                                fullWidth label="Password"
+                                variant="standard"
+                                type={values.showPassword ? 'text' : 'password'}
+                                value={values.password}
+                                onChange={handleChange('password')}
+                                id="outlined-adornment-password"
+                                InputProps= {
+                                {endAdornment:
+                                    <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        color="primary"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                    </InputAdornment>
+                                }}/>
+
+                            <LoginTextField fullWidth label="Secret Password" type="password" id="custom-css-outlined-input" variant="standard" onChange={e => setSecretPass(e.target.value)}/>
+
+                            <LoginButton variant="contained" style={{width: '100%', height:'50px'}} color="secondary" onClick={handleRegister}
+                            >Register</LoginButton>
+                        </Stack>
+                        </ThemeProvider>
+                    </Box>
+                </Stack>
             </Stack>
         </Stack>
     </div>

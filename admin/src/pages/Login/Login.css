@@ -1,13 +1,28 @@
+.login-main {
+    background-image: url("https://ctfimages.intoglobal.com/xw2h6mjophtz/731sOVK2X4DrG83SK4jXAf/395ba54e3dc059a2fbb5b1fa5ca33cf3/Contentful_-_Campus_LifeUOM.jpg");
+    height: 50.49vw;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
 .app-login-main {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
-    background-color: #fff;
+    align-items: center;
+    background-color: transparent;
 }
-.app-login-main h1 {
+
+.login-main h1 {
     font-size: 50px;
     margin: 0;
+}
+
+.text-left {
+    color: #fff;
 }
 
 .vnuk-login-logo {

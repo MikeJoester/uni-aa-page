@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {PacmanLoader} from "react-spinners";
 import axios from 'axios';
 
 import {
@@ -85,12 +86,18 @@ const columns = [
 
 const CourseList = () => {
 
+  //loading screen
+  const [loading, setLoading] = useState(false);
+
   const [courses, setCourses] = useState([]);
   useEffect(() => {
+    setLoading(true);
+
     const fetchCourses = async() => {
       const res = await axios.get("https://uni-aa-page.herokuapp.com/courses/");
       setCourses(res.data);
-      console.log(res.data)
+      // console.log(res.data)
+      setLoading(false);
     }
     fetchCourses();
   }, []);
@@ -118,75 +125,89 @@ const CourseList = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/courses/', newCourse);
+      const res = await axios.post('https://uni-aa-page.herokuapp.com/courses/', newCourse);
       if(!alert('Course Added!')){window.location.reload();}
     } catch (error) {}
   }
 
   return (
-    <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <h1>View Courses</h1>
-        <CreateButton onClick={handleOpen}>Add Course</CreateButton>
-        <Modal
-            open={open}
-            onClose={handleClose}
-            closeAfterTransition
-            BackdropComponent={Backdrop}
-            BackdropProps={{
-            timeout: 500,
-            }}
-        >
-            <Fade in={open}>
-              <Stack sx={style} spacing={3} direction="column">
-                  <h1>Add New Course to Database</h1>
-                  <Stack direction="column" spacing={4}>
-                    <TextField id="outlined-basic" label="Course Code" variant="outlined"
-                    onChange={e => setCode(e.target.value)}/>
-                    <TextField id="outlined-basic" label="Name" variant="outlined"
-                    onChange={e => setName(e.target.value)}/>
-                    <Stack direction="row" justifyContent="space-between" spacing={3}>
-                      <FormControl sx={{width:'100%'}}>
-                          <InputLabel id="demo-simple-select-label">Optional</InputLabel>
-                          <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={option}
-                            label="Gender"
-                            onChange={e => setOption(e.target.value)}
-                          >
-                            <MenuItem value={true}>Yes</MenuItem>
-                            <MenuItem value={false}>No</MenuItem>
-                          </Select>
-                      </FormControl>
-                      <TextField id="outlined-basic" label="Credits" variant="outlined"
-                      onChange={e => setCredits(e.target.value)} sx={{width:'100%'}}/>
-                    </Stack>
-                    <TextField id="outlined-basic" label="Semester" variant="outlined"
-                    onChange={e => setSemester(e.target.value)}/>
-                    <CreateButton onClick={handleSubmit}>Add Course</CreateButton>
+    <div className="dashboard-main-view">
+      {
+        loading ? 
+        <Stack sx={{height: '51vw', mt:'20%', ml:'30%'}} direction="column" spacing={5}>
+          <h1>Loading...</h1>
+          <PacmanLoader
+          size={150}
+          color={"#000248"}
+          loading={loading}
+          />
+        </Stack>
+        :
+        <Stack direction="column" spacing={4} sx={{mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center">
+            <h1>View Courses</h1>
+            <CreateButton onClick={handleOpen}>Add Course</CreateButton>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                  <Stack sx={style} spacing={3} direction="column">
+                      <h1>Add New Course to Database</h1>
+                      <Stack direction="column" spacing={4}>
+                        <TextField id="outlined-basic" label="Course Code" variant="outlined"
+                        onChange={e => setCode(e.target.value)}/>
+                        <TextField id="outlined-basic" label="Name" variant="outlined"
+                        onChange={e => setName(e.target.value)}/>
+                        <Stack direction="row" justifyContent="space-between" spacing={3}>
+                          <FormControl sx={{width:'100%'}}>
+                              <InputLabel id="demo-simple-select-label">Optional</InputLabel>
+                              <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={option}
+                                label="Gender"
+                                onChange={e => setOption(e.target.value)}
+                              >
+                                <MenuItem value={true}>Yes</MenuItem>
+                                <MenuItem value={false}>No</MenuItem>
+                              </Select>
+                          </FormControl>
+                          <TextField id="outlined-basic" label="Credits" variant="outlined"
+                          onChange={e => setCredits(e.target.value)} sx={{width:'100%'}}/>
+                        </Stack>
+                        <TextField id="outlined-basic" label="Semester" variant="outlined"
+                        onChange={e => setSemester(e.target.value)}/>
+                        <CreateButton onClick={handleSubmit}>Add Course</CreateButton>
+                      </Stack>
                   </Stack>
-              </Stack>
-            </Fade>
-        </Modal>
-      </Stack>
-      <DataGrid
-        sx={{fontSize:'17px'}}
-        rows={courses.map((val) => {
-          return {
-            id: val.course_code,
-            name: val.course_name,
-            credits: val.credit,
-            semester: val.semester,
-            optional: val.optional
-          }
-        })} 
-        columns={columns} 
-        pagesize={10} 
-        pageSize={10}
-        rowsPerPageOptions={[5]}
-        checkboxSelection/>
-    </Stack>
+                </Fade>
+            </Modal>
+          </Stack>
+          <DataGrid
+            sx={{fontSize:'17px'}}
+            rows={courses.map((val) => {
+              return {
+                id: val.course_code,
+                name: val.course_name,
+                credits: val.credit,
+                semester: val.semester,
+                optional: val.optional
+              }
+            })} 
+            columns={columns} 
+            pagesize={10} 
+            pageSize={10}
+            rowsPerPageOptions={[5]}
+            checkboxSelection/>
+        </Stack>
+      }
+    </div>
   )
 }
 

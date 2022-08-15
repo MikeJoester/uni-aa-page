@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios';
 import images from '../../constants/images';
+import {PacmanLoader} from "react-spinners";
 
 import {
     Stack,
@@ -84,186 +85,180 @@ const ViewMoreBtn = styled(Button)({
 
 const DashboardMain = () => {
     const navigate = useNavigate();
+
+    //fetching constants
     const [students, setStudents] = useState([]);
+    const [courses, setCourses] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [feedbacks, setFeedbacks] = useState([]);
 
     const navigateStudents = () => {
         navigate('/students');
     }
+    const navigateFBs = () => {
+        navigate('/feedbacks');
+    }
+
+    //loading screen
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true);
+
         const fetchClasses = async() => {
-            const res = await axios.get("http://localhost:5000/classlist/");
+            const res = await axios.get("https://uni-aa-page.herokuapp.com/students/");
+            const courses = await axios.get("https://uni-aa-page.herokuapp.com/courses/");
+            const res2 = await axios.get("https://uni-aa-page.herokuapp.com/blogs/");
+            const feedback = await axios.get("https://uni-aa-page.herokuapp.com/surveys");
             setStudents(res.data);
-            console.log(res.data);
+            setCourses(courses.data);
+            setPosts(res2.data);
+            setFeedbacks(feedback.data);
+            // console.log(post.data);
+            setLoading(false);
         }
         fetchClasses();
     }, []);
 
   return (
-    <Stack direction="column" spacing={5} sx={{mx:'40px', my:'50px', width:'100%', color:'#000248'}}>
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
-            <h1>Dashboard</h1>
-            <Stack direction="row" justifyContent="space-around" spacing={2} alignItems="center" >
-                <Stack direction="column" alignItems="flex-end" >
-                    <Link to="/settings"><h3>Nguyen Van Liem</h3></Link>
-                    <p>Admin</p>
-                </Stack>
-                <Link to="/settings"><img className="icon-circle-container" src={images.avatar1}/></Link>
+    <div className="dashboard-main-view">
+        {
+            loading ?
+            <Stack sx={{height: '51vw', mt:'20%', ml:'30%'}} direction="column" spacing={5}>
+                <h1>Loading...</h1>
+                <PacmanLoader
+                size={150}
+                color={"#000248"}
+                loading={loading}
+                />
             </Stack>
-        </Stack>
+            :
+            <Stack direction="column" spacing={5} sx={{my:'50px', width:'100%', color:'#000248'}}>
+                <Stack direction="row" justifyContent="space-between" alignItems="center">
+                    <h1>Dashboard</h1>
+                    <Stack direction="row" justifyContent="space-around" spacing={2} alignItems="center" >
+                        <Stack direction="column" alignItems="flex-end" >
+                            <Link to="/settings"><h3>Nguyen Van Liem</h3></Link>
+                            <p>Admin</p>
+                        </Stack>
+                        <Link to="/settings"><img className="icon-circle-container" src={images.avatar1}/></Link>
+                    </Stack>
+                </Stack>
 
-        <Stack direction="row" sx={{borderRadius:'20px', backgroundColor:'white', pb:'40px', pt:'30px'}} spacing={3} justifyContent='space-around'>
-            <Stack direction="row" spacing={2} alignItems="flex-end">
-                <Stack sx={{width:'80px', backgroundColor:'#2B2D7D', height:'80px', borderRadius:'40px', color:'#FFFFFF'}} alignItems="center" justifyContent='center'>
-                    <GroupIcon fontSize="large"/>
-                </Stack>
-                <Stack direction="column" spacing={1}>
-                    <p>Students</p>
-                    <h1>{students.length}</h1>
-                </Stack>
-            </Stack>
+                <Stack direction="row" sx={{borderRadius:'20px', backgroundColor:'white', pb:'40px', pt:'30px'}} spacing={3} justifyContent='space-around'>
+                    <Stack direction="row" spacing={2} alignItems="flex-end">
+                        <Stack sx={{width:'80px', backgroundColor:'#2B2D7D', height:'80px', borderRadius:'40px', color:'#FFFFFF'}} alignItems="center" justifyContent='center'>
+                            <GroupIcon fontSize="large"/>
+                        </Stack>
+                        <Stack direction="column" spacing={1}>
+                            <p>Students</p>
+                            <h1>{students.length}</h1>
+                        </Stack>
+                    </Stack>
 
-            <Stack direction="row" spacing={2} alignItems="flex-end">
-                <Stack sx={{width:'80px', backgroundColor:'#2B2D7D', height:'80px', borderRadius:'40px', color:'#FFFFFF'}} alignItems="center" justifyContent='center'>
-                    <MenuBookIcon fontSize="large"/>
-                </Stack>
-                <Stack direction="column" spacing={1}>
-                    <p>Courses</p>
-                    <h1>69</h1>
-                </Stack>
-            </Stack>
+                    <Stack direction="row" spacing={2} alignItems="flex-end">
+                        <Stack sx={{width:'80px', backgroundColor:'#2B2D7D', height:'80px', borderRadius:'40px', color:'#FFFFFF'}} alignItems="center" justifyContent='center'>
+                            <MenuBookIcon fontSize="large"/>
+                        </Stack>
+                        <Stack direction="column" spacing={1}>
+                            <p>Courses</p>
+                            <h1>{courses.length}</h1>
+                        </Stack>
+                    </Stack>
 
-            <Stack direction="row" spacing={2} alignItems="flex-end">
-                <Stack sx={{width:'80px', backgroundColor:'#2B2D7D', height:'80px', borderRadius:'40px', color:'#FFFFFF'}} alignItems="center" justifyContent='center'>
-                    <CalendarMonthIcon fontSize="large"/>
-                </Stack>
-                <Stack direction="column" spacing={1}>
-                    <p>Posts</p>
-                    <h1>96</h1>
-                </Stack>
-            </Stack>
+                    <Stack direction="row" spacing={2} alignItems="flex-end">
+                        <Stack sx={{width:'80px', backgroundColor:'#2B2D7D', height:'80px', borderRadius:'40px', color:'#FFFFFF'}} alignItems="center" justifyContent='center'>
+                            <CalendarMonthIcon fontSize="large"/>
+                        </Stack>
+                        <Stack direction="column" spacing={1}>
+                            <p>Posts</p>
+                            <h1>{posts.length}</h1>
+                        </Stack>
+                    </Stack>
 
-            <Stack direction="row" spacing={2} alignItems="flex-end">
-                <Stack sx={{width:'80px', backgroundColor:'#2B2D7D', height:'80px', borderRadius:'40px', color:'#FFFFFF'}} alignItems="center" justifyContent='center'>
-                    <ForumIcon fontSize="large"/>
+                    <Stack direction="row" spacing={2} alignItems="flex-end">
+                        <Stack sx={{width:'80px', backgroundColor:'#2B2D7D', height:'80px', borderRadius:'40px', color:'#FFFFFF'}} alignItems="center" justifyContent='center'>
+                            <ForumIcon fontSize="large"/>
+                        </Stack>
+                        <Stack direction="column" spacing={1}>
+                            <p>Feedbacks</p>
+                            <h1>{feedbacks.length}</h1>
+                        </Stack>
+                    </Stack>
                 </Stack>
-                <Stack direction="column" spacing={1}>
-                    <p>Feedbacks</p>
-                    <h1>6969</h1>
-                </Stack>
-            </Stack>
-        </Stack>
 
-        <Stack direction="row" spacing={5} justifyContent="space-between">
-            <Stack direction="column" spacing={3} sx={{width:'100%', backgroundColor:'white', borderRadius:'20px', p:'30px'}} alignItems="center">
-                <h1>New Students</h1>
-                <SearchTextField sx={{width:'100%'}}
-                placeholder="Search here..."
-                InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon/>
-                      </InputAdornment>
-                    ),
-                  }}/>
-                
-                {students.slice(0, 5).map((p) => {return(
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
-                    <Stack direction="row" justifyContent="space-between" alignItems="center">
-                        <Stack direction="row" spacing={4} alignItems="center">
-                            <img className="icon-circle-container" src={images.avatar1}/>
-                            <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                                <h3>{p.full_name}</h3>
-                                <p>Class: <b>{p.class.class_name}</b></p>
+                <Stack direction="row" spacing={5} justifyContent="space-between">
+                    <Stack direction="column" spacing={3} sx={{width:'100%', backgroundColor:'white', borderRadius:'20px', p:'30px'}} alignItems="center">
+                        <h1>New Students</h1>
+                        <SearchTextField sx={{width:'100%'}}
+                        placeholder="Search here..."
+                        InputProps={{
+                            startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon/>
+                            </InputAdornment>
+                            ),
+                        }}/>
+                        
+                        {students.slice(0, 5).map((p) => {return(
+                        <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
+                            <Stack direction="row" justifyContent="space-between" alignItems="center">
+                                <Stack direction="row" spacing={4} alignItems="center">
+                                    <img className="icon-circle-container" src={images.avatar1}/>
+                                    <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
+                                        <h3>{p.full_name}</h3>
+                                        <p>Major: <b>{p.major}</b></p>
+                                    </Stack>
+                                </Stack>
+                                <IconButton sx={{color:'#000248'}}>
+                                    <InfoIcon fontSize="large"/>
+                                </IconButton>
                             </Stack>
+                            <Divider/>
                         </Stack>
-                        <Stack direction="row" spacing={2}>
-                            <IconButton sx={{color:'#000248'}}>
-                                <InfoIcon fontSize="large"/>
-                            </IconButton>
-    
-                            <IconButton sx={{color:'#000248'}}>
-                                <EmailIcon fontSize="large"/>
-                            </IconButton>
-                        </Stack>
+                        )})}
+                        <ViewMoreBtn onClick={navigateStudents}>View More</ViewMoreBtn>
                     </Stack>
-                    <Divider/>
-                </Stack>
-                )})}
-                <ViewMoreBtn onClick={navigateStudents}>View More</ViewMoreBtn>
-            </Stack>
 
-            <Stack direction="column" spacing={3} sx={{width:'100%', backgroundColor:'white', borderRadius:'20px', p:'30px'}} alignItems="center">
-                <h1>Feedbacks</h1>
-                <SearchTextField sx={{width:'100%'}}
-                placeholder="Search here..."
-                InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon/>
-                      </InputAdornment>
-                    ),
-                  }}/>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <img className="icon-circle-container" src={images.avatar1}/>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Never gonna give you up, never gonna let you down...</p>
-                        </Stack>
+                    <Stack direction="column" spacing={3} sx={{width:'100%', backgroundColor:'white', borderRadius:'20px', p:'30px'}} alignItems="center">
+                        <h1>Feedbacks</h1>
+                        <SearchTextField sx={{width:'100%'}}
+                        placeholder="Search here..."
+                        InputProps={{
+                            startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon/>
+                            </InputAdornment>
+                            ),
+                        }}/>
+                        {feedbacks.slice(0, 5).map((val)=>{
+                            return(
+                                <Stack direction="column" justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
+                                    <Stack direction="row" justifyContent="space-between" alignItems="center">
+                                        <Stack direction="row" spacing={4} alignItems="center">
+                                            <img className="icon-circle-container" src={images.avatar1}/>
+                                            <Stack justifyContent="space-between" alignItems="flex-start" direction="column" sx={{width:'100%'}}>
+                                                <Stack direction="row" alignItems="center">
+                                                    <p>Course Name: </p>
+                                                    <h4>{val.course_name}</h4>
+                                                </Stack>
+                                                <p>Lecturer: {val.lecturer_name}</p>
+                                            </Stack>
+                                        </Stack>
+                                        <Stack direction="column" justifyContent="space-between" alignItems="flex-end">
+                                            <p>Post Date: {val.createdAt.split('T')[0]}</p>
+                                            <h4>Deadline: {val.deadline}</h4>
+                                        </Stack>
+                                    </Stack>
+                                </Stack>
+                            )
+                        })}
+                        <ViewMoreBtn onClick={navigateFBs}>View More</ViewMoreBtn>
                     </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <p>11:30 A.M</p>
-                    </Stack>
-                  </Stack>
                 </Stack>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <img className="icon-circle-container" src={images.avatar1}/>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Never gonna give you up, never gonna let you down...</p>
-                        </Stack>
-                    </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <p>11:30 A.M</p>
-                    </Stack>
-                  </Stack>
-                </Stack>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <img className="icon-circle-container" src={images.avatar1}/>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Never gonna give you up, never gonna let you down...</p>
-                        </Stack>
-                    </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <p>11:30 A.M</p>
-                    </Stack>
-                  </Stack>
-                </Stack>
-                <Stack direction="column" spacing={2} justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Stack direction="row" spacing={4} alignItems="center">
-                        <img className="icon-circle-container" src={images.avatar1}/>
-                        <Stack justifyContent="space-between" alignItems="flex-start" direction="column">
-                            <h3>Sussus Amogus</h3>
-                            <p>Never gonna give you up, never gonna let you down...</p>
-                        </Stack>
-                    </Stack>
-                    <Stack direction="row" spacing={2}>
-                        <p>11:30 A.M</p>
-                    </Stack>
-                  </Stack>
-                </Stack>  
-                <ViewMoreBtn>View More</ViewMoreBtn>
             </Stack>
-        </Stack>
-    </Stack>
+        }
+    </div>
   )
 }
 
