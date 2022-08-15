@@ -76,7 +76,21 @@ const columns = [
               <InfoIcon/>
             </IconButton>
           </a>
-          <IconButton sx={{color: 'red'}}>
+          <IconButton sx={{color: 'red'}} onClick={async(e) =>{
+            e.preventDefault();
+            let confirm = window.confirm('Are you sure you want to delete this element?');
+            if (confirm) {
+              try {
+                await axios.delete(`https://uni-aa-page.herokuapp.com/surveys/${params.row.id}`);
+                if (!alert("Survey Terminated")) {window.location.reload();} 
+              } catch (error) {
+                alert(error);
+              }
+            }
+            else {
+              alert('Decided not to terminate the survey :)');
+            }
+          }}>
             <DeleteIcon/>
           </IconButton>
         </Stack>
@@ -171,7 +185,7 @@ const FeedbackList = () => {
                 id: val._id,
                 name: val.course_name,
                 lecturer: val.lecturer_name,
-                date: val.post_date,
+                date: val.createdAt.split('T')[0],
                 deadline: val.deadline,
                 link: val.form_link
               }
@@ -179,8 +193,7 @@ const FeedbackList = () => {
             columns={columns} 
             pagesize={10} 
             pageSize={10}
-            rowsPerPageOptions={[5]}
-            checkboxSelection/>
+            rowsPerPageOptions={[5]}/>
         </Stack>
       }
     </div>

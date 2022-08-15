@@ -54,62 +54,27 @@ const CreateButton = styled(Button)(() => ({
     },
 }));
 
-const columns = [ //columns label
-  { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'fullName', headerName: 'Full Name', width: 200 },
-  { field: 'class', headerName: 'Class', width: 150 },
-  {
-    field: 'dob',
-    headerName: 'Date Of Birth',
-    type: 'string',
-    width: 230,
-  },
-  {
-    field: 'email',
-    headerName: 'Email',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 300,
-  },
-  { field: 'phone', headerName: 'Phone Number', width: 150 },
-  { 
-    field:'action',
-    headerName: 'Action',
-    width: 180,
-    renderCell: (params) => {
-      return(
-        <Stack direction='row' spacing={2} justifyContent='space-between'>
-          <IconButton>
-            <EditIcon/>
-          </IconButton>
-          <Link to={"/grades/"+params.row.email}>
-            <IconButton>
-              <GradingIcon/>
-            </IconButton>          
-          </Link>
-          <IconButton sx={{color: 'red'}}>
-            <DeleteIcon/>
-          </IconButton>
-        </Stack>
-      )
-    }
-  },
-];
-
 const StudentList = () => {
   //loading screen
   const [loading, setLoading] = useState(false);
 
+  //edit component
+  const [prop, setProp] = useState({});
+
   //modal
-  const [open, setOpen] = React.useState(false);
+  const [openmodal, setOpenModal] = useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
 
   //axios
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [studentList, setStudentList] = useState([]);
 
+  //fetch students
   useEffect(() => {
     setLoading(true);
     const fetchStudents = async() => {
@@ -159,6 +124,140 @@ const StudentList = () => {
       if(!alert('New Student Added!')){window.location.reload();}
     } catch (error) {}
   }
+
+  const columns = [ //columns label
+  { field: 'id', headerName: 'ID', width: 100 },
+  { field: 'fullName', headerName: 'Full Name', width: 200 },
+  { field: 'class', headerName: 'Class', width: 150 },
+  {
+    field: 'dob',
+    headerName: 'Date Of Birth',
+    type: 'string',
+    width: 230,
+  },
+  {
+    field: 'email',
+    headerName: 'Email',
+    description: 'This column has a value getter and is not sortable.',
+    sortable: false,
+    width: 300,
+  },
+  { field: 'phone', headerName: 'Phone Number', width: 150 },
+  { 
+    field:'action',
+    headerName: 'Action',
+    width: 180,
+    renderCell: (params) => {
+      return(
+        <Stack direction='row' spacing={2} justifyContent='space-between'>
+          <IconButton onClick={e=>{
+            e.preventDefault();
+            console.log(params.row);
+            setProp(params.row);
+            setOpenModal(true);
+          }}>
+            <EditIcon/>
+          </IconButton>
+          <Modal
+                open={openmodal}
+                onClose={handleCloseModal}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                timeout: 200,
+                }}
+            >
+                <Fade in={openmodal}>
+                  <Stack sx={style} spacing={3} direction="column">
+                      <h2>Update Student Information</h2>
+                      <Stack direction="row" spacing={4} justifyContent="space-between">
+                        <Stack direction="column" spacing={3} sx={{width:'100%'}}>
+                          <TextField label="Student ID" variant="outlined" inputRef={sid} defaultValue={prop.id}/>
+                          <TextField label="Full Name" variant="outlined" inputRef={fullname} defaultValue={prop.fullName}/>
+                          <TextField label="Birth Date" variant="outlined" inputRef={bday} defaultValue={prop.dob}/>
+                          <TextField label="Birth Place" variant="outlined" inputRef={bPlace} defaultValue={prop.birthplace}/>
+                          <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+                            <Select
+                              labelId="demo-simple-select-label"
+                              id="demo-simple-select"
+                              value={gender}
+                              label="Gender"
+                              onChange={e => setGender(e.target.value)}
+                            >
+                              <MenuItem value={true}>Male</MenuItem>
+                              <MenuItem value={false}>Female</MenuItem>
+                            </Select>
+                          </FormControl>
+                          <TextField label="Major" variant="outlined" inputRef={major} defaultValue={prop.major}/>
+                        </Stack>
+
+                        <Stack direction="column" spacing={3} sx={{width:'100%'}}>
+                          <TextField label="Class" variant="outlined" inputRef={sClass} defaultValue={prop.class}/>
+                          <TextField label="Email" variant="outlined" inputRef={mail} defaultValue={prop.email}/>
+                          <TextField label="Phone" variant="outlined" inputRef={phone} defaultValue={prop.phone}/>
+                          <TextField label="Address" variant="outlined" inputRef={address} defaultValue={prop.address}/>
+                          <TextField label="Identity Number" variant="outlined" inputRef={iNum} defaultValue={prop.inum}/>
+                          <TextField label="Credit" variant="outlined" inputRef={credits} defaultValue={prop.credit}/>
+                        </Stack>
+                      </Stack>
+                      <CreateButton sx={{height:'60px'}} onClick={async(e) => {
+                        e.preventDefault();
+                        const updatedStudent = {
+                          "student_id": sid.current.value,
+                          "full_name": fullname.current.value,
+                          "birth_date": bday.current.value,
+                          "birth_place": bPlace.current.value,
+                          "address" : address.current.value,
+                          "identity_number" : iNum.current.value,
+                          "gender": gender,
+                          "email": mail.current.value,
+                          "googleID": "",
+                          "phone": phone.current.value,
+                          "major": major.current.value,
+                          "class": sClass.current.value,
+                          "credit": credits.current.value,
+                        };
+
+                        try {
+                          await axios.patch(`https://uni-aa-page.herokuapp.com/students/${prop.trueId}`, updatedStudent);
+                          if (!alert("Update Success!")) {window.location.reload();}
+                          // console.log(updatedStudent);
+                        } catch (error) {
+                          alert(error);
+                        }
+                      }}>Update Information</CreateButton>
+                  </Stack>
+                </Fade>
+          </Modal>
+
+          <Link to={"/grades/"+params.row.email}>
+            <IconButton>
+              <GradingIcon/>
+            </IconButton>          
+          </Link>
+          <IconButton sx={{color: 'red'}} onClick={async(e) =>{
+            e.preventDefault();
+            let confirm = window.confirm('Are you sure you want to delete this element?');
+            if (confirm) {
+              try {
+                await axios.delete(`https://uni-aa-page.herokuapp.com/students/${params.row.trueId}`);
+                if (!alert("Student Terminated")) {window.location.reload();} 
+              } catch (error) {
+                alert(error);
+              }
+            }
+            else {
+              alert('Decided not to terminate the student :)');
+            }
+          }}>
+            <DeleteIcon/>
+          </IconButton>
+        </Stack>
+      )
+    }
+  },
+  ];
 
   return (
     <div className="dashboard-main-view">
@@ -236,6 +335,14 @@ const StudentList = () => {
                   dob: val.birth_date,
                   email: val.email,
                   phone: val.phone,
+                  //hidden information down
+                  trueId : val._id,
+                  major : val.major,
+                  credit : val.credit,
+                  address : val.address,
+                  inum : val.identity_number,
+                  gender : val.gender,
+                  birthplace : val.birth_place
                 }
               })
             }

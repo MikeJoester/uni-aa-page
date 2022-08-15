@@ -88,6 +88,18 @@ const Grades = () => {
         return createData(...temp)
     });
 
+    const handleUpdate = async() => {
+        const updatedGrade = {
+
+        }
+
+        try {
+            await axios.patch(`https://uni-aa-page.herokuapp.com/transcript/${path}`, updatedGrade);
+        } catch (error) {
+            alert(error);
+        }
+    }
+
   return (
     <div className="dashboard-main">
         <AdminNavbar/>

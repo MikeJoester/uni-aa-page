@@ -75,7 +75,21 @@ const columns = [
           <IconButton>
             <EditIcon/>
           </IconButton>
-          <IconButton sx={{color: 'red'}}>
+          <IconButton sx={{color: 'red'}} onClick={async(e) =>{
+            e.preventDefault();
+            let confirm = window.confirm('Are you sure you want to delete this element?');
+            if (confirm) {
+              try {
+                await axios.delete(`https://uni-aa-page.herokuapp.com/courses/${params.row.id}`);
+                if (!alert("Course Terminated :(")) {window.location.reload();} 
+              } catch (error) {
+                alert(error);
+              }
+            }
+            else {
+              alert('Decided not to terminate the course :)');
+            }
+          }}>
             <DeleteIcon/>
           </IconButton>
         </Stack>
@@ -203,8 +217,7 @@ const CourseList = () => {
             columns={columns} 
             pagesize={10} 
             pageSize={10}
-            rowsPerPageOptions={[5]}
-            checkboxSelection/>
+            rowsPerPageOptions={[5]}/>
         </Stack>
       }
     </div>

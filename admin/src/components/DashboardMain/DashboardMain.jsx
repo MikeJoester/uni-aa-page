@@ -93,7 +93,7 @@ const DashboardMain = () => {
     const [feedbacks, setFeedbacks] = useState([]);
 
     const navigateStudents = () => {
-        navigate('/students');
+        navigate('/majors');
     }
     const navigateFBs = () => {
         navigate('/feedbacks');
