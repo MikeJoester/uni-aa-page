@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 // GET MAJOR BY ID
 router.get("/:id", async (req, res) => {
     try {
-        const major = await Major.findById(req.params.id)
+        const major = await Major.findById(req.params.id).populate('classes')
         res.status(200).json(major)
     } catch (err) {
         res.status(500).json(err)

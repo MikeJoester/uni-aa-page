@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {useLocation} from 'react-router';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './StudentList.css';
@@ -69,6 +70,7 @@ const columns = [ //columns label
     sortable: false,
     width: 300,
   },
+  { field: 'phone', headerName: 'Phone Number', width: 150 },
   { 
     field:'action',
     headerName: 'Action',
@@ -100,15 +102,18 @@ const StudentList = () => {
   const handleClose = () => setOpen(false);
 
   //axios
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
   const [studentList, setStudentList] = useState([]);
 
   useEffect(() => {
     const fetchStudents = async() => {
-      const res = await axios.get("http://localhost:5000/classlist/");
-      setStudentList(res.data);
+      const res = await axios.get(`http://localhost:5000/classes/${path}`);
+      setStudentList(res.data.students);
+      console.log(res.data.students);
     }
     fetchStudents();
-  }, [studentList]);
+  }, []);
 
   //New Student
   const [gender, setGender] = useState(true);
@@ -121,6 +126,8 @@ const StudentList = () => {
   const major = useRef();
   const sClass = useRef();
   const credits = useRef();
+  const iNum = useRef();
+  const address = useRef();
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -129,6 +136,8 @@ const StudentList = () => {
       "full_name": fullname.current.value,
       "birth_date": bday.current.value,
       "birth_place": bPlace.current.value,
+      "address" : address.current.value,
+      "identity_number" : iNum.current.value,
       "gender": gender,
       "email": mail.current.value,
       "googleID": "",
@@ -139,7 +148,8 @@ const StudentList = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/students", newStudent);
+      const res = await axios.post("https://uni-aa-page.herokuapp.com/students", newStudent);
+      // console.log(newStudent);
       if(!alert('New Student Added!')){window.location.reload();}
     } catch (error) {}
   }
@@ -187,13 +197,15 @@ const StudentList = () => {
                       <TextField id="outlined-basic" label="Class" variant="outlined" inputRef={sClass}/>
                       <TextField id="outlined-basic" label="Email" variant="outlined" inputRef={mail}/>
                       <TextField id="outlined-basic" label="Phone" variant="outlined" inputRef={phone}/>
+                      <TextField id="outlined-basic" label="Address" variant="outlined" inputRef={address}/>
+                      <TextField id="outlined-basic" label="Identity Number" variant="outlined" inputRef={iNum}/>
                       <TextField id="outlined-basic" label="Credit" variant="outlined" inputRef={credits}/>
-                      <CreateButton onClick={handleSubmit} sx={{height:'60px'}}>Add Student</CreateButton>
                     </Stack>
                   </Stack>
+                  <CreateButton onClick={handleSubmit} sx={{height:'60px'}}>Add Student</CreateButton>
               </Stack>
             </Fade>
-    </Modal>
+        </Modal>
       </Stack>
       <DataGrid
         sx={{fontSize:'17px'}}
@@ -202,9 +214,10 @@ const StudentList = () => {
             return {
               id: val.student_id,
               fullName: val.full_name,
-              class: val.class.class_name,
-              dob: new Date(val.birth_date).toDateString(),
-              email: val.email
+              class: val.class,
+              dob: val.birth_date,
+              email: val.email,
+              phone: val.phone,
             }
           })
         }

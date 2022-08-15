@@ -10,6 +10,7 @@ import {
   Feedbacks,
   Login,
   Grades,
+  ClassList,
 } from './pages';
 
 import {
@@ -45,7 +46,8 @@ const App = () => {
         <Routes>
           <Route path='/login' element={user ? <Dashboard/> : <Login/>}/>
           <Route path='/' element={user ? <Dashboard/> : <Login/>}/>
-          <Route path='/students' element={user ? <Students/> : <Login/>}/>
+          <Route path='/majors' element={user ? <Students/> : <Login/>}/>
+          <Route path='/class/:id' element={user ? <ClassList/> : <Login/>}/>
           <Route path='/blogs' element={user ? <Blogs/> : <Login/>}/>
           <Route path='/settings' element={user ? <Settings/> : <Login/>}/>
           <Route path='/courses' element={user ? <Courses/> : <Login/>}/>

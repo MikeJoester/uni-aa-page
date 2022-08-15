@@ -88,7 +88,7 @@ const CourseList = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     const fetchCourses = async() => {
-      const res = await axios.get("http://localhost:5000/courses/");
+      const res = await axios.get("https://uni-aa-page.herokuapp.com/courses/");
       setCourses(res.data);
       console.log(res.data)
     }
