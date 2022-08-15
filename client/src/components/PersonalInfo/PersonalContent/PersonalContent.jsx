@@ -19,7 +19,8 @@ const PersonalContent = () => {
     if (localStorage.getItem("student")) {
       const getStudent = async () => {
         const res = await axios.get(
-          "http://localhost:5000/students/studentEmail/" + userObject.email
+          "https://uni-aa-page.herokuapp.com/students/studentEmail/" +
+            userObject.email
         );
         setStudent(res.data[0]);
         // console.log(res.data[0]);
@@ -49,7 +50,7 @@ const PersonalContent = () => {
             ? student.phone
             : studentPhone.current.value;
         const updatedData = await axios.patch(
-          `http://localhost:5000/students/${student._id}`,
+          `https://uni-aa-page.herokuapp.com/students/${student._id}`,
           {
             address: updatedAddress,
             phone: updatedPhone,

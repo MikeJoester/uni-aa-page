@@ -56,7 +56,7 @@ const StudentResult = () => {
   useEffect(() => {
     const fetchGrade = async () => {
       const res = await axios.get(
-        `http://localhost:5000/transcript/transcriptEmail/${userObject.email}`
+        `https://uni-aa-page.herokuapp.com/transcript/transcriptEmail/${userObject.email}`
       );
       setGrade(res.data.grades);
     };

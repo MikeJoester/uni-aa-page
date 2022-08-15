@@ -69,7 +69,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
   //   if (localStorage.getItem("user")) {
   //     const getStudent = async() => {
   //       const res = await axios.get(
-  //         "http://localhost:5000/students/studentEmail/" + user.email
+  //         "https://uni-aa-page.herokuapp.com/students/studentEmail/" + user.email
   //       );
   //       setStudent(res.data[0]);
   //       setName(res.data[0].full_name.toUpperCase());
@@ -96,7 +96,7 @@ const Sidebar = ({ toggleMenu, setToggleMenu, hamburgerMenu }) => {
         document.getElementById("btn__logout logout").hidden = false;
         // const getStudent = async () => {
         //   const res = await axios.get(
-        //     `http://localhost:5000/students/studentEmail/${user.email}`
+        //     `https://uni-aa-page.herokuapp.com/students/studentEmail/${user.email}`
         //   );
         //   setStudent(res.data[0]);
         //   setName(res.data[0].full_name.toUpperCase());

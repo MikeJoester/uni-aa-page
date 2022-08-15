@@ -9,7 +9,7 @@ const SurveyBody = () => {
   const [survey, setSurvey] = useState([]);
   useEffect(() => {
     const getSurvey = async () => {
-      const res = await axios.get("http://localhost:5000/surveys");
+      const res = await axios.get("https://uni-aa-page.herokuapp.com/surveys");
       setSurvey(res.data);
       // console.log(res.data[0]);
     };
