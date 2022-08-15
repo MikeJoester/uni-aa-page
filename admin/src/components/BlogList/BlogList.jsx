@@ -123,12 +123,12 @@ const BlogList = () => {
       data.append("file", file);
       newPost.image = filename;
       try {
-        await axios.post("http://localhost:5000/upload", data);
+        await axios.post("https://uni-aa-page.herokuapp.com/upload", data);
       } catch (error) {}
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/blogs", newPost);
+      const res = await axios.post("https://uni-aa-page.herokuapp.com/blogs", newPost);
       if(!alert('Post Created!')){window.location.reload();}
     } catch (error) {}
   }

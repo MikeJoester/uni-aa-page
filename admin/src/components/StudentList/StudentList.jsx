@@ -148,7 +148,7 @@ const StudentList = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/students", newStudent);
+      const res = await axios.post("https://uni-aa-page.herokuapp.com/students", newStudent);
       // console.log(newStudent);
       if(!alert('New Student Added!')){window.location.reload();}
     } catch (error) {}
@@ -205,7 +205,7 @@ const StudentList = () => {
                   <CreateButton onClick={handleSubmit} sx={{height:'60px'}}>Add Student</CreateButton>
               </Stack>
             </Fade>
-    </Modal>
+        </Modal>
       </Stack>
       <DataGrid
         sx={{fontSize:'17px'}}

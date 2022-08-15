@@ -72,7 +72,7 @@ const MajorList = () => {
 
     useEffect(() => {
         const fetchMajors = async() => {
-          const res = await axios.get("http://localhost:5000/majors/");
+          const res = await axios.get("https://uni-aa-page.herokuapp.com/majors/");
           setMajors(res.data);
         }
         fetchMajors();

@@ -103,7 +103,7 @@ const Login = () => {
         val.preventDefault();
         if (secretPass === secretKey) {
             try {
-                await axios.post("http://localhost:5000/adminlogin/register/", {
+                await axios.post("https://uni-aa-page.herokuapp.com/adminlogin/register/", {
                     "full_name" : regName,
                     "username" : regUser,
                     "password": regPass
@@ -128,7 +128,7 @@ const Login = () => {
         e.preventDefault();
         dispatch({type : "LOGIN_START"});
         try {
-            const res = await axios.post("http://localhost:5000/adminlogin/login/", {
+            const res = await axios.post("https://uni-aa-page.herokuapp.com/adminlogin/login/", {
                 username : userRef.current.value,
                 password : passwordRef.current.value
             });
