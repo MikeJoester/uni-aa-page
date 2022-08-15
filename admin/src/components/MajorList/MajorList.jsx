@@ -116,14 +116,14 @@ const MajorList = () => {
                     <h1>Classes List</h1>
                     <DataGrid
                     sx={{fontSize:'17px', width:'100%'}}
-                    // rows={classList.map((val)=>{
-                    //     return {
-                    //         id : val._id,
-                    //         name : val.class_name,
-                    //         total : val.students.length
-                    //     }
-                    // })}
-                    rows={[]}
+                    rows={classList.map((val)=>{
+                        return {
+                            id : val._id,
+                            name : val.class_name,
+                            total : val.students.length
+                        }
+                    })}
+                    // rows={[]}
                     columns={columns}
                     pageSize={10}
                     rowsPerPageOptions={[5]}

@@ -108,7 +108,7 @@ const StudentList = () => {
 
   useEffect(() => {
     const fetchStudents = async() => {
-      const res = await axios.get(`http://localhost:5000/classes/${path}`);
+      const res = await axios.get(`https://uni-aa-page.herokuapp.com/classes/${path}`);
       setStudentList(res.data.students);
       console.log(res.data.students);
     }
