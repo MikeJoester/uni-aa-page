@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {PacmanLoader} from "react-spinners";
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import {
@@ -46,71 +45,22 @@ const style = {
   p: 4,
 };
 
-const columns = [
-  { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'name', headerName: 'Course Name', width: 290 },
-  { field: 'lecturer', headerName: 'Lecturer Name', width: 290 },
-  {
-    field: 'date',
-    headerName: 'Post Date',
-    type: 'string',
-    width: 250,
-  },
-  {
-    field: 'deadline',
-    headerName: 'Deadline',
-    width: 250,
-  },
-  { 
-    field:'action',
-    headerName: 'Action',
-    width: 200,
-    renderCell: (params) => {
-      return(
-        <Stack direction='row' spacing={2} justifyContent='space-between'>
-          <IconButton title="Edit Survey's Information">
-            <EditIcon/>
-          </IconButton>
-          <a href={params.row.link} target="_blank">
-            <IconButton title="View Survey">
-              <InfoIcon/>
-            </IconButton>
-          </a>
-          <IconButton sx={{color: 'red'}} 
-          title="Delete Survey"
-          onClick={async(e) =>{
-            e.preventDefault();
-            let confirm = window.confirm('Are you sure you want to delete this element?');
-            if (confirm) {
-              try {
-                await axios.delete(`https://uni-aa-page.herokuapp.com/surveys/${params.row.id}`);
-                if (!alert("Survey Terminated")) {window.location.reload();} 
-              } catch (error) {
-                alert(error);
-              }
-            }
-            else {
-              alert('Decided not to terminate the survey :)');
-            }
-          }}>
-            <DeleteIcon/>
-          </IconButton>
-        </Stack>
-      )
-    }
-  },
-];
-
 const FeedbackList = () => {
   //loading screen
   const [loading, setLoading] = useState(false);
 
   //modal
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  //modal
+  const [modal, setModal] = useState(false);
+  const handleOpenModal = () => setModal(true);
+  const handleCloseModal = () => setModal(false);
+
   const [feedbacks, setFeedbacks] = useState([]);
+  const [details, setDetails] = useState({});
   useEffect(() => {
     setLoading(true);
     const fetchFbs = async() => {
@@ -120,6 +70,101 @@ const FeedbackList = () => {
     }
     fetchFbs();
   }, []);
+
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 100 },
+    { field: 'name', headerName: 'Course Name', width: 290 },
+    { field: 'lecturer', headerName: 'Lecturer Name', width: 290 },
+    {
+      field: 'date',
+      headerName: 'Post Date',
+      type: 'string',
+      width: 250,
+    },
+    {
+      field: 'deadline',
+      headerName: 'Deadline',
+      width: 250,
+    },
+    { 
+      field:'action',
+      headerName: 'Action',
+      width: 200,
+      renderCell: (params) => {
+        return(
+          <Stack direction='row' spacing={2} justifyContent='space-between'>
+            <IconButton title="Edit Survey's Information" onClick={e=>{
+              e.preventDefault();
+              setDetails(params.row);
+              setModal(true);
+              console.log(params.row);  
+            }}>
+              <EditIcon/>
+            </IconButton>
+            <Modal
+                open={modal}
+                onClose={handleCloseModal}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                timeout: 200,
+                }}
+            >
+                <Fade in={modal}>
+                  <Stack sx={style} spacing={3} direction="column">
+                      <h2>Edit Survey / Form Information</h2>
+                      <TextField defaultValue={details.link} label="Form Link" variant="outlined" inputRef={link}/>
+                      <TextField defaultValue={details.name} label="Course Name" variant="outlined"inputRef={name}/>
+                      <TextField defaultValue={details.lecturer} label="Lecturer Name" variant="outlined"inputRef={lecturer}/>
+                      <TextField defaultValue={details.deadline} label="Deadline" variant="outlined"inputRef={dline}/>
+                      <CreateButton onClick={
+                        async(e) => {
+                          e.preventDefault();
+                          const newForm = {
+                            "form_link" : link.current.value,
+                            "course_name" : name.current.value,
+                            "lecturer_name" : lecturer.current.value,
+                            "deadline" : dline.current.value,
+                          };
+                      
+                          try {
+                            await axios.patch(`https://uni-aa-page.herokuapp.com/surveys/${details.id}`, newForm);
+                            if(!alert('Updated Form!')){window.location.reload();}
+                          } catch (error) {}
+                        }
+                      } sx={{height:'60px'}}>Update Form / Survey</CreateButton>
+                  </Stack>
+                </Fade>
+            </Modal>
+            <a href={params.row.link} target="_blank">
+              <IconButton title="View Survey">
+                <InfoIcon/>
+              </IconButton>
+            </a>
+            <IconButton sx={{color: 'red'}} 
+            title="Delete Survey"
+            onClick={async(e) =>{
+              e.preventDefault();
+              let confirm = window.confirm('Are you sure you want to delete this element?');
+              if (confirm) {
+                try {
+                  await axios.delete(`https://uni-aa-page.herokuapp.com/surveys/${params.row.id}`);
+                  if (!alert("Survey Terminated")) {window.location.reload();} 
+                } catch (error) {
+                  alert(error);
+                }
+              }
+              else {
+                alert('Decided not to terminate the survey :)');
+              }
+            }}>
+              <DeleteIcon/>
+            </IconButton>
+          </Stack>
+        )
+      }
+    },
+  ];
 
   const link = useRef();
   const name = useRef();
@@ -178,7 +223,7 @@ const FeedbackList = () => {
                       <CreateButton onClick={handleSubmit} sx={{height:'60px'}}>Create Form / Survey</CreateButton>
                   </Stack>
                 </Fade>
-              </Modal>
+            </Modal>
           </Stack>
           <DataGrid
             sx={{fontSize:'17px'}}

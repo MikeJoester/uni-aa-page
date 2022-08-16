@@ -37,3 +37,7 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #000248; 
 }
+
+.MuiDataGrid-columnHeaderTitle { 
+  font-weight: bold !important; overflow: visible !important; 
+}

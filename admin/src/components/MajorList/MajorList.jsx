@@ -59,6 +59,8 @@ const columns = [ //columns label
   { field: 'total', headerName: 'Total Students', width: 150 },
   { 
     field:'action',
+    align:'center',
+    
     headerName: 'Action',
     width: 150,
     renderCell: (params) => {
@@ -133,9 +135,9 @@ const MajorList = () => {
                 :
                 <Stack sx={{ my:'60px', width:'100%'}} direction="row" justifyContent="space-between" spacing={3}>
                     <Stack direction="column" justifyContent="space-between" spacing={5} sx={{width:'50%'}}>
-                        <Stack direction="row" justifyContent="space-between" sx={{width:'100%'}}>
+                        <Stack direction="row" justifyContent="space-between" sx={{width:'100%'}} alignItems="center">
                             <h1>Browse Majors in VNUK</h1>
-                            <ViewMoreButton sx={{width:'35%', height:'50%'}} onClick={handleOpen}>Add Class</ViewMoreButton>
+                            <ViewMoreButton sx={{width:'30%', height:'70%'}} onClick={handleOpen}>Add Class</ViewMoreButton>
                             <Modal
                                 open={openmodal}
                                 onClose={handleClose}
