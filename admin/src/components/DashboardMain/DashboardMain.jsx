@@ -6,11 +6,17 @@ import {PacmanLoader} from "react-spinners";
 
 import {
     Stack,
-    TextField,
     IconButton, 
     Divider,
-    InputAdornment,
     Button,
+    Modal,
+    Backdrop,
+    Fade,
+    TextField,
+    InputLabel,
+    MenuItem,
+    Select,
+    FormControl,
 } from '@mui/material';
 
 import {
@@ -21,41 +27,22 @@ import GroupIcon from '@mui/icons-material/Group';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ForumIcon from '@mui/icons-material/Forum';
-import SearchIcon from '@mui/icons-material/Search';
-import EmailIcon from '@mui/icons-material/Email';
 import InfoIcon from '@mui/icons-material/Info';
 
 import './DashboardMain.css';
 
-const SearchTextField = styled(TextField)({
-    '& label.Mui-focused': {
-        color: '#A098AE',
-        backgroundColor: '#fff',
-    },
-    '& label': {
-        color: '#c0c0c0',
-        fontSize: '20px',
-        fontWeight: '500',
-    },
-    '& .MuiInput-underline:after': {
-        borderBottomColor: '#c0c0c0',
-    },
-    '& .MuiOutlinedInput-root': {
-        borderRadius: '40px',
-        backgroundColor: '#fff',
-        height: '60px',
-
-        '& fieldset': {
-            borderColor: '#000248',
-        },
-        '&:hover fieldset': {
-            borderColor: '#c0c0c0',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: '#c0c0c0',
-        },
-    },
-});
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '35%',
+    bgcolor: 'background.paper',
+    fontFamily: 'Lato',
+    borderRadius:'10px',
+    boxShadow: 24,
+    p: 4,
+};
 
 const ViewMoreBtn = styled(Button)({
     textTransform: 'none',
@@ -86,11 +73,17 @@ const ViewMoreBtn = styled(Button)({
 const DashboardMain = () => {
     const navigate = useNavigate();
 
+    //modal
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     //fetching constants
     const [students, setStudents] = useState([]);
     const [courses, setCourses] = useState([]);
     const [posts, setPosts] = useState([]);
     const [feedbacks, setFeedbacks] = useState([]);
+    const [info, setInfo] = useState({});
 
     const navigateStudents = () => {
         navigate('/majors');
@@ -190,15 +183,6 @@ const DashboardMain = () => {
                 <Stack direction="row" spacing={5} justifyContent="space-between">
                     <Stack direction="column" spacing={3} sx={{width:'100%', backgroundColor:'white', borderRadius:'20px', p:'30px'}} alignItems="center">
                         <h1>New Students</h1>
-                        <SearchTextField sx={{width:'100%'}}
-                        placeholder="Search here..."
-                        InputProps={{
-                            startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon/>
-                            </InputAdornment>
-                            ),
-                        }}/>
                         
                         {students.slice(0, 5).map((p) => {return(
                         <Stack direction="column" spacing={2} justifyContent="space-between" sx={{width:'100%'}}>
@@ -210,9 +194,49 @@ const DashboardMain = () => {
                                         <p>Major: <b>{p.major}</b></p>
                                     </Stack>
                                 </Stack>
-                                <IconButton sx={{color:'#000248'}}>
+                                <IconButton 
+                                title="Display Student's Information"
+                                sx={{color:'#000248'}} 
+                                onClick={() => {
+                                    setOpen(true);
+                                    setInfo(p);
+                                }}>
                                     <InfoIcon fontSize="large"/>
                                 </IconButton>
+                                <Modal
+                                    open={open}
+                                    onClose={handleClose}
+                                    closeAfterTransition
+                                    BackdropComponent={Backdrop}
+                                    BackdropProps={{
+                                    timeout: 500,
+                                    }}
+                                >
+                                    <Fade in={open}>
+                                    <Stack sx={style} spacing={3} direction="column">
+                                        <h2>View {info.full_name}'s Information</h2>
+                                        <Stack direction="row" spacing={4} justifyContent="space-between">
+                                            <Stack direction="column" spacing={3} sx={{width:'100%'}}>
+                                                <TextField id="outlined-basic" label="Student ID" variant="outlined" value={info.student_id}/>
+                                                <TextField id="outlined-basic" label="Full Name" variant="outlined" value={info.full_name}/>
+                                                <TextField id="outlined-basic" label="Birth Date" variant="outlined" value={info.birth_date}/>
+                                                <TextField id="outlined-basic" label="Birth Place" variant="outlined" value={info.birth_place}/>
+                                                <TextField id="outlined-basic" label="Gender" variant="outlined" value={info.gender ? "Male" : "Female"}/>
+                                                <TextField id="outlined-basic" label="Major" variant="outlined" value={info.major}/>
+                                            </Stack>
+
+                                            <Stack direction="column" spacing={3} sx={{width:'100%'}}>
+                                                <TextField id="outlined-basic" label="Class" variant="outlined" value={info.class}/>
+                                                <TextField id="outlined-basic" label="Email" variant="outlined" value={info.email}/>
+                                                <TextField id="outlined-basic" label="Phone" variant="outlined" value={info.phone}/>
+                                                <TextField id="outlined-basic" label="Address" variant="outlined" value={info.address}/>
+                                                <TextField id="outlined-basic" label="Identity Number" variant="outlined" value={info.identity_number}/>
+                                                <TextField id="outlined-basic" label="Credit" variant="outlined" value={info.credit}/>
+                                            </Stack>
+                                        </Stack>
+                                    </Stack>
+                                    </Fade>
+                                </Modal>
                             </Stack>
                             <Divider/>
                         </Stack>
@@ -222,15 +246,6 @@ const DashboardMain = () => {
 
                     <Stack direction="column" spacing={3} sx={{width:'100%', backgroundColor:'white', borderRadius:'20px', p:'30px'}} alignItems="center">
                         <h1>Feedbacks</h1>
-                        <SearchTextField sx={{width:'100%'}}
-                        placeholder="Search here..."
-                        InputProps={{
-                            startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon/>
-                            </InputAdornment>
-                            ),
-                        }}/>
                         {feedbacks.slice(0, 5).map((val)=>{
                             return(
                                 <Stack direction="column" justifyContent="space-between" sx={{borderRadius:'20px', backgroundColor:'#F1F1F5', p:'20px', width:'90%'}}>

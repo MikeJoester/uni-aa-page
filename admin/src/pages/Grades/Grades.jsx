@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {useLocation} from 'react-router';
 import { AdminNavbar } from '../../components';
 import './Grades.css';
@@ -37,7 +37,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '35%',
+    width: '50%',
     bgcolor: 'background.paper',
     fontFamily: 'Lato',
     borderRadius:'10px',
@@ -74,11 +74,14 @@ const Grades = () => {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [gradeList, setGrade] = useState([]);
+    const [info, setInfo] = useState();
 
     useEffect(() => {
         const fetchGrade = async() => {
             const res = await axios.get(`https://uni-aa-page.herokuapp.com/transcript/transcriptEmail/${path}`);
             setGrade(res.data.grades);
+            setInfo(res.data);
+            // console.log(res.data.grades);
         }
         fetchGrade();
     }, []);
@@ -88,16 +91,50 @@ const Grades = () => {
         return createData(...temp)
     });
 
-    const handleUpdate = async() => {
-        const updatedGrade = {
+    const cName = useRef();
+    const credits = useRef();
+    const at = useRef();
+    const fe = useRef(); 
+    const pr = useRef();
+    const pa = useRef();
+    const qz = useRef();
+    const rp = useRef(); 
+    const me = useRef();
+    const pa2 = useRef();
+    const pre = useRef();
+    const t10 = useRef();
 
+    const handleUpdate = async() => {
+        const newGrade = {
+            "course" : cName.current.value,
+            "grade" : [
+                credits.current.value,
+                at.current.value, 
+                fe.current.value,
+                pr.current.value,
+                pa.current.value,
+                qz.current.value,
+                rp.current.value,
+                me.current.value,
+                pa2.current.value,
+                pre.current.value,
+                t10.current.value 
+            ].toString()
+        }
+
+        const updatedGrade = {
+            "student_id" : info.student_id,
+            "student_email" : info.student_email,
+            "grades" : (info.grades).concat(newGrade)
         }
 
         try {
             await axios.patch(`https://uni-aa-page.herokuapp.com/transcript/${path}`, updatedGrade);
+            if (!alert("Grade Added!")) {window.location.reload();}
         } catch (error) {
             alert(error);
         }
+        // console.log(updatedGrade);
     }
 
   return (
@@ -126,8 +163,70 @@ const Grades = () => {
                 >
                     <Fade in={open}>
                     <Stack sx={style} spacing={3} direction="column">
-                        <h2>Edit Transcript Information </h2>
-                        <CreateButton sx={{height:'60px'}}>Update Transcript</CreateButton>
+                        <h2>Add Transcript Information </h2>
+                        <TableContainer component={Paper}>
+                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell><b>Course Name</b></TableCell>
+                                        <TableCell align="center"><b>Credits</b></TableCell>
+                                        <TableCell align="center"><b>AT</b></TableCell>
+                                        <TableCell align="center"><b>FE</b></TableCell>
+                                        <TableCell align="center"><b>Pr</b></TableCell>
+                                        <TableCell align="center"><b>PA</b></TableCell>
+                                        <TableCell align="center"><b>Qz</b></TableCell>
+                                        <TableCell align="center"><b>RP</b></TableCell>
+                                        <TableCell align="center"><b>ME</b></TableCell>
+                                        <TableCell align="center"><b>PA2</b></TableCell>
+                                        <TableCell align="center"><b>PRE</b></TableCell>
+                                        <TableCell align="center"><b>T10</b></TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    <TableRow
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            <TextField inputRef={cName}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={credits}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={at}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={fe}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={pr}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={pa}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={qz}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={rp}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={me}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={pa2}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={pre}></TextField>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <TextField inputRef={t10}></TextField>
+                                        </TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                        <CreateButton sx={{height:'60px'}} onClick={handleUpdate}>Update Transcript</CreateButton>
                     </Stack>
                     </Fade>
                 </Modal>
