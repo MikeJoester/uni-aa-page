@@ -54,13 +54,13 @@ const ViewMoreButton = styled(Button)({
 });
 
 const columns = [ //columns label
-  { field: 'id', headerName: 'ID', width: 150 },
-  { field: 'name', headerName: 'Class Name', width: 200 },
+  { field: 'id', headerName: 'ID', width: 100 },
+  { field: 'name', headerName: 'Class Name', width: 150 },
   { field: 'total', headerName: 'Total Students', width: 150 },
   { 
     field:'action',
     headerName: 'Action',
-    width: 180,
+    width: 150,
     renderCell: (params) => {
       return(
         <Stack direction='row' spacing={2} justifyContent='space-between'>
@@ -131,11 +131,11 @@ const MajorList = () => {
                     />
                 </Stack>
                 :
-                <Stack sx={{ mx:'40px', my:'60px', width:'100%'}} direction="row" justifyContent="space-between" spacing={3}>
+                <Stack sx={{ my:'60px', width:'100%'}} direction="row" justifyContent="space-between" spacing={3}>
                     <Stack direction="column" justifyContent="space-between" spacing={5} sx={{width:'50%'}}>
                         <Stack direction="row" justifyContent="space-between" sx={{width:'100%'}}>
                             <h1>Browse Majors in VNUK</h1>
-                            <ViewMoreButton sx={{width:'35%'}} onClick={handleOpen}>Add Class</ViewMoreButton>
+                            <ViewMoreButton sx={{width:'35%', height:'50%'}} onClick={handleOpen}>Add Class</ViewMoreButton>
                             <Modal
                                 open={openmodal}
                                 onClose={handleClose}
@@ -163,7 +163,7 @@ const MajorList = () => {
                                 return(
                                     <Box sx={{backgroundColor:'#d9d9d9', borderRadius:'10px', p:'20px'}}>
                                         <Stack direction="row" justifyContent="space-between">
-                                            <Stack direction="column" spacing={3}>
+                                            <Stack direction="column" spacing={3} sx={{width:'60%'}}>
                                                 <h2>{val.major_name}</h2>
                                                 <p>Major Code: <b>{val.major_code}</b></p>
                                                 <p>Total Class: {val.classes.length}</p>

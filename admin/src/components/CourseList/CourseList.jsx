@@ -72,10 +72,12 @@ const columns = [
     renderCell: (params) => {
       return(
         <Stack direction='row' spacing={3} justifyContent='space-between'>
-          <IconButton>
+          <IconButton title="Edit Course Information">
             <EditIcon/>
           </IconButton>
-          <IconButton sx={{color: 'red'}} onClick={async(e) =>{
+          <IconButton sx={{color: 'red'}}
+          title="Delete Course" 
+          onClick={async(e) =>{
             e.preventDefault();
             let confirm = window.confirm('Are you sure you want to delete this element?');
             if (confirm) {

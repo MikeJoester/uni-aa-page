@@ -29,8 +29,8 @@ import {
     styled,
 } from '@mui/material/styles';
 
-import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const style = {
     position: 'absolute',
@@ -106,7 +106,15 @@ const Grades = () => {
         <Stack direction="column" spacing={4} sx={{mx:'40px', mt:'50px', width:'100%', color:'#000248', height:'50vw'}}>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
                 <h1>Student's Grade:</h1>
-                <CreateButton onClick={handleOpen}>Add / Edit Grade</CreateButton>
+                <Stack direction="row" spacing={2}>
+                    <IconButton sx={{color:'#000248'}} title="Edit Student's Grade">
+                        <EditIcon fontSize="large"/>
+                    </IconButton>
+
+                    <IconButton onClick={handleOpen} sx={{color:'#000248'}} title="Add New Row">
+                        <AddCircleIcon fontSize="large"/>
+                    </IconButton>
+                </Stack>
                 <Modal
                     open={open}
                     onClose={handleClose}

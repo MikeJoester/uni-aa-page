@@ -133,7 +133,7 @@ const StudentList = () => {
     field: 'dob',
     headerName: 'Date Of Birth',
     type: 'string',
-    width: 230,
+    width: 150,
   },
   {
     field: 'email',
@@ -150,12 +150,15 @@ const StudentList = () => {
     renderCell: (params) => {
       return(
         <Stack direction='row' spacing={2} justifyContent='space-between'>
-          <IconButton onClick={e=>{
+          <IconButton 
+          onClick={e=>{
             e.preventDefault();
             console.log(params.row);
             setProp(params.row);
             setOpenModal(true);
-          }}>
+          }}
+          title="Edit Student's Information"
+          >
             <EditIcon/>
           </IconButton>
           <Modal
@@ -232,11 +235,13 @@ const StudentList = () => {
           </Modal>
 
           <Link to={"/grades/"+params.row.email}>
-            <IconButton>
+            <IconButton title="Show Student's Grades">
               <GradingIcon/>
             </IconButton>          
           </Link>
-          <IconButton sx={{color: 'red'}} onClick={async(e) =>{
+          <IconButton sx={{color: 'red'}} 
+          title="Delete Student's Information"
+          onClick={async(e) =>{
             e.preventDefault();
             let confirm = window.confirm('Are you sure you want to delete this element?');
             if (confirm) {

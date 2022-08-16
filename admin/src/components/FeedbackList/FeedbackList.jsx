@@ -68,15 +68,17 @@ const columns = [
     renderCell: (params) => {
       return(
         <Stack direction='row' spacing={2} justifyContent='space-between'>
-          <IconButton>
+          <IconButton title="Edit Survey's Information">
             <EditIcon/>
           </IconButton>
           <a href={params.row.link} target="_blank">
-            <IconButton>
+            <IconButton title="View Survey">
               <InfoIcon/>
             </IconButton>
           </a>
-          <IconButton sx={{color: 'red'}} onClick={async(e) =>{
+          <IconButton sx={{color: 'red'}} 
+          title="Delete Survey"
+          onClick={async(e) =>{
             e.preventDefault();
             let confirm = window.confirm('Are you sure you want to delete this element?');
             if (confirm) {
