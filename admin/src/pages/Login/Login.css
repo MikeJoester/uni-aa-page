@@ -1,19 +1,11 @@
 .login-main {
     background-image: url("https://ctfimages.intoglobal.com/xw2h6mjophtz/731sOVK2X4DrG83SK4jXAf/395ba54e3dc059a2fbb5b1fa5ca33cf3/Contentful_-_Campus_LifeUOM.jpg");
-    height: 50.49vw;
+    height: 100%;
     width: 100%;
+    position: absolute;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: auto;
-}
-
-.app-login-main {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: transparent;
+    background-size: 100% 100%;
 }
 
 .login-main h1 {
